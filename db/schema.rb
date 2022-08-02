@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_02_104535) do
+ActiveRecord::Schema.define(version: 2022_08_02_104729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clubs", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "friends", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -40,10 +45,13 @@ ActiveRecord::Schema.define(version: 2022_08_02_104535) do
     t.integer "age"
     t.string "handicap"
     t.string "name"
+    t.bigint "club_id", null: false
+    t.index ["club_id"], name: "index_users_on_club_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "map_user_to_friends", "friends"
   add_foreign_key "map_user_to_friends", "users"
+  add_foreign_key "users", "clubs"
 end
