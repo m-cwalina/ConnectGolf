@@ -1,0 +1,2 @@
+class MapUserToFreindController < ApplicationController
+end
