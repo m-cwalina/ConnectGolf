@@ -1,0 +1,2 @@
+class UserDashboardsController < ApplicationController
+end

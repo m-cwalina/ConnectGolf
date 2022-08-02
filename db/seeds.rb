@@ -8,9 +8,6 @@
 puts 'Destroying all Clubs and Users'
 User.destroy_all
 Club.destroy_all
-
-name = "#{}"
-
 puts 'Creating clubs'
 santa_ana = Club.create!(name: 'Santa Ana Country Club', address: '20382 Newport Blvd, Santa Ana, CA 92707, United States')
 puts 'Creating All Users'
