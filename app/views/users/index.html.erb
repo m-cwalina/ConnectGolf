@@ -1,2 +1,9 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Members</h1>
+<% @members.map do |member| %>
+  <h2><%= member.name %></h2>
+  <p><%= member.handicap %></p>
+  <p><%= member.age %></p>
+  <%=link_to users_path do %>
+    <div type="button" class="btn btn-primary btn-lg">Connect</div>
+  <% end %>
+<% end %>
