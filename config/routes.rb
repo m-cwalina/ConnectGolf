@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   end
   root to: 'pages#home', as: :home
   resources :users, only: [:index]
-  resources :friends, only: [:create]
+  resources :map_user_to_friends, only: [:create]
 end

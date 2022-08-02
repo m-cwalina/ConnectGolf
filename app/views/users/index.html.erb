@@ -1,9 +1,7 @@
 <h1>Members</h1>
-<% @members.map do |member| %>
-  <h2><%= member.name %></h2>
-  <p><%= member.handicap %></p>
-  <p><%= member.age %></p>
-  <%=link_to users_path do %>
-    <div type="button" class="btn btn-primary btn-lg">Connect</div>
-  <% end %>
+<% @users.map do |user| %>
+  <h2><%= user.name %></h2>
+  <p><%= user.handicap %></p>
+  <p><%= user.age %></p>
+  <%= button_to "Connect", map_user_to_friends_path(user, @friend), :method => :post%>
 <% end %>
