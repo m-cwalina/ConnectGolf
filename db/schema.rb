@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_02_104729) do
+ActiveRecord::Schema.define(version: 2022_08_02_104950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(version: 2022_08_02_104729) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "map_user_to_friends", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "friend_id", null: false
@@ -32,6 +37,15 @@ ActiveRecord::Schema.define(version: 2022_08_02_104729) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["friend_id"], name: "index_map_user_to_friends_on_friend_id"
     t.index ["user_id"], name: "index_map_user_to_friends_on_user_id"
+  end
+
+  create_table "tee_times", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_tee_times_on_group_id"
+    t.index ["user_id"], name: "index_tee_times_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,5 +67,7 @@ ActiveRecord::Schema.define(version: 2022_08_02_104729) do
 
   add_foreign_key "map_user_to_friends", "friends"
   add_foreign_key "map_user_to_friends", "users"
+  add_foreign_key "tee_times", "groups"
+  add_foreign_key "tee_times", "users"
   add_foreign_key "users", "clubs"
 end
