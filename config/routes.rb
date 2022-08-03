@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     get '/user' => 'dashboards#user_dashboard', :as => :user_dashboard
   end
   root to: 'pages#home', as: :home
-  resources :users, only: [:index] do
-    resources :friendships, only: [:create]
-  end
+  resources :users, only: [:index]
+  resources :friendships, only: [:create]
 end

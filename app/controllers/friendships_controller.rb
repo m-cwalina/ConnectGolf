@@ -1,11 +1,15 @@
 class FriendshipsController < ApplicationController
   def create
-    if params.include?(:friend_id) #individual e.g. "Add friend" link
-      @new_friendships = Friendship.create_reciprocal_for_ids(current_user_id, params[:friend_id])
+    @friendship = current_user.friendships.build(friend_id: params[:friend_id])
+    if @friendship.save
+      flash[:notice] = "Added friend."
+      redirect_to user_dashboard_path
     else
-      params[:user][:friend_ids].each do |f_id|
-        @new_friendships = Friendship.create_reciprocal_for_ids(current_user_id, f_id)
-      end
+      flash[:notice] = "Unable to add friend."
+      redirect_to user_dashboard_path
     end
+  end
+
+  def show
   end
 end
