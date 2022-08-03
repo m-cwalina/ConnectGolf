@@ -3,5 +3,5 @@
   <h2><%= user.name %></h2>
   <p><%= user.handicap %></p>
   <p><%= user.age %></p>
-  <%= button_to "Connect", map_user_to_friends_path(user, @friend), :method => :post%>
+  <%= button_to "Connect", user_friendships_path(user), :method => :post%>
 <% end %>
