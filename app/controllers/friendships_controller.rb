@@ -5,5 +5,4 @@ class FriendshipsController < ApplicationController
       redirect_to user_dashboard_path
     end
   end
-  
 end
