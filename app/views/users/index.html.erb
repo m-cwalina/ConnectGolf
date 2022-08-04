@@ -1,6 +1,6 @@
 <h1>Members</h1>
   <% @users.map do |user| %>
-    <strong><%=h user.name %></strong>
-    <%= link_to 'Add Friend', friendships_path(friendship: {friend_id: user.id, user_id: current_user.id}), method: :post%>
+    <strong><%=user.name %></strong>
+    <%=user.email%>
+    <%= button_to 'Add Friend', friendships_path(friend_id: user), method: :post%>
   <% end %>
-<% end %>
