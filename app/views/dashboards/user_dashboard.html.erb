@@ -2,10 +2,3 @@
 <%=link_to users_path do %>
   <div type="button" class="btn btn-primary btn-lg">Members</div>
 <% end %>
-
-<h2>Your Friends</h2>
-<ul>
-  <% for user in @user.friends %>
-  <li><%= h user.name %></li>
-  <% end %>
-</ul>
