@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     get '/user' => 'dashboards#user_dashboard', as: :user_dashboard
   end
   root to: 'pages#home', as: :home
-  resources :users, only: [:index]
+  resources :users, only: %i[index show]
   resources :friendships, only: %i[create index update]
 end

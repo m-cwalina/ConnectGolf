@@ -3,5 +3,9 @@
   <div type="button" class="btn btn-primary btn-lg">Members</div>
 <% end %>
 <%=link_to friendships_path do %>
+  <div type="button" class="btn btn-primary btn-lg">Friend Requests</div>
+<% end %>
+
+<%=link_to user_path(current_user) do %>
   <div type="button" class="btn btn-primary btn-lg">Friends</div>
 <% end %>
