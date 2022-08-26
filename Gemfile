@@ -63,3 +63,5 @@ gem "simple_form", github: "heartcombo/simple_form"
 
 # Create fake names, address, etc...
 gem 'faker'
+
+gem "sassc-rails"
