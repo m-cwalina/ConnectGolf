@@ -6,9 +6,15 @@ class Friendship < ApplicationRecord
   attribute :status, :string, default: 'requested'
   after_create :create_inverse
   validates_presence_of :user_id, :friend_id, :status
-  validate :user_is_not_equal_friend
   validates_uniqueness_of :user_id, scope: :friend_id
   after_destroy :destroy_inverse
+  validate :check_user
+
+  def check_user
+    if self.friend_id == self.user_id
+      errors.add(:friend, "can't be yourself")
+    end
+  end
 
   def self.accept(user, friend)
     transaction do
@@ -32,9 +38,4 @@ class Friendship < ApplicationRecord
   def destroy_inverse
     self.class.delete_by(user_id: self.friend.id, friend_id: self.user.id)
   end
-
-  def user_is_not_equal_friend
-    errors.add(:friend, "can't be the same as the user") if user == friend
-  end
-  
 end
