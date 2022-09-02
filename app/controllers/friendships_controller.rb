@@ -1,4 +1,5 @@
 class FriendshipsController < ApplicationController
+
   def create
     @user = current_user
     @friendship = @user.friendships.build(friend_id: params[:friend_id])
@@ -19,4 +20,5 @@ class FriendshipsController < ApplicationController
       redirect_to home_path
     end
   end
+  
 end
