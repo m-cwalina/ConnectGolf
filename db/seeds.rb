@@ -15,11 +15,6 @@ Post.create!([
   { content: 'Awesome news. The greens are rolling at a 12 and they weather today is amazing. Enjoy a quick 9 or full 18 today', club_id: santa_ana.id}
   ])
 
-puts "Creating TeeTimes"
-TeeTime.create!([
-  {start_time: 7:00}
-])
-
 puts 'Creating All Users'
 User.create!([
   {email: "1@gmail.com", name: Faker::Name.name, password: 'password', age: rand(15..100), handicap: rand(0..35), club_id: santa_ana.id},
