@@ -1,6 +1,9 @@
 <h1><%= @user.club.name %></h1>
-<h1>News Feed about club tournaments etc...</h1>
-<h1>Make the buttons in a navbar maybe....</h1>
+<h1>News Feed</h1>
+<% @user.club.posts.map do |post| %>
+  <h1><%= post.content %></h1>
+<% end %>
+
 <%=link_to users_path do %>
   <div type="button" class="btn btn-primary btn-lg">Members</div>
 <% end %>
