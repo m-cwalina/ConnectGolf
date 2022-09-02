@@ -57,11 +57,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # To authenticate users
 gem 'devise'
-
 # To create an easy form
 gem "simple_form", github: "heartcombo/simple_form"
-
 # Create fake names, address, etc...
 gem 'faker'
-
-gem "sassc-rails"
+# Creates a simple calendar
+gem "simple_calendar", "~> 2.4"
