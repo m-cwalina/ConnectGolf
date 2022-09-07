@@ -1,3 +1,9 @@
-<%= week_calendar do |date| %>
+<%= week_calendar(events: @tee_times) do |date, tee_times| %>
   <%= date %>
+
+  <% tee_times.each do |tee_time| %>
+    <div>
+      <%= tee_time.time %>
+    </div>
+  <% end %>
 <% end %>

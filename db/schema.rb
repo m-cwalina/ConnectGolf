@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_07_112749) do
+ActiveRecord::Schema.define(version: 2022_09_07_123701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "tee_time_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tee_time_id"], name: "index_bookings_on_tee_time_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "clubs", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -46,15 +55,6 @@ ActiveRecord::Schema.define(version: 2022_09_07_112749) do
     t.string "time"
   end
 
-  create_table "user_to_tee_times", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "tee_time_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["tee_time_id"], name: "index_user_to_tee_times_on_tee_time_id"
-    t.index ["user_id"], name: "index_user_to_tee_times_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(version: 2022_09_07_112749) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "tee_times"
+  add_foreign_key "bookings", "users"
   add_foreign_key "friendships", "users"
   add_foreign_key "posts", "clubs"
-  add_foreign_key "user_to_tee_times", "tee_times"
-  add_foreign_key "user_to_tee_times", "users"
   add_foreign_key "users", "clubs"
 end
