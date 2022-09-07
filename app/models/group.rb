@@ -1,3 +1,3 @@
 class Group < ApplicationRecord
-  has_many :users, through: :tee_times
+  has_many :tee_times
 end
