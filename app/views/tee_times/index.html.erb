@@ -4,7 +4,7 @@
   <% tee_times.map do |tee_time| %>
     <div>
       <h2><%= tee_time.time %></h2>
-      <%=link_to tee_time_path(tee_time) do %>
+      <%=link_to new_tee_time_booking_path(tee_time) do %>
         <div type="button" class="btn btn-primary btn-lg">Tee Time</div>
       <% end %>
     </div>

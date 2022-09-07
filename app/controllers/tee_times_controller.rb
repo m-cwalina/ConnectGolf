@@ -1,7 +1,7 @@
 class TeeTimesController < ApplicationController
 
   def index
-    @tee_times = TeeTime.all.order(:created_at)
+    @tee_times = TeeTime.all
   end
 
   def show
