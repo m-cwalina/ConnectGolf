@@ -50,8 +50,8 @@ User.create!([
   {email: "31@gmail.com", name: Faker::Name.name, password: 'password', age: rand(15..100), handicap: rand(0..35), club_id: santa_ana.id},
   ])
 
-  TeeTime.create! ([
-    {time: '7:00am'},
+  TeeTime.create!([
+    {time: '7:00am', start_time: Date.today},
     {time: '7:15am'},
     {time: '7:30am'},
     {time: '7:45am'},
