@@ -6,10 +6,18 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @tee_time = TeeTime.find(params{:tee_time_id})
     @booking.user = current_user
+    @tee_time = TeeTime.find(params[:tee_time_id])
     @booking.tee_time = @tee_time
-    @booking.save
+    if @booking.save
+      redirect_to tee_time_path(@tee_time)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @tee_time = TeeTime.find(params[:booking_id])
   end
 
   private
