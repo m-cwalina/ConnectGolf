@@ -1,0 +1,7 @@
+<h1>Show for tee time created</h1>
+<% @tee_time.users.each do |user| %>
+  <%= user.name %>
+<% end %>
+<% @tee_time.bookings.each do |booking| %>
+  <%= booking.size %>
+<% end %>

@@ -1,13 +1,13 @@
 class BookingsController < ApplicationController
+  before_action :set_tee_time, only: %i[new create]
+
   def new
-    @tee_time = TeeTime.find(params[:tee_time_id])
     @booking = Booking.new
   end
-
+  # make create method into a service object then call it in create action here
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @tee_time = TeeTime.find(params[:tee_time_id])
     @booking.tee_time = @tee_time
     if @booking.save
       redirect_to tee_time_path(@tee_time)
@@ -16,11 +16,11 @@ class BookingsController < ApplicationController
     end
   end
 
-  def show
-    @tee_time = TeeTime.find(params[:booking_id])
-  end
-
   private
+
+  def set_tee_time
+    @tee_time = TeeTime.find(params[:tee_time_id])
+  end
 
   def booking_params
     params.require(:booking).permit(:size)

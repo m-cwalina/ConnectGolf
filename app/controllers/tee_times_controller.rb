@@ -7,5 +7,4 @@ class TeeTimesController < ApplicationController
   def show
     @tee_time = TeeTime.find(params[:id])
   end
-
 end
