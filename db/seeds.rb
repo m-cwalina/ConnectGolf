@@ -51,19 +51,15 @@ User.create!([
   ])
 
 
-  def time_iterate(start_time, end_time, step, &block)
-	  begin
-  	  yield(start_time)
-	  end while (start_time += step) <= end_time
-  end
-
   (DateTime.now..DateTime.now + 365.days).map do |day|
-    start_time = Time.parse("7:00AM")
-    end_time = Time.parse("6:00PM")
-    TeeTime.create!([
-      {time: time_iterate(start_time, end_time, 15.minutes) {|t| return t}, start_time: day, end_time: day}
-      ])
-  end
+    start_date = Time.parse("7:00AM")
+    end_date = Time.parse("6:00PM")
+    (start_date.to_datetime.to_i..end_date.to_datetime.to_i).step(15 * 60) do |date_time|
+      TeeTime.create!([
+        {time: date_time, start_time: day, end_time: day}
+        ])
+      end
+    end
 
     # {time: '7:15am', start_time: day, end_time: day},
     # {time: '7:30am', start_time: day, end_time: day},
