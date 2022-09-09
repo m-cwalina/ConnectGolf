@@ -50,51 +50,61 @@ User.create!([
   {email: "31@gmail.com", name: Faker::Name.name, password: 'password', age: rand(15..100), handicap: rand(0..35), club_id: santa_ana.id},
   ])
 
-  (DateTime.now..DateTime.now + 365.days).map do |day|
-    TeeTime.create!([
-    {time: '7:00am', start_time: day, end_time: day},
-    {time: '7:15am', start_time: day, end_time: day},
-    {time: '7:30am', start_time: day, end_time: day},
-    {time: '7:45am', start_time: day, end_time: day},
-    {time: '8:00am', start_time: day, end_time: day},
-    {time: '8:15am', start_time: day, end_time: day},
-    {time: '8:30am', start_time: day, end_time: day},
-    {time: '8:45am', start_time: day, end_time: day},
-    {time: '9:00am', start_time: day, end_time: day},
-    {time: '9:15am', start_time: day, end_time: day},
-    {time: '9:30am', start_time: day, end_time: day},
-    {time: '9:45am', start_time: day, end_time: day},
-    {time: '10:00am', start_time: day, end_time: day},
-    {time: '10:15am', start_time: day, end_time: day},
-    {time: '10:30am', start_time: day, end_time: day},
-    {time: '10:45am', start_time: day, end_time: day},
-    {time: '11:00am', start_time: day, end_time: day},
-    {time: '11:15am', start_time: day, end_time: day},
-    {time: '11:30am', start_time: day, end_time: day},
-    {time: '11:45am', start_time: day, end_time: day},
-    {time: '12:00pm', start_time: day, end_time: day},
-    {time: '12:15pm', start_time: day, end_time: day},
-    {time: '12:30pm', start_time: day, end_time: day},
-    {time: '12:45pm', start_time: day, end_time: day},
-    {time: '1:00pm', start_time: day, end_time: day},
-    {time: '1:15pm', start_time: day, end_time: day},
-    {time: '1:30pm', start_time: day, end_time: day},
-    {time: '1:45pm', start_time: day, end_time: day},
-    {time: '2:15pm', start_time: day, end_time: day},
-    {time: '2:30pm', start_time: day, end_time: day},
-    {time: '2:45pm', start_time: day, end_time: day},
-    {time: '3:00pm', start_time: day, end_time: day},
-    {time: '3:15pm', start_time: day, end_time: day},
-    {time: '3:30pm', start_time: day, end_time: day},
-    {time: '3:45pm', start_time: day, end_time: day},
-    {time: '4:00pm', start_time: day, end_time: day},
-    {time: '4:15pm', start_time: day, end_time: day},
-    {time: '4:30pm', start_time: day, end_time: day},
-    {time: '4:45pm', start_time: day, end_time: day},
-    {time: '5:00pm', start_time: day, end_time: day},
-    {time: '5:15pm', start_time: day, end_time: day},
-    {time: '5:30pm', start_time: day, end_time: day},
-    {time: '5:45pm', start_time: day, end_time: day},
-    {time: '6:00pm', start_time: day, end_time: day}
-  ])
+
+  def time_iterate(start_time, end_time, step, &block)
+	  begin
+  	  yield(start_time)
+	  end while (start_time += step) <= end_time
   end
+
+  (DateTime.now..DateTime.now + 365.days).map do |day|
+    start_time = Time.parse("7:00AM")
+    end_time = Time.parse("6:00PM")
+    TeeTime.create!([
+      {time: time_iterate(start_time, end_time, 15.minutes) {|t| return t}, start_time: day, end_time: day}
+      ])
+  end
+
+    # {time: '7:15am', start_time: day, end_time: day},
+    # {time: '7:30am', start_time: day, end_time: day},
+    # {time: '7:45am', start_time: day, end_time: day},
+    # {time: '8:00am', start_time: day, end_time: day},
+    # {time: '8:15am', start_time: day, end_time: day},
+    # {time: '8:30am', start_time: day, end_time: day},
+    # {time: '8:45am', start_time: day, end_time: day},
+    # {time: '9:00am', start_time: day, end_time: day},
+    # {time: '9:15am', start_time: day, end_time: day},
+    # {time: '9:30am', start_time: day, end_time: day},
+    # {time: '9:45am', start_time: day, end_time: day},
+    # {time: '10:00am', start_time: day, end_time: day},
+    # {time: '10:15am', start_time: day, end_time: day},
+    # {time: '10:30am', start_time: day, end_time: day},
+    # {time: '10:45am', start_time: day, end_time: day},
+    # {time: '11:00am', start_time: day, end_time: day},
+    # {time: '11:15am', start_time: day, end_time: day},
+    # {time: '11:30am', start_time: day, end_time: day},
+    # {time: '11:45am', start_time: day, end_time: day},
+    # {time: '12:00pm', start_time: day, end_time: day},
+    # {time: '12:15pm', start_time: day, end_time: day},
+    # {time: '12:30pm', start_time: day, end_time: day},
+    # {time: '12:45pm', start_time: day, end_time: day},
+    # {time: '1:00pm', start_time: day, end_time: day},
+    # {time: '1:15pm', start_time: day, end_time: day},
+    # {time: '1:30pm', start_time: day, end_time: day},
+    # {time: '1:45pm', start_time: day, end_time: day},
+    # {time: '2:15pm', start_time: day, end_time: day},
+    # {time: '2:30pm', start_time: day, end_time: day},
+    # {time: '2:45pm', start_time: day, end_time: day},
+    # {time: '3:00pm', start_time: day, end_time: day},
+    # {time: '3:15pm', start_time: day, end_time: day},
+    # {time: '3:30pm', start_time: day, end_time: day},
+    # {time: '3:45pm', start_time: day, end_time: day},
+    # {time: '4:00pm', start_time: day, end_time: day},
+    # {time: '4:15pm', start_time: day, end_time: day},
+    # {time: '4:30pm', start_time: day, end_time: day},
+    # {time: '4:45pm', start_time: day, end_time: day},
+    # {time: '5:00pm', start_time: day, end_time: day},
+    # {time: '5:15pm', start_time: day, end_time: day},
+    # {time: '5:30pm', start_time: day, end_time: day},
+    # {time: '5:45pm', start_time: day, end_time: day},
+    # {time: '6:00pm', start_time: day, end_time: day}
