@@ -3,6 +3,14 @@
 <% @user.club.posts.map do |post| %>
   <h1><%= post.content %></h1>
 <% end %>
+<h1>Tee Times</h1>
+<% if @tee_times.any? %>
+  <% @tee_times.map do |tee_time|%>
+    <%= tee_time.time %>
+  <% end %>
+<% else %>
+  <h2>You have no tee times</h2>
+<% end %>
 <%=link_to tee_times_path do %>
   <div type="button" class="btn btn-primary btn-lg">Tee Times</div>
 <% end %>
