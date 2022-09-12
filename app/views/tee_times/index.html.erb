@@ -1,9 +1,9 @@
 <%= week_calendar(events: @tee_times) do |date, tee_times| %>
-  <%= date %>
+  <%= date.day %>
 
   <% tee_times.map do |tee_time| %>
     <div>
-      <h2><%= tee_time.time %></h2>
+      <h2><%= tee_time.time.strftime('%I:%M%p') %></h2>
       <%=link_to new_tee_time_booking_path(tee_time) do %>
         <div type="button" class="btn btn-primary btn-lg">Tee Time</div>
       <% end %>
