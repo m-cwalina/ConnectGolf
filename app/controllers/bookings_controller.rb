@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_tee_time, only: %i[new create]
+  after_action :change_amount_of_players, only: %i[create]
 
   def new
     @booking = Booking.new
@@ -17,6 +18,12 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def change_amount_of_players
+    @tee_time = TeeTime.find(params[:tee_time_id])
+    @tee_time.players = @tee_time.players - @booking.size
+    @tee_time.save
+  end
 
   def set_tee_time
     @tee_time = TeeTime.find(params[:tee_time_id])
