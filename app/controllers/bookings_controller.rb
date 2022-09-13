@@ -22,7 +22,8 @@ class BookingsController < ApplicationController
   def change_amount_of_players
     @tee_time = TeeTime.find(params[:tee_time_id])
     @tee_time.players = @tee_time.players - @booking.size
-    @tee_time.save
+    @tee_time.update(players: @tee_time.players)
+    debugger
   end
 
   def set_tee_time
