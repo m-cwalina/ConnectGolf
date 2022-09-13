@@ -6,15 +6,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
   # make create method into a service object then call it in create action here
+
   def create
-    @booking = Booking.new(booking_params)
-    @booking.user = current_user
-    @booking.tee_time = @tee_time
-    if @booking.save
-      redirect_to tee_time_path(@tee_time)
-    else
-      render :new
-    end
+    BookingCreator.call(
+      size: params[:size],
+      user_id: params[:user_id],
+      tee_time_id: params[:tee_time_id]
+    )
   end
 
   private
@@ -30,6 +28,17 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:size)
+    params.require(:booking).permit(:size, :user_id, :tee_time_id)
   end
 end
+
+#  def create
+#    @booking = Booking.new(booking_params)
+#    @booking.user = current_user
+#   @booking.tee_time = @tee_time
+#    if @booking.save
+#      redirect_to tee_time_path(@tee_time)
+#    else
+#      render :new
+#    end
+#  end
