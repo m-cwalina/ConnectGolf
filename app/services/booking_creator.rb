@@ -1,8 +1,8 @@
 class BookingCreator
-  def intialize(:size, :user_id, :tee_time_id)
+  def intialize (size:, user_id:, tee_time_id:)
     @size = size
-    @user_id = current_user
-    @tee_time = tee_time_id
+    @user_id = user_id
+    @tee_time_id = tee_time_id
   end
 
   def call(*args)
@@ -12,10 +12,10 @@ class BookingCreator
   private
 
   def create_booking
-    Booking.create!(
+    @booking = Booking.create!(
       size: @size,
       user_id: @user_id,
-      tee_time_id: tee_time_id
+      tee_time_id: @tee_time_id
     )
     rescue ActiveRecord::RecordNotUnique => e
   end
