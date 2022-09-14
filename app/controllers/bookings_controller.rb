@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
   end
   # make create method into a service object then call it in create action here
   def create
-    BookingCreator.new(size: params[:size], user_id: params[current_user], tee_time_id: params[@tee_time]).create_booking
+    BookingCreator.new(size: params[:size], user_id: current_user, tee_time_id: @tee_time).create_booking
   end
 
   private
