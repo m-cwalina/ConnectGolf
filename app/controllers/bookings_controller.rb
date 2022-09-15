@@ -5,21 +5,26 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
   end
-  # make create method into a service object then call it in create action here
+
   def create
-    BookingCreator.new(size: params[:size], user_id: current_user, tee_time_id: @tee_time).create_booking
+    @booking = Booking.new(booking_params)
+    BookingCreator.call(size: @booking.size, user_id: current_user.id, tee_time_id: @tee_time.id)
+    redirect_to user_dashboard_path
   end
 
   private
 
   def change_amount_of_players
-    #@tee_time = TeeTime.find(params[:tee_time_id])
     @tee_time.players = @tee_time.players - @booking.size
     @tee_time.update(players: @tee_time.players)
   end
 
   def set_tee_time
     @tee_time = TeeTime.find(params[:tee_time_id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:size)
   end
 
 
