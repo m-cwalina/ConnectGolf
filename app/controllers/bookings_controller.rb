@@ -7,8 +7,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    BookingCreator.call(size: @booking.size, user_id: current_user.id, tee_time_id: @tee_time.id)
+    @booking = BookingCreator.call(size: params[:size], user_id: current_user, tee_time_id: @tee_time)
     redirect_to user_dashboard_path
   end
 

@@ -18,8 +18,13 @@
 @import "simple_calendar";
 @import "components/index";
 @import "pages/index";
+@import "config/colors";
 
 html {
   position: relative;
   min-height: 100%;
+}
+
+body {
+  background: #E7E9F0
 }

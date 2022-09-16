@@ -1,0 +1,28 @@
+.navbar {
+  background-color: #051747;
+  overflow: hidden;
+  display: flex;
+}
+
+.navbar a {
+  float: left;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.logo-image {
+  height: 100px;
+  width: 100px;
+}
+
+.navbar-links {
+  justify-content: end;
+}
+
+.navbar-logo {
+  margin-left: 10px;
+}
