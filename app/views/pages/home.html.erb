@@ -1,8 +1,43 @@
-<h1>Connect Golf</h1>
-<h2>This will be a page for explaining the application</h2>
-<%=link_to new_user_session_path do %>
-  <div type="button" class="btn btn-primary btn-lg">Sign In</div>
-<% end %>
-<%=link_to destroy_user_session_path do %>
-  <div type="button" class="btn btn-primary btn-lg">Log Out</div>
-<% end %>
+<div class="title-container">
+  <h1>GolfConnect</h1>
+  <h3>Connect better with your members and their guests.</h3>
+</div>
+<div class="flex-container-2">
+  <div class="idea-container">
+    <h2>The Idea</h2>
+    <h4>Connecting with other golfers at your club is hard. Now with GolfConnect you can make tee times, share photos, stories and update your friends on which hole you just aced! All of this is confined within the club. A private platform to talk with other members</h4>
+  </div>
+  <div class="image-container">
+    <%= image_tag "how-it-works.png", class: "how-it-works-image"%>
+  </div>
+</div>
+<div class="flex-container">
+  <div class="image-container">
+    <%= image_tag "idea-pic.png", class: "idea-pic-image"%>
+  </div>
+  <div class="idea-container">
+    <h2>How it works</h2>
+    <h4>You must be invited to join the clubs ConnectAccount. As the club administrator you can post about upcoming tournaments, tee times for the next weeks or give your members new deals in the ProShop </h4>
+  </div>
+</div>
+<div class="flex-container-2">
+  <div class="idea-container">
+    <h2>Getting Started</h2>
+    <h4>Try it out today! You can use the application and see what GolfConnect could do for your club and its members</h4>
+    <%= link_to new_user_session_path do %>
+      <div type="button" class="btn btn-outline-dark btn-lg">Try Out</div>
+    <% end %>
+  </div>
+  <div class="image-container">
+    <%= image_tag "try-out.png", class: "how-it-works-image"%>
+  </div>
+</div>
+<div class="flex-container">
+  <div class="image-container">
+    <%= image_tag "project.png", class: "idea-pic-image"%>
+  </div>
+  <div class="idea-container">
+    <h2>The Project</h2>
+    <h4>This project is a work in progress. It focuses is Ruby on Rails as a backend appliction while using a React frontend framework. More information is found on github. </h4>
+  </div>
+</div>
