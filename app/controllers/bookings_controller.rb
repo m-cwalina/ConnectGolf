@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  #This action will be moved into a service object when application becomes larger
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
