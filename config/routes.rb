@@ -10,4 +10,10 @@ Rails.application.routes.draw do
   resources :tee_times, only: %i[index show] do
     resources :bookings, only: %i[new create]
   end
+
+  namespace :api do
+    namespace :v1 do
+      get 'teetimes', to: 'tee_times#index'
+    end
+  end
 end
