@@ -7,8 +7,14 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = BookingCreator.call(size: params[:size], user_id: current_user, tee_time_id: @tee_time)
-    redirect_to user_dashboard_path
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.tee_time = @tee_time
+    if @booking.save
+      redirect_to user_dashboard_path
+    else
+      render :new
+    end
   end
 
   private
@@ -25,17 +31,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:size)
   end
-
-
 end
-
-#  def create
-#    @booking = Booking.new(booking_params)
-#    @booking.user = current_user
-#    @booking.tee_time = @tee_time
-#    if @booking.save
-#      redirect_to user_dashboard_path
-#    else
-#      render :new
-#    end
-#  end
