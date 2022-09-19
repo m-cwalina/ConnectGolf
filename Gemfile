@@ -63,7 +63,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem 'faker'
 # Creates a simple calendar
 gem "simple_calendar", "~> 2.4"
-# Creates a simple form
-gem "simple_form", github: "heartcombo/simple_form"
 # A gem to handle initialize method in service objects
 gem 'business_process'
+# A gem to add react to rails
+gem 'react-rails'
