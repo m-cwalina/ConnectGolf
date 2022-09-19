@@ -19,6 +19,8 @@ class BookingsController < ApplicationController
 
   private
 
+  # This method is called after the create action. I am decreaseing the amount of players,
+  # set at 4, by the amount of the booking size. I then update the amount of players in the tee time.
   def change_amount_of_players
     @tee_time.players = @tee_time.players - @booking.size
     @tee_time.update(players: @tee_time.players)
