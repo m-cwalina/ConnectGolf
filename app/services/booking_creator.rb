@@ -8,6 +8,6 @@ class BookingCreator < BusinessProcess::Base
   end
 
   def create_booking
-    booking = Booking.create(size: @size, user_id: @user_id, tee_time_id: @tee_time_id)
+    Booking.create(size: @size, user_id: @user_id, tee_time_id: @tee_time_id)
   end
 end

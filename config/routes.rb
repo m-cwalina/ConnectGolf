@@ -11,9 +11,9 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      get 'teetimes', to: 'tee_times#index'
+      resources :tee_times, only: %i[index]
     end
   end
 end
