@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TeeTimes from '../components/teetimes';
-import DayPicker from '../components/daypicker';
+import Calendar from '../components/calendar';
+
 
 
 export default function App() {
@@ -25,8 +26,8 @@ export default function App() {
 
   return (
     <div className="App">
-      <div className="DayPicker">
-        <DayPicker />
+      <div>
+        <Calendar />
       </div>
       <div className="TeeTime-List">
         <TeeTimes teetimes={teeTimes} />
