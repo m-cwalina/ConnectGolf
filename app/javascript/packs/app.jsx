@@ -6,7 +6,7 @@ import { format, parseISO } from 'date-fns';
 
 
 export default function App() {
-  const [teeTimes, setTeeTimes] = useState([])
+  const [teeTimes, setTeeTimes] = React.useState([])
   const [selected, setSelected] = React.useState(Date.now());
 
   /*A fetch call to return tee times from api*/
@@ -32,10 +32,10 @@ export default function App() {
 
   return (
     <div className="App">
-      <div>
+      <div className='calendar'>
         <Calendar selected={selected} setSelected={setSelected} />
       </div>
-      <div className="TeeTime-List">
+      <div className="teetime-list">
         <TeeTimes teetimes={searchTeeTimes} />
       </div>
     </div>
