@@ -3,18 +3,18 @@ import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
-export default function Calendar() {
-  const [selected, setSelected] = React.useState(Date.now());
+export default function Calendar(props) {
+
 
   let footer = <p>Please pick a day.</p>;
-  if (selected) {
-    footer = <p>You picked {format(selected, 'PP')}.</p>;
+  if (props.selected) {
+    footer = <p>You picked {format(props.selected, 'PP')}.</p>;
   }
   return (
     <DayPicker
       mode="single"
-      selected={selected}
-      onSelect={setSelected}
+      selected={props.selected}
+      onSelect={props.setSelected}
       footer={footer}
     />
   );
