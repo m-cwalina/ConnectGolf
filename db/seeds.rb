@@ -28,7 +28,7 @@ puts 'Creating Tee Times'
     end while (start_time += step) <= end_time
   end
 
-  (DateTime.now..DateTime.now + 2.days).each do |date|
+  (DateTime.now..DateTime.now + 5.days).each do |date|
     opening_time = Time.parse('7:00AM')
     closing_time = Time.parse('6:00PM')
     time_iterate(opening_time, closing_time, 900) do |time|
