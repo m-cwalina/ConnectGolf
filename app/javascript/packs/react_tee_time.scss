@@ -10,7 +10,7 @@
   display: inline-grid;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #FFFFFF;
   backdrop-filter: blur(15px);
   min-height: 240px;
   max-width: 200px;
@@ -22,7 +22,23 @@
   margin: auto;
 }
 
+
+
+.tile:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+}
+
 .tile-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  overflow: hidden;
+  justify-content: left;
+  align-items: center;
+  font-size: 22px;
+}
+
+.tile-info-button {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
@@ -32,10 +48,18 @@
   font-size: 22px;
 }
 
+.icon {
+  color: #198754
+}
+
 .teetime-list {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.teetime-container {
+  margin: 50px;
 }
 
 .calendar {
@@ -46,4 +70,8 @@
 
 a {
   text-decoration: none;
+}
+
+.rdo {
+  --rdp-cell-size: 50px;
 }

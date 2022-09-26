@@ -1,31 +1,24 @@
-<h1>Show for tee time created</h1>
-<% @tee_time.users.each do |user| %>
-  <%= user.name %>
-<% end %>
-<% @tee_time.bookings.each do |booking| %>
-  <%= booking.size %>
-<% end %>
+<h1>Friendships Index</h1>
 
-<%= week_calendar(events: @tee_times) do |date, tee_times| %>
-  <%= date.day %>
-
-  <% tee_times.map do |tee_time| %>
-    <div>
-      <h2><%= tee_time.time.strftime('%I:%M%p') %></h2>
-      <h2><%= tee_time.players %> players</h2>
-      <%=link_to new_tee_time_booking_path(tee_time) do %>
-        <div type="button" class="btn btn-primary btn-lg">Tee Time</div>
-      <% end %>
-    </div>
+<h1>Friends</h1>
+<% @friendships.each do |friendship| %>
+  <% if friendship.status == "accepted" %>
+    <p><%= friendship.friend.name %></p>
   <% end %>
 <% end %>
 
-  <% @tee_times.map do |tee_time| %>
-    <div>
-      <h2><%= tee_time.time.strftime('%I:%M%p') %></h2>
-      <h2><%= tee_time.players %> players</h2>
-      <%=link_to new_tee_time_booking_path(tee_time) do %>
-        <div type="button" class="btn btn-primary btn-lg">Tee Time</div>
-      <% end %>
-    </div>
+<h1>Requested Friends</h1>
+<% @friendships.each do |friendship| %>
+  <% if friendship.status == "requested" %>
+    <%= friendship.friend.name %>
   <% end %>
+<% end %>
+
+<h1>Pending Friends</h1>
+<% @friendships.each do |friendship| %>
+  <% if friendship.status == "pending" %> <!-- If receiving friendship request --->
+    <%= friendship.friend.name %>
+    <%= link_to 'Accept', friendship, friendship:{status: "accepted", accepted_at:"#{Time.now}"}, remote: true, method: :patch %>
+    <%= link_to 'Decline', friendship, friendship:{user_id: friendship.friend, friend_id: current_user }, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+<% end %>

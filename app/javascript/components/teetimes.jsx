@@ -14,6 +14,6 @@ export default function TeeTimes(props) {
   };
 
   return (
-    <div>{renderList()}</div>
+    <div className="teetime-container">{renderList()}</div>
   )
 }
