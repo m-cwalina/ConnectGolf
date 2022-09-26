@@ -27,7 +27,7 @@ export default function App() {
   }, []);
 
   const searchTeeTimes = teeTimes.filter(
-    teetime => format(parseISO(teetime.start_time), 'MM/dd/yyyy').includes(format(selected, 'MM/dd/yyyy'))
+    teetime => format(parseISO(teetime.time), 'MM/dd/yyyy').includes(format(selected, 'MM/dd/yyyy'))
   )
 
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Friendship() {
+export default function App2() {
   return (
     <>
       <div id="sidebar">

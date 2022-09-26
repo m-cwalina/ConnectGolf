@@ -1,6 +1,6 @@
 class Api::V1::TeeTimesController < ApplicationController
   def index
-    start_date = params.fetch(:start_date, Date.today).to_date
-    @tee_times = TeeTime.available_teetime.where(start_time: start_date..Date.today + 13.days).order(:created_at)
+    start_date = params.fetch(:start_date, Time.now).to_time
+    @tee_times = TeeTime.available_teetime.where(time: start_date..Date.today + 13.days).order(:created_at)
   end
 end

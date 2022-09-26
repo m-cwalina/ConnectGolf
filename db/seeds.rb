@@ -29,9 +29,9 @@ puts 'Creating Tee Times'
   end
 
   (DateTime.now..DateTime.now + 5.days).each do |date|
-    opening_time = Time.parse('7:00AM')
-    closing_time = Time.parse('6:00PM')
+    opening_time = date.change(hour: 7).to_time
+    closing_time = date.change(hour: 18).to_time
     time_iterate(opening_time, closing_time, 900) do |time|
-      TeeTime.create!([{ time: time, start_time: date }])
+      TeeTime.create!([{ time: time}])
     end
   end

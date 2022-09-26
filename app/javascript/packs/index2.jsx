@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Friendship from "../routes/friendship";
+import App2 from "./app2";
 import ErrorPage from "../components/error_page";
 import {
   createBrowserRouter,
@@ -12,7 +12,7 @@ import "./react_friendships.scss";
 const router = createBrowserRouter([
   {
     path: "/friendships",
-    element: <Friendship/>,
+    element: <App2/>,
     errorElement: <ErrorPage />,
   },
 ]);
