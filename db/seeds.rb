@@ -23,12 +23,12 @@ puts 'Creating all Users'
 puts 'Creating Tee Times'
 
   def time_iterate(start_time, end_time, step, &block)
-    begin
+    while (start_time += step) <= end_time
       yield(start_time)
-    end while (start_time += step) <= end_time
+    end
   end
 
-  (DateTime.now..DateTime.now + 5.days).each do |date|
+  (DateTime.now..DateTime.now + 365.days).each do |date|
     opening_time = date.change(hour: 7).to_time
     closing_time = date.change(hour: 18).to_time
     time_iterate(opening_time, closing_time, 900) do |time|

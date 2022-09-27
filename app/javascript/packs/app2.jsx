@@ -31,10 +31,10 @@ export default function App2() {
         <nav>
           <ul>
             <li>
-              <a href={`contacts/1`}>Your Name</a>
+              <a href={`friendships/1`}>Your Name</a>
             </li>
             <li>
-              <a href={`contacts/2`}>Your Friend</a>
+              <a href={`friendships/2`}>Your Friend</a>
             </li>
           </ul>
         </nav>

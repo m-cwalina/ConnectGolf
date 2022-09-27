@@ -11,6 +11,10 @@ class FriendshipsController < ApplicationController
     @friendships = current_user.friendships.all
   end
 
+  def show
+    @friendship = Friendship.find(params[:id])
+  end
+
   def update
     @friendship = Friendship.find(params[:id])
     @friendship.status = "accepted"
@@ -20,5 +24,5 @@ class FriendshipsController < ApplicationController
       redirect_to home_path
     end
   end
-  
+
 end
