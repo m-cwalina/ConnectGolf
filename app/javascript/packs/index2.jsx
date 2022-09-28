@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App2 from "./app2";
 import ErrorPage from "../components/error_page";
-import Friend from "../components/friend";
+import User from "../components/user";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,13 +12,15 @@ import "./react_friendships.scss";
 
 const router = createBrowserRouter([
   {
-    path: "/friendships",
+    path: "/users",
     element: <App2/>,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "friendships/:friendship_id",
-    element: <Friend />,
+    children: [
+      {
+        path: "/users/:userId",
+        element: <User />,
+      },
+    ],
   },
 ]);
 

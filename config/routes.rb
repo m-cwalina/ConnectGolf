@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   end
   root to: 'pages#home', as: :home
   get "/about", to: "pages#about"
-  resources :users, only: %i[index show]
+  get "/users/:id", to: 'users#index'
+  resources :users, only: %i[index]
   resources :friendships, only: %i[create index update show]
   resources :tee_times, only: %i[index show] do
     resources :bookings, only: %i[new create]

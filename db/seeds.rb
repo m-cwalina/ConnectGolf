@@ -32,6 +32,6 @@ puts 'Creating Tee Times'
     opening_time = date.change(hour: 7).to_time
     closing_time = date.change(hour: 18).to_time
     time_iterate(opening_time, closing_time, 900) do |time|
-      TeeTime.create!([{ time: time}])
+      TeeTime.create!([{ time: time }])
     end
   end

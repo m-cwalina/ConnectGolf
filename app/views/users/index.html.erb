@@ -1,6 +1,3 @@
-<h1>Members</h1>
-  <% @users.map do |user| %>
-    <strong><%=user.name %></strong>
-    <%=user.email%>
-    <%= button_to 'Add Friend', friendships_path(friend_id: user), method: :post%>
-  <% end %>
+<div id='root'>
+  <%= javascript_pack_tag 'index2' %>
+</div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet, Link } from "react-router-dom";
 
 export default function App2() {
   return (
@@ -30,15 +31,17 @@ export default function App2() {
         <nav>
           <ul>
             <li>
-              <a href={`friendships/1`}>Your Name</a>
+              <Link to={`/users/1`}>Your Name</Link>
             </li>
             <li>
-              <a href={`friendships/2`}>Your Friend</a>
+              <a href={`/users/2`}>Your Friend</a>
             </li>
           </ul>
         </nav>
       </div>
-      <div id="detail"></div>
+      <div id="detail">
+        <Outlet />
+      </div>
     </>
   );
 }
