@@ -1,4 +1,4 @@
-class FriendshipsController < ApplicationController
+class Api::V1::FriendshipsController < ApplicationController
 
   def create
     @user = current_user
