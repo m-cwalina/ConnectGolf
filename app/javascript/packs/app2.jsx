@@ -1,7 +1,19 @@
-import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import React from 'react';
+import { Outlet, Link, useLoaderData, } from "react-router-dom";
+
+export async function loader() {
+  const URL = "/api/v1/users";
+  try {
+    let response = await fetch(URL);
+    let users = await response.json();
+    return { users };
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 export default function App2() {
+  const {users} = useLoaderData();
   return (
     <>
       <div id="sidebar">
@@ -29,14 +41,28 @@ export default function App2() {
           </form>
         </div>
         <nav>
-          <ul>
-            <li>
-              <Link to={`/users/1`}>Your Name</Link>
-            </li>
-            <li>
-              <a href={`/users/2`}>Your Friend</a>
-            </li>
-          </ul>
+          {users.length ? (
+            <ul>
+              {users.map((user) => (
+                <li key={user.id}>
+                  <Link to={`/users/${user.id}`} user={user}>
+                    {user.name || user.email ? (
+                      <>
+                        {user.name} {user.email}
+                      </>
+                    ) : (
+                      <i>No Name</i>
+                    )}{" "}
+                    {user.handicap && <span>★</span>}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>
+              <i>No Members</i>
+            </p>
+          )}
         </nav>
       </div>
       <div id="detail">

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App2 from "./app2";
+import App2, { loader as rootLoader } from "./app2";
 import ErrorPage from "../components/error_page";
 import User from "../components/user";
 import {
@@ -15,6 +15,7 @@ const router = createBrowserRouter([
     path: "/users",
     element: <App2/>,
     errorElement: <ErrorPage />,
+    loader: rootLoader,
     children: [
       {
         path: "/users/:userId",
