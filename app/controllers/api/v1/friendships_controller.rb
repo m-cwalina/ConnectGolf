@@ -4,7 +4,6 @@ class Api::V1::FriendshipsController < ApplicationController
     @user = current_user
     @friendship = @user.friendships.build(friend_id: params[:friend_id])
     @friendship.save
-    redirect_to user_dashboard_path
   end
 
   def index

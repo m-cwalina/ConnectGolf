@@ -17,18 +17,18 @@ Post.create!([
 
 puts 'Creating all Users'
   (1..31).map do |num|
-    User.create!([{email: (num.to_i).to_s + '@gmail.com', name: Faker::Name.name, password: 'password', age: rand(15..100), handicap: rand(0..35), club_id: santa_ana.id}])
+    User.create!([{email: (num.to_i).to_s + '@gmail.com', picture: Faker::Avatar.image, name: Faker::Name.name, password: 'password', age: rand(15..100), handicap: rand(0..35), club_id: santa_ana.id}])
   end
 
 puts 'Creating Tee Times'
 
-  def time_iterate(start_time, end_time, step, &block)
+  def time_iterate(start_time, end_time, step, _block)
     while (start_time += step) <= end_time
       yield(start_time)
     end
   end
 
-  (DateTime.now..DateTime.now + 365.days).each do |date|
+  (DateTime.now..DateTime.now + 5.days).each do |date|
     opening_time = date.change(hour: 7).to_time
     closing_time = date.change(hour: 18).to_time
     time_iterate(opening_time, closing_time, 900) do |time|
