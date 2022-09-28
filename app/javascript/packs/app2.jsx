@@ -17,6 +17,7 @@ export default function App2() {
   return (
     <>
       <div id="sidebar">
+        <h1>Members</h1>
         <div>
           <form id="search-form" role="search">
             <input

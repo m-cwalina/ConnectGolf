@@ -2,12 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App2, { loader as rootLoader } from "./app2";
 import ErrorPage from "../components/error_page";
-import User from "../components/user";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-} from "react-router-dom";
+import User, {loader as userLoader} from "../components/user";
+import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import "./react_friendships.scss";
 
 const router = createBrowserRouter([
@@ -20,6 +16,7 @@ const router = createBrowserRouter([
       {
         path: "/users/:userId",
         element: <User />,
+        loader: userLoader,
       },
     ],
   },
