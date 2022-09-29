@@ -12,13 +12,23 @@ export async function loader({ params }) {
   }
 }
 
-export async function action() {
-  await createContact();
+export async function action({params}) {
+  const URL = `/api/v1/friendships`;
+  try {
+    let response = await fetch(URL, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'},
+      body: JSON.stringify({friend_id: params.userId})
+    })
+    let data = await response.json()
+    console.log(data)
+  } catch (error) {
+    console.error(error)
+  }
 }
 
-export default function User(props) {
+export default function User() {
   const user = useLoaderData();
-
   return (
   <div id='contact'>
     <div>
@@ -28,10 +38,23 @@ export default function User(props) {
       <h1>Name: {user.name}</h1>
       <h1>Age: {user.age}</h1>
       <h1>Handicap: {user.handicap}</h1>
-      <Form action='/friendships' method='post'>
+      <Form method='post'>
+        <input type="hidden" name='friend_id' value= {user.id} />
         <button type="submit">Add Friend</button>
       </Form>
     </div>
   </div>
   )
 }
+
+/* export async function action({ params }) {
+  try {
+    const response = await axios.post('/api/v1/friendships', {
+      friend_id: '`${params.UserId}`
+    });
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
+*/
