@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, useNavigation, useLoaderData, NavLink } from "react-router-dom";
+import {Form, Outlet, useNavigation, useLoaderData, NavLink } from "react-router-dom";
 
 export async function loader() {
   const URL = "/api/v1/users";
@@ -21,7 +21,7 @@ export default function App2() {
       <div id="sidebar">
         <h1>Members</h1>
         <div>
-          <form id="search-form" role="search">
+          <Form id="search-form" role="search">
             <input
               id="q"
               aria-label="Search contacts"
@@ -29,16 +29,9 @@ export default function App2() {
               type="search"
               name="q"
             />
-            <div
-              id="search-spinner"
-              aria-hidden
-              hidden={true}
-            />
-            <div
-              className="sr-only"
-              aria-live="polite"
-            ></div>
-          </form>
+            <div id="search-spinner" aria-hidden hidden={true}/>
+            <div className="sr-only" aria-live="polite"></div>
+          </Form>
           <form method="post">
             <button type="submit">New</button>
           </form>
