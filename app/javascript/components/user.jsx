@@ -38,23 +38,13 @@ export default function User() {
       <h1>Name: {user.name}</h1>
       <h1>Age: {user.age}</h1>
       <h1>Handicap: {user.handicap}</h1>
-      <Form method='post'>
-        <input type="hidden" name='friend_id' value= {user.id} />
-        <button type="submit">Add Friend</button>
-      </Form>
+      <div>
+        <Form method='post'>
+          <input type="hidden" name='friend_id' value= {user.id} />
+          <button type="submit">Add Friend</button>
+        </Form>
+      </div>
     </div>
   </div>
   )
 }
-
-/* export async function action({ params }) {
-  try {
-    const response = await axios.post('/api/v1/friendships', {
-      friend_id: '`${params.UserId}`
-    });
-    return response;
-  } catch (error) {
-    console.log(error);
-  }
-}
-*/

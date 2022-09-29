@@ -22,7 +22,7 @@ puts 'Creating all Users'
 
 puts 'Creating Tee Times'
 
-  def time_iterate(start_time, end_time, step, _block)
+  def time_iterate(start_time, end_time, step, &block)
     while (start_time += step) <= end_time
       yield(start_time)
     end

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, Link, useLoaderData, } from "react-router-dom";
+import { Outlet, useNavigation, useLoaderData, NavLink } from "react-router-dom";
 
 export async function loader() {
   const URL = "/api/v1/users";
@@ -14,6 +14,8 @@ export async function loader() {
 
 export default function App2() {
   const {users} = useLoaderData();
+  const navigation = useNavigation();
+
   return (
     <>
       <div id="sidebar">
@@ -46,7 +48,16 @@ export default function App2() {
             <ul>
               {users.map((user) => (
                 <li key={user.id}>
-                  <Link to={`/users/${user.id}`} user={user}>
+                  <NavLink
+                    to={`/users/${user.id}`}
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active"
+                        : isPending
+                          ? "pending"
+                          : ""
+                    }
+                  >
                     {user.name || user.email ? (
                       <>
                         {user.name} {user.email}
@@ -55,7 +66,7 @@ export default function App2() {
                       <i>No Name</i>
                     )}{" "}
                     {user.handicap && <span>★</span>}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </ul>
@@ -66,7 +77,7 @@ export default function App2() {
           )}
         </nav>
       </div>
-      <div id="detail">
+      <div id="detail" className={ navigation.state === "loading" ? "loading" : ""}>
         <Outlet />
       </div>
     </>
