@@ -1,19 +1,30 @@
 import React from 'react';
-import {Form, Outlet, useNavigation, useLoaderData, NavLink } from "react-router-dom";
+import {Form, Outlet, useNavigation, useLoaderData, NavLink, searchParams } from "react-router-dom";
 
-export async function loader() {
-  const URL = "/api/v1/users";
+const Api = async () => {
+  const endpoint = "/api/v1/users";
   try {
-    let response = await fetch(URL);
-    let users = await response.json();
-    return { users };
+    let response = await fetch(endpoint);
+    let results = await response.json();
+    return results;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export async function loader( {request} ) {
+  try {
+    const url = new URL(request.url);
+    const q = url.searchParams.get("q");
+    const users = await Api(q);
+    return {users, q};
   } catch (error) {
     console.error(error);
   }
 }
 
 export default function App2() {
-  const {users} = useLoaderData();
+  const {users, q} = useLoaderData();
   const navigation = useNavigation();
 
   return (
@@ -32,9 +43,6 @@ export default function App2() {
             <div id="search-spinner" aria-hidden hidden={true}/>
             <div className="sr-only" aria-live="polite"></div>
           </Form>
-          <form method="post">
-            <button type="submit">New</button>
-          </form>
         </div>
         <nav>
           {users.length ? (
