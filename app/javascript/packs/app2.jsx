@@ -6,7 +6,7 @@ const Api = async () => {
   try {
     let response = await fetch(endpoint);
     let results = await response.json();
-    return results;
+    return results ?? null;
   } catch (error) {
     console.error(error);
   }
