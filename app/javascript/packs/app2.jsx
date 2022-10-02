@@ -15,7 +15,7 @@ const Api = async () => {
 export async function loader( {request} ) {
   try {
     const url = new URL(request.url);
-    const q = url.searchParams.get("q");
+    const q = url.searchParams.get("t");
     const users = await Api(q);
     return {users, q};
   } catch (error) {
@@ -38,7 +38,7 @@ export default function App2() {
               aria-label="Search contacts"
               placeholder="Search"
               type="search"
-              name="q"
+              name="t"
             />
             <div id="search-spinner" aria-hidden hidden={true}/>
             <div className="sr-only" aria-live="polite"></div>
