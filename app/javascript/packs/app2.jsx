@@ -1,7 +1,6 @@
 import React from 'react';
 import {Form, Outlet, useNavigation, useLoaderData, NavLink, searchParams } from "react-router-dom";
 import { matchSorter } from "match-sorter";
-import sortBy from "sort-by";
 
 const Api = async (query) => {
   const URL = "/api/v1/users";
@@ -10,9 +9,9 @@ const Api = async (query) => {
     let results = await response.json();
     if (!results) results = [];
     if (query) {
-      results = matchSorter(contacts, query, { keys: ["first", "last"] });
+      results = matchSorter(results, query, { keys: ['name'] });
     }
-  return results.sort(sortBy("last", "createdAt"));
+  return results
   } catch (error) {
       console.error(error);
   }
