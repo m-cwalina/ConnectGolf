@@ -1,23 +1,30 @@
 import React from 'react';
 import {Form, Outlet, useNavigation, useLoaderData, NavLink, searchParams } from "react-router-dom";
+import { matchSorter } from "match-sorter";
+import sortBy from "sort-by";
 
 const Api = async (query) => {
   const URL = "/api/v1/users";
   try {
     let response = await fetch(URL);
     let results = await response.json();
-    return results ?? null;
+    if (!results) results = [];
+    if (query) {
+      results = matchSorter(contacts, query, { keys: ["first", "last"] });
+    }
+  return results.sort(sortBy("last", "createdAt"));
   } catch (error) {
-    console.error(error);
+      console.error(error);
   }
 };
 
 export async function loader( {request} ) {
   try {
     const url = new URL(request.url);
-    const q = url.searchParams.get("t");
+    let q = url.searchParams.get("q");
     const users = await Api(q);
-    return {users, q};
+    console.log(users)
+    return {users};
   } catch (error) {
     console.error(error);
   }
@@ -38,7 +45,7 @@ export default function App2() {
               aria-label="Search contacts"
               placeholder="Search"
               type="search"
-              name="t"
+              name="q"
               defaultValue={q}
             />
             <div id="search-spinner" aria-hidden hidden={true}/>
