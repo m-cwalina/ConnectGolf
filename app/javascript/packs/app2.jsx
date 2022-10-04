@@ -1,10 +1,10 @@
 import React from 'react';
 import {Form, Outlet, useNavigation, useLoaderData, NavLink, searchParams } from "react-router-dom";
 
-const Api = async () => {
-  const endpoint = "/api/v1/users";
+const Api = async (query) => {
+  const URL = "/api/v1/users";
   try {
-    let response = await fetch(endpoint);
+    let response = await fetch(URL);
     let results = await response.json();
     return results ?? null;
   } catch (error) {
@@ -39,6 +39,7 @@ export default function App2() {
               placeholder="Search"
               type="search"
               name="t"
+              defaultValue={q}
             />
             <div id="search-spinner" aria-hidden hidden={true}/>
             <div className="sr-only" aria-live="polite"></div>
