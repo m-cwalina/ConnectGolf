@@ -1,5 +1,5 @@
-import React from 'react';
-import {Form, Outlet, useNavigation, useLoaderData, NavLink, searchParams } from "react-router-dom";
+import React, { useEffect } from 'react';
+import {Form, Outlet, useNavigation, useLoaderData, NavLink, useSubmit } from "react-router-dom";
 import { matchSorter } from "match-sorter";
 
 const Api = async (query) => {
@@ -23,7 +23,7 @@ export async function loader( {request} ) {
     let q = url.searchParams.get("q");
     const users = await Api(q);
     console.log(users)
-    return {users};
+    return {users, q};
   } catch (error) {
     console.error(error);
   }
@@ -32,6 +32,14 @@ export async function loader( {request} ) {
 export default function App2() {
   const {users, q} = useLoaderData();
   const navigation = useNavigation();
+  /* Allows for each key stroke to filter users in search bar */
+  const submit = useSubmit();
+  /* Allows for a spinner to show up in search bar when filtering through users */
+  const searching = navigation.location && new URLSearchParams(navigation.location.search).has("q");
+
+  useEffect(() => {
+    document.getElementById("q").value = q;
+  }, [q]);
 
   return (
     <>
@@ -46,6 +54,13 @@ export default function App2() {
               type="search"
               name="q"
               defaultValue={q}
+              /* An event that stops each key stroke not to be submitted into history */
+              onChange={(event) => {
+                const isFirstSearch = q == null;
+                submit(event.currentTarget.form, {
+                  replace: !isFirstSearch,
+                });
+              }}
             />
             <div id="search-spinner" aria-hidden hidden={true}/>
             <div className="sr-only" aria-live="polite"></div>
@@ -66,14 +81,14 @@ export default function App2() {
                           : ""
                     }
                   >
-                    {user.name || user.email ? (
+                    {user.name ? (
                       <>
-                        {user.name} {user.email}
+                        {user.name}
                       </>
                     ) : (
                       <i>No Name</i>
                     )}{" "}
-                    {user.handicap && <span>★</span>}
+                    {user.handicap && <span></span>}
                   </NavLink>
                 </li>
               ))}

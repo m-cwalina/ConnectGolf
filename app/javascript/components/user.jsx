@@ -15,13 +15,11 @@ export async function loader({ params }) {
 export async function action({params}) {
   const URL = `/api/v1/friendships`;
   try {
-    let response = await fetch(URL, {
+    await fetch(URL, {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'},
       body: JSON.stringify({friend_id: params.userId})
     })
-    let data = await response.json()
-    console.log(data)
   } catch (error) {
     console.error(error)
   }
