@@ -13,7 +13,7 @@ const Api = async (query) => {
     }
   return results
   } catch (error) {
-      console.error(error);
+    console.error(error);
   }
 };
 
