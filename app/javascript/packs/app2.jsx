@@ -22,7 +22,6 @@ export async function loader( {request} ) {
     const url = new URL(request.url);
     let q = url.searchParams.get("q");
     const users = await Api(q);
-    console.log(users)
     return {users, q};
   } catch (error) {
     console.error(error);
