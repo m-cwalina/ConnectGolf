@@ -1,22 +1,36 @@
-<h1><%= @user.club.name %></h1>
-<h1>News Feed</h1>
-<% @user.club.posts.map do |post| %>
-  <h1><%= post.content %></h1>
-<% end %>
-<h1>Tee Times</h1>
-<% if @tee_times.any? %>
-  <% @tee_times.map do |tee_time|%>
-    <%= tee_time.time %>
+<div class='title-club-container'>
+  <h1><%= @user.club.name %></h1>
+</div>
+
+<div class='flex-container'>
+  <div class='news-container'>
+    <h2>News Feed</h2>
+    <% @user.club.posts.map do |post| %>
+      <ul><li><%= post.content %></ul></li>
+    <% end %>
+  </div>
+
+
+  <div class='teetime-container'>
+    <h2>Tee Times</h2>
+    <% if @tee_times.any? %>
+      <% @tee_times.map do |tee_time|%>
+        <ul><li><%= tee_time.time.strftime('%a %b %-d %I:%M%p') %></ul></li>
+      <% end %>
+    <% else %>
+      <h2>You have no tee times at the moment</h2>
+    <% end %>
+  </div>
+</div>
+
+<div class='button-container'>
+  <%=link_to tee_times_path do %>
+    <button type="button" class="btn btn-outline-success btn-lg">Tee Times</button>
   <% end %>
-<% else %>
-  <h2>You have no tee times at the moment</h2>
-<% end %>
-<%=link_to tee_times_path do %>
-  <div type="button" class="btn btn-primary btn-lg">Tee Times</div>
-<% end %>
-<%=link_to users_path do %>
-  <div type="button" class="btn btn-primary btn-lg">Members</div>
-<% end %>
-<%=link_to friendships_path do %>
-  <div type="button" class="btn btn-primary btn-lg">Friends</div>
-<% end %>
+  <%=link_to users_path do %>
+    <button type="button" class="btn btn-outline-success btn-lg">Members</button>
+  <% end %>
+  <%=link_to friendships_path do %>
+    <button type="button" class="btn btn-outline-success btn-lg">Friends</button>
+  <% end %>
+</div>

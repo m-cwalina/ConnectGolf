@@ -1,3 +1,37 @@
 // Place all the styles related to the Dashboards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.news-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border-right: 1px solid gray;
+}
+
+.teetime-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.title-club-container {
+  margin: 150px;
+  border-bottom: 1px solid gray;
+}
+
+.button-container {
+  margin: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid gray;
+  padding: 35px;
+}
