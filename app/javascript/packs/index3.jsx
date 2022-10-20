@@ -1,10 +1,11 @@
 // external modules
 import React from 'react';
 import ReactDOM from "react-dom/client";
-import ErrorPage from "./error-page";
-import { createBrowserRouter, RouterProvider, Route} from "react-router-dom";
+import ErrorPage from "../components/error_page";
+import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import App3 from './app3'
-import Friends from "../components/friends";
+import Friends from "../components/friend";
+import "./react_friendships.scss";
 
 const router = createBrowserRouter([
   {

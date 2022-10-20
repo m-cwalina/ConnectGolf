@@ -1,4 +1,4 @@
-export default function Friends() {
+export default function Friend() {
   return (
     <div id='friends'>
       <div>

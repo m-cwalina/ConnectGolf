@@ -2,6 +2,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width:100%;
-  margin: 50px;
+  margin: 10px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 30px;
+}
+
+#error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
