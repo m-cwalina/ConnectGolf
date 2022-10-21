@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :tee_times, only: %i[index]
       resources :users, only: %i[index show]
-      resources :friendships, only: %i[index show create]
+      resources :friendships do
+        get 'friends', on: :collection, as: :friends
+        get 'pending_friends', on: :collection, as: :pending_friends
+        get 'requested_friends', on: :collection, as: :requested_friends
+      end
     end
   end
 end

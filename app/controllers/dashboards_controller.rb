@@ -3,6 +3,4 @@ class DashboardsController < ApplicationController
     @user = current_user
     @tee_times = current_user.tee_times
   end
-
-  
 end

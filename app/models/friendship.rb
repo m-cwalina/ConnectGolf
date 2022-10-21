@@ -2,7 +2,7 @@ class Friendship < ApplicationRecord
   belongs_to :user
   belongs_to :friend, class_name: 'User', foreign_key: 'friend_id'
   scope :friends, -> { where("status = 'accepted'", true) }
-  scope :not_friends, -> { where("status = 'accepted'", false) }
+  scope :not_friends, -> { where("status = 'requested'", true) }
   attribute :status, :string, default: 'requested'
   after_create :create_inverse
   validates_presence_of :user_id, :friend_id, :status
