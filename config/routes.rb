@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   root to: 'pages#home', as: :home
   get "/about", to: "pages#about"
   get "/users/:id", to: 'users#index'
+  get '/friendships/friends', to: 'friendships#index'
+  get '/friendships/pending_friends', to: 'friendships#index'
+  get '/friendships/requested_friends', to: 'friendships#index'
   resources :users, only: %i[index]
   resources :friendships, only: %i[create index update show]
   resources :tee_times, only: %i[index show] do

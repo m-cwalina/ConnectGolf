@@ -1,20 +1,12 @@
-export default function Friend() {
+import React from "react";
+
+export default function Friend(props) {
   return (
-    <div id='friends'>
-      <div>
-        <img/>
-      </div>
-      <div>
-        <h1>Name: {}</h1>
-        <h1>Age: {}</h1>
-        <h1>Handicap: {}</h1>
-        <div>
-          <Form method='post'>
-            <input type="hidden" name='friend_id' />
-            <button type="submit">Add Friend</button>
-          </Form>
-        </div>
-      </div>
+    <div className="friend-tile">
+      <img className='friend-tile-info-image' src={props.friend.friend.picture || null} />
+      <p className="friend-tile-info">Name: {props.friend.friend.name}</p>
+      <p className="friend-tile-info">Age: {props.friend.friend.age}</p>
+      <p className="friend-tile-info">Handicap: {props.friend.friend.handicap}</p>
     </div>
   )
 }

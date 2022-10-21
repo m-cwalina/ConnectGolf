@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 export default function App3() {
   return(
@@ -16,9 +16,9 @@ export default function App3() {
           </form>
         </div>
         <nav className="nav-links">
-          <p className="nav-link"><a>Friends</a></p>
-          <p className="nav-link"><a>Pending Friends</a></p>
-          <p className="nav-link"><a>Friend Requests</a></p>
+          <p className="nav-link"><Link to={`friends`}>Friends</Link></p>
+          <p className="nav-link"><Link to={`pending_friends`}>Pending Friends</Link></p>
+          <p className="nav-link"><Link to={`requested_friends`}>Requested Friends</Link></p>
         </nav>
       </div>
       <div className='detail'>
