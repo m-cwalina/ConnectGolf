@@ -14,19 +14,32 @@ export async function loader() {
   }
 }
 
-
 export default function Friends() {
   const friends = useLoaderData();
 
   return (
+  <>
+    <div id="searchbar">
+      <div>
+        <form id="search-form" role="search">
+          <input
+            id="q"
+            aria-label="Search contacts"
+            type="search"
+            name="q"
+          />
+        </form>
+      </div>
+    </div>
     <div className="friends-container">
     {friends.map((friend) => {
       return (
         <div key={friend.id} className="friend-tiles">
           <div><Friend friend={friend} /></div>
         </div>
-      );
-    })}
-  </div>
+        );
+      })}
+    </div>
+  </>
   )
 }

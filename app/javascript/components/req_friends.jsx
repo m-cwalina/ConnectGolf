@@ -19,6 +19,19 @@ export default function ReqFriends() {
   const friends = useLoaderData();
 
   return (
+  <>
+    <div id="searchbar">
+      <div>
+        <form id="search-form" role="search">
+          <input
+            id="q"
+            aria-label="Search contacts"
+            type="search"
+            name="q"
+          />
+        </form>
+      </div>
+    </div>
     <div className="friends-container">
       {friends.map((friend) => {
         return (
@@ -28,5 +41,6 @@ export default function ReqFriends() {
         );
       })}
     </div>
+  </>
   )
 }
