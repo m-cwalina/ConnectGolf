@@ -7,12 +7,12 @@ class Api::V1::FriendshipsController < ApplicationController
     @friendship.save
   end
 
-  def index
-    @friendships = current_user.friendships.all
-  end
-
   def friends
     @friends = current_user.friendships.all
+  end
+
+  def friend_show
+    @friend = Friendship.find(params[:id])
   end
 
   def requested_friends
@@ -21,10 +21,6 @@ class Api::V1::FriendshipsController < ApplicationController
 
   def pending_friends
     @pending_friends = current_user.friendships.all
-  end
-
-  def show
-    @friendship = Friendship.find(params[:id])
   end
 
   def update

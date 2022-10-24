@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/about", to: "pages#about"
   get "/users/:id", to: 'users#index'
   get '/friendships/friends', to: 'friendships#index'
+  get '/friendships/friends/:id', to: 'friendships#index'
   get '/friendships/pending_friends', to: 'friendships#index'
   get '/friendships/requested_friends', to: 'friendships#index'
   resources :users, only: %i[index]
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
       resources :users, only: %i[index show]
       resources :friendships do
         get 'friends', on: :collection, as: :friends
+        get 'friends/:id', on: :collection, action: :friend_show
         get 'pending_friends', on: :collection, as: :pending_friends
         get 'requested_friends', on: :collection, as: :requested_friends
       end

@@ -1,6 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
-import Friend from './friend';
+import { useLoaderData, Link } from "react-router-dom";
 
 export async function loader() {
   const URL = '/api/v1/friendships/requested_friends';
@@ -13,7 +12,6 @@ export async function loader() {
     console.error(error);
   }
 }
-
 
 export default function ReqFriends() {
   const friends = useLoaderData();
@@ -36,7 +34,10 @@ export default function ReqFriends() {
       {friends.map((friend) => {
         return (
           <div key={friend.id} className="friend-tiles">
-            <div><Friend friend={friend} /></div>
+            <div className="friend-tile">
+              <img className='friend-tile-info-image' src={friend.friend.picture || null} />
+              <Link to={`${friend.id}`} className="friend-tile-info">{friend.friend.name}</Link>
+            </div>
           </div>
         );
       })}
