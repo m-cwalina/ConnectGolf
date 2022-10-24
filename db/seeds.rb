@@ -17,7 +17,7 @@ Post.create!([
 
 puts 'Creating all Users'
   (1..200).map do |num|
-    User.create!([{email: (num.to_i).to_s + '@gmail.com', picture: Faker::LoremFlickr.image, name: Faker::Name.name, password: 'password', age: rand(15..90), handicap: rand(0..28), club_id: santa_ana.id}])
+    User.create!([{email: (num.to_i).to_s + '@gmail.com', picture: Faker::Avatar.image, name: Faker::Name.name, password: 'password', age: rand(15..90), handicap: rand(0..28), club_id: santa_ana.id}])
   end
 
 puts 'Creating Tee Times'

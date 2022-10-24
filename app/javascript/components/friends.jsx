@@ -1,6 +1,5 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import Friend from './friend';
 
 export async function loader() {
   const URL = '/api/v1/friendships/friends';
@@ -19,6 +18,7 @@ export default function Friends() {
 
   return (
   <>
+    <div className="friends-container">
     <div id="searchbar">
       <div>
         <form id="search-form" role="search">
@@ -31,11 +31,13 @@ export default function Friends() {
         </form>
       </div>
     </div>
-    <div className="friends-container">
     {friends.map((friend) => {
       return (
         <div key={friend.id} className="friend-tiles">
-          <div><Friend friend={friend} /></div>
+          <div className="friend-tile">
+            <img className='friend-tile-info-image' src={friend.friend.picture || null} />
+            <Link to={`friends/${friend.id}`} className="friend-tile-info">{friend.friend.name}</Link>
+          </div>
         </div>
         );
       })}

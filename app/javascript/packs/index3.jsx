@@ -7,7 +7,7 @@ import App3 from './app3'
 import Friends, { loader as friendsLoader } from "../components/friends";
 import ReqFriends, { loader as requestedFriendsLoader } from "../components/req_friends";
 import PenFriends, { loader as pendingFriendsLoader } from "../components/pen_friends";
-import "./react_friendships.scss";
+import "stylesheets/pages/_friendships.scss";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
 ]);
 
 // render an instance of the component in the DOM
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root3"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />

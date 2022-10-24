@@ -5,7 +5,7 @@ import ErrorPage from "../components/error_page";
 import BlankPage from "../components/blankpage";
 import User, {loader as userLoader, action as userAction} from "../components/user";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
-import "./react_members.scss";
+import "stylesheets/pages/_members.scss";
 
 const router = createBrowserRouter([
   {
