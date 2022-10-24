@@ -5,20 +5,21 @@ export async function Loader( {params} ) {
   const URL = `/api/v1/friendships/friends/${params.friendId}`;
   try {
     let response = await fetch(URL);
-    let friends = await response.json();
-    console.log(friends)
-    return friends;
+    let friend = await response.json();
+    console.log(friend)
+    return friend;
   } catch (error) {
     console.error(error);
   }
 }
 
 export default function Friend() {
-  const friends = useLoaderData()
+  const friend = useLoaderData()
+
   return (
-    <div className="friend-tile">
+    <div className="friend-info">
       <img className='friend-tile-info-image' src={null} />
-      <p className="friend-tile-info">Hello</p>
+      <h1 className="friend-name">{friend.friend.name && null}</h1>
     </div>
   )
 }

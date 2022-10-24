@@ -55,6 +55,7 @@
 .detail {
   width: 30%;
   border-right: 1px solid gray;
+  display: flex;
 }
 
 // CSS for error page
@@ -129,4 +130,19 @@
   align-items: center;
   margin: 10px;
   border-bottom: 1px solid gray;
+}
+
+.friend-container {
+  margin: auto;
+  margin-left: 500px;
+}
+
+.friend-info {
+  background-color: #FFFFFF;
+  height: 800px;
+  width: 800px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
+        0 3px 6px 0 rgba(25, 32, 36, 0.16);
+  border-radius: 8px;
 }

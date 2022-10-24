@@ -42,6 +42,9 @@ export default function ReqFriends() {
         );
       })}
     </div>
+    <div className="friend-container">
+      <OutLet />
+    </div>
   </>
   )
 }

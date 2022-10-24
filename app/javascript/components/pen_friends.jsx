@@ -43,6 +43,9 @@ export default function PenFriends() {
         );
       })}
     </div>
+      <div className="friend-container">
+        <OutLet />
+      </div>
   </>
   )
 }

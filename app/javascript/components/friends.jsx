@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData, Link } from "react-router-dom";
+import { useLoaderData, Link, Outlet } from "react-router-dom";
 
 export async function loader() {
   const URL = '/api/v1/friendships/friends';
@@ -42,6 +42,7 @@ export default function Friends() {
       })}
     </div>
     <div className="friend-container">
+      <Outlet/>
     </div>
   </>
   )
