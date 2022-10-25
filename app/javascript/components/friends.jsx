@@ -61,6 +61,7 @@ export default function Friends() {
       </div>
     </div>
 
+
     <div className="friends-container">
       {friends.map((friend) => {
         return (
@@ -70,8 +71,8 @@ export default function Friends() {
               <Link to={`${friend.id}`} className="friend-tile-info">{friend.friend.name}</Link>
             </div>
           </div>
-          );
-        })}
+        );
+      })}
     </div>
   </div>
 

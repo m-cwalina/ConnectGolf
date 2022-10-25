@@ -10,7 +10,7 @@ import Friends, { loader as friendsLoader } from "../components/friends";
 import ReqFriends, { loader as requestedFriendsLoader } from "../components/req_friends";
 import ReqFriend, { loader as reqFriendLoader } from '../components/req_friend';
 import PenFriends, { loader as pendingFriendsLoader } from "../components/pen_friends";
-import PenFriend, { loader as penFriendLoader } from '../components/pen_friend';
+import PenFriend, { loader as penFriendLoader, action as penFriendAction } from '../components/pen_friend';
 import "stylesheets/pages/_friendships.scss";
 
 const router = createBrowserRouter([
@@ -56,6 +56,7 @@ const router = createBrowserRouter([
             path: "/friendships/pending_friends/:friendId",
             element: <PenFriend />,
             loader: penFriendLoader,
+            action: penFriendAction
           }
         ]
       },

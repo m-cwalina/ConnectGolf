@@ -1,5 +1,6 @@
 class Api::V1::FriendshipsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
+  skip_before_action :verify_authenticity_token, only: :update
 
   def create
     @user = current_user
@@ -9,7 +10,7 @@ class Api::V1::FriendshipsController < ApplicationController
 
   # Search for current friends
   def friends
-    @friends = current_user.friendships.all
+    @friends = current_user.friendships.friends
   end
 
   # Search for a current friend
@@ -19,7 +20,7 @@ class Api::V1::FriendshipsController < ApplicationController
 
   # Search for requested friends requests
   def requested_friends
-    @requested_friends = current_user.friendships.all
+    @requested_friends = current_user.friendships.requested_friends
   end
 
   # Search for a requested friend
@@ -28,7 +29,7 @@ class Api::V1::FriendshipsController < ApplicationController
   end
 
   def pending_friends
-    @pending_friends = current_user.friendships.all
+    @pending_friends = current_user.friendships.pending_friends
   end
 
   def pending_friend_show
@@ -38,10 +39,6 @@ class Api::V1::FriendshipsController < ApplicationController
   def update
     @friendship = Friendship.find(params[:id])
     @friendship.status = 'accepted'
-    if @friendship.save
-      redirect_to user_dashboard_path
-    else
-      redirect_to home_path
-    end
+    @friendship.save
   end
 end
