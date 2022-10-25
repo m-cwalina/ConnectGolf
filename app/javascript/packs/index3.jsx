@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import ErrorPage from "../components/error_page";
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import App3 from './app3'
+import BlankPage from "../components/blankpage";
 import Friend, { loader as friendLoader } from '../components/friend';
 import Friends, { loader as friendsLoader } from "../components/friends";
 import ReqFriends, { loader as requestedFriendsLoader } from "../components/req_friends";
@@ -18,11 +19,13 @@ const router = createBrowserRouter([
     element: <App3/>,
     errorElement: <ErrorPage />,
     children: [
+      { index: true, element: <BlankPage /> },
       {
         path: "/friendships/friends",
         element: <Friends/>,
         loader: friendsLoader,
         children: [
+          { index: true, element: <BlankPage /> },
           {
             path: "/friendships/friends/:friendId",
             element: <Friend />,
@@ -35,6 +38,7 @@ const router = createBrowserRouter([
         element: <ReqFriends />,
         loader: requestedFriendsLoader,
         children: [
+          { index: true, element: <BlankPage /> },
           {
             path: "/friendships/requested_friends/:friendId",
             element: <ReqFriend />,
@@ -47,6 +51,7 @@ const router = createBrowserRouter([
         element: <PenFriends />,
         loader: pendingFriendsLoader,
         children: [
+          { index: true, element: <BlankPage /> },
           {
             path: "/friendships/pending_friends/:friendId",
             element: <PenFriend />,

@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
-import Image from 'images/golf-logo.png'
+import Image from 'images/navbar-logo.png'
 
 export default function App3() {
   return(
