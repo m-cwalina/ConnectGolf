@@ -1,19 +1,40 @@
-import React from "react";
-import { useLoaderData, Link, Outlet } from "react-router-dom";
+import React, {useEffect} from "react";
+import { useLoaderData, Link, Outlet, useSubmit } from "react-router-dom";
+import { matchSorter } from "match-sorter";
 
-export async function loader() {
-  const URL = '/api/v1/friendships/friends';
+const Api = async (query) => {
+  const URL = "/api/v1/friendships/friends";
   try {
     let response = await fetch(URL);
-    let friends = await response.json();
-    return friends;
+    let results = await response.json();
+    if (!results) results = [];
+    if (query) {
+      results = matchSorter(results, query, { keys: ['friend.name'] });
+    }
+    return results
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export async function loader({ request }) {
+  try {
+    const url = new URL(request.url);
+    let q = url.searchParams.get("q");
+    const friends = await Api(q);
+    return { friends, q };
   } catch (error) {
     console.error(error);
   }
 }
 
 export default function Friends() {
-  const friends = useLoaderData();
+  const {friends, q} = useLoaderData();
+  const submit = useSubmit();
+
+  useEffect(() => {
+    document.getElementById("q").value = q;
+  }, [q]);
 
   return (
   <>
@@ -26,6 +47,13 @@ export default function Friends() {
             aria-label="Search contacts"
             type="search"
             name="q"
+            defaultValue={q}
+            onChange={(event) => {
+              const isFirstSearch = q == null;
+              submit(event.currentTarget.form, {
+                replace: !isFirstSearch,
+              });
+            }}
           />
         </form>
       </div>
