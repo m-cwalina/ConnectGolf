@@ -7,20 +7,32 @@ class Api::V1::FriendshipsController < ApplicationController
     @friendship.save
   end
 
+  # Search for current friends
   def friends
     @friends = current_user.friendships.all
   end
 
+  # Search for a current friend
   def friend_show
     @friend = Friendship.find(params[:id])
   end
 
+  # Search for requested friends requests
   def requested_friends
     @requested_friends = current_user.friendships.all
   end
 
+  # Search for a requested friend
+  def requested_friend_show
+    @friend = Friendship.find(params[:id])
+  end
+
   def pending_friends
     @pending_friends = current_user.friendships.all
+  end
+
+  def pending_friend_show
+    @friend = Friendship.find(params[:id])
   end
 
   def update

@@ -7,7 +7,9 @@ import App3 from './app3'
 import Friend, { loader as friendLoader } from '../components/friend';
 import Friends, { loader as friendsLoader } from "../components/friends";
 import ReqFriends, { loader as requestedFriendsLoader } from "../components/req_friends";
+import ReqFriend, { loader as reqFriendLoader } from '../components/req_friend';
 import PenFriends, { loader as pendingFriendsLoader } from "../components/pen_friends";
+import PenFriend, { loader as penFriendLoader } from '../components/pen_friend';
 import "stylesheets/pages/_friendships.scss";
 
 const router = createBrowserRouter([
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
           {
             path: "/friendships/friends/:friendId",
             element: <Friend />,
-            loader: friendLoader
+            loader: friendLoader,
           }
         ]
       },
@@ -32,12 +34,27 @@ const router = createBrowserRouter([
         path: "/friendships/requested_friends",
         element: <ReqFriends />,
         loader: requestedFriendsLoader,
+        children: [
+          {
+            path: "/friendships/requested_friends/:friendId",
+            element: <ReqFriend />,
+            loader: reqFriendLoader,
+          }
+        ]
       },
       {
         path: "/friendships/pending_friends",
         element: <PenFriends />,
         loader: pendingFriendsLoader,
+        children: [
+          {
+            path: "/friendships/pending_friends/:friendId",
+            element: <PenFriend />,
+            loader: penFriendLoader,
+          }
+        ]
       },
+
     ],
   },
 ]);

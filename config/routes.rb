@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get '/friendships/friends', to: 'friendships#index'
   get '/friendships/friends/:id', to: 'friendships#index'
   get '/friendships/pending_friends', to: 'friendships#index'
+  get '/friendships/pending_friends/:id', to: 'friendships#index'
   get '/friendships/requested_friends', to: 'friendships#index'
+  get '/friendships/requested_friends/:id', to: 'friendships#index'
   resources :users, only: %i[index]
   resources :friendships, only: %i[create index update show]
   resources :tee_times, only: %i[index show] do
@@ -24,7 +26,9 @@ Rails.application.routes.draw do
         get 'friends', on: :collection, as: :friends
         get 'friends/:id', on: :collection, action: :friend_show
         get 'pending_friends', on: :collection, as: :pending_friends
+        get 'pending_friends/:id', on: :collection, action: :pending_friend_show
         get 'requested_friends', on: :collection, as: :requested_friends
+        get 'requested_friends/:id', on: :collection, action: :requested_friend_show
       end
     end
   end

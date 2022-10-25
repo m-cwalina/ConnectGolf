@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData, Link } from "react-router-dom";
+import { useLoaderData, Link, Outlet } from "react-router-dom";
 
 export async function loader() {
   const URL = '/api/v1/friendships/pending_friends';
@@ -19,19 +19,19 @@ export default function PenFriends() {
 
   return (
   <>
-    <div id="searchbar">
-      <div>
-        <form id="search-form" role="search">
-          <input
-            id="q"
-            aria-label="Search contacts"
-            type="search"
-            name="q"
-          />
-        </form>
-      </div>
-    </div>
     <div className="friends-container">
+      <div id="searchbar">
+        <div>
+          <form id="search-form" role="search">
+            <input
+              id="q"
+              aria-label="Search contacts"
+              type="search"
+              name="q"
+            />
+          </form>
+        </div>
+      </div>
       {friends.map((friend) => {
         return (
           <div key={friend.id} className="friend-tiles">
@@ -44,7 +44,7 @@ export default function PenFriends() {
       })}
     </div>
       <div className="friend-container">
-        <OutLet />
+        <Outlet />
       </div>
   </>
   )

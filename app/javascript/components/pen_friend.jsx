@@ -1,8 +1,8 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 
-export async function loader( {params} ) {
-  const URL = `/api/v1/friendships/friends/${params.friendId}`;
+export async function loader({ params }) {
+  const URL = `/api/v1/friendships/pending_friends/${params.friendId}`;
   try {
     let response = await fetch(URL);
     let friend = await response.json();
@@ -13,7 +13,7 @@ export async function loader( {params} ) {
   }
 }
 
-export default function Friend() {
+export default function PenFriend() {
   const friend = useLoaderData()
 
   return (

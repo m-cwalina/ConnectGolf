@@ -132,6 +132,8 @@
   border-bottom: 1px solid gray;
 }
 
+//CSS for more detailed friend information
+
 .friend-container {
   margin: auto;
   margin-left: 500px;
@@ -145,4 +147,12 @@
   box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
         0 3px 6px 0 rgba(25, 32, 36, 0.16);
   border-radius: 8px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.friend-image {
+  border-radius: 8px;
+  margin: auto;
 }
