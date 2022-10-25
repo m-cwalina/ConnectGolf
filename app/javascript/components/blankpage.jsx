@@ -1,12 +1,12 @@
 import React from "react";
-import Image from 'images/golf-logo.png'
+import BlankImage from 'images/blankpage-logo.png'
 
 export default function BlankPage() {
   return (
     <p id="zero-state">
       GolfConnect. Get out there and go low.
       <br />
-      <img className="blankpage-logo" src={Image}></img>
+      <img className="blankpage-logo" src={BlankImage}></img>
     </p>
   );
 }
