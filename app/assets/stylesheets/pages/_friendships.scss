@@ -43,12 +43,24 @@
 
 //CSS for Searchbar
 
+.navbar-search-container {
+  display: flex;
+  flex-direction: column ;
+  border-right: 1px solid gray;
+  width: 33%;
+  background-color: #F7F7F7;
+  height: 850px;
+}
+
+.searchbar-container {
+  border-bottom: 1px solid gray;
+}
+
 #searchbar {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  border-bottom: 1px solid gray;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .detail {
@@ -68,9 +80,7 @@
 //Friend Tiles SCSS
 
 .friends-container {
-  border-right: 1px solid gray;
-  width: 33%;
-  background-color: #F7F7F7;
+  overflow: auto;
   height: 850px;
 }
 

@@ -38,40 +38,46 @@ export default function Friends() {
 
   return (
   <>
-    <div className="friends-container">
-    <div id="searchbar">
-      <div>
-        <form id="search-form" role="search">
-          <input
-            id="q"
-            aria-label="Search contacts"
-            type="search"
-            name="q"
-            defaultValue={q}
-            onChange={(event) => {
-              const isFirstSearch = q == null;
-              submit(event.currentTarget.form, {
-                replace: !isFirstSearch,
-              });
-            }}
-          />
-        </form>
+  <div className='navbar-search-container'>
+    <div className="searchbar-container">
+      <div id="searchbar">
+        <div>
+          <form id="search-form" role="search">
+            <input
+              id="q"
+              aria-label="Search contacts"
+              type="search"
+              name="q"
+              defaultValue={q}
+              onChange={(event) => {
+                const isFirstSearch = q == null;
+                submit(event.currentTarget.form, {
+                  replace: !isFirstSearch,
+                });
+              }}
+            />
+          </form>
+        </div>
       </div>
     </div>
-    {friends.map((friend) => {
-      return (
-        <div key={friend.id} className="friend-tiles">
-          <div className="friend-tile">
-            <img className='friend-tile-info-image' src={friend.friend.picture || null} />
-            <Link to={`${friend.id}`} className="friend-tile-info">{friend.friend.name}</Link>
+
+    <div className="friends-container">
+      {friends.map((friend) => {
+        return (
+          <div key={friend.id} className="friend-tiles">
+            <div className="friend-tile">
+              <img className='friend-tile-info-image' src={friend.friend.picture || null} />
+              <Link to={`${friend.id}`} className="friend-tile-info">{friend.friend.name}</Link>
+            </div>
           </div>
-        </div>
-        );
-      })}
+          );
+        })}
     </div>
-    <div className="friend-container">
-      <Outlet/>
-    </div>
+  </div>
+
+  <div className="friend-container">
+    <Outlet/>
+  </div>
   </>
   )
 }
