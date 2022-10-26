@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData, Form } from "react-router-dom";
 
-export async function loader({ params }) {
+  export async function loader({ params }) {
   const URL = `/api/v1/friendships/pending_friends/${params.friendId}`;
   try {
     let response = await fetch(URL);
@@ -28,6 +28,11 @@ export async function action({ params }) {
 
 export default function PenFriend() {
   const friend = useLoaderData()
+  const [visible, setVisible] = useState(true);
+
+  const removeElement = () => {
+    setVisible((prev) => !prev);
+  };
 
   return (
     <div className="friend-info">
@@ -38,7 +43,7 @@ export default function PenFriend() {
       <div className="accept-button">
         <Form method='patch'>
           <input type="hidden" name='friend_id' value={friend.id} />
-          <button type="submit" className="btn btn-outline-success btn-lg">Accept</button>
+          <button type="submit" onClick={removeElement} className="btn btn-outline-success btn-lg">Accept</button>
         </Form>
       </div>
     </div>

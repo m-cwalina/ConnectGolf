@@ -41,4 +41,5 @@ class Api::V1::FriendshipsController < ApplicationController
     @friendship.status = 'accepted'
     @friendship.save
   end
+
 end
