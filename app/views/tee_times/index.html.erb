@@ -1,3 +1,18 @@
+  <div class="navbar">
+    <div class="navbar-logo">
+      <%= image_tag "golf-logo.png", class: "logo-image"%>
+    </div>
+    <div class="navbar-links">
+      <a><%=link_to 'Home', home_path%></a>
+      <% if user_signed_in? %>
+        <a><%= link_to "Dashboard", user_dashboard_path %></a>
+        <a><%=link_to "Log Out", destroy_user_session_path%></a>
+      <% else %>
+        <a><%=link_to "Sign In", new_user_session_path %></a>
+        <a><%=link_to 'About', about_path%></a>
+      <% end %>
+    </div>
+  </div>
 <div id='root2'>
 <%= javascript_pack_tag 'index' %>
 </div>

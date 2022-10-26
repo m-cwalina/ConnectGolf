@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Form, useLoaderData } from "react-router-dom";
 
 export async function loader({ params }) {
@@ -27,7 +27,12 @@ export async function action({params}) {
 }
 
 export default function User() {
+  const [buttonText, setButtonText] = useState('Add Friend');
   const user = useLoaderData();
+
+  const handleClick = () => {
+    setButtonText('Request Sent');
+  }
   return (
   <div id='contact'>
     <div>
@@ -40,7 +45,7 @@ export default function User() {
       <div>
         <Form method='post'>
           <input type="hidden" name='friend_id' value= {user.id} />
-          <button type="submit">Add Friend</button>
+            <button onClick={handleClick} type="submit">{buttonText}</button>
         </Form>
       </div>
     </div>
