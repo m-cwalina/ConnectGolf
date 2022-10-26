@@ -6,7 +6,6 @@ export async function loader( {params} ) {
   try {
     let response = await fetch(URL);
     let friend = await response.json();
-    console.log(friend)
     return friend;
   } catch (error) {
     console.error(error);

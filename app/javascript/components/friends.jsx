@@ -61,7 +61,6 @@ export default function Friends() {
       </div>
     </div>
 
-
     <div className="friends-container">
       {friends.map((friend) => {
         return (

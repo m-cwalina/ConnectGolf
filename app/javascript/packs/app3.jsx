@@ -11,8 +11,8 @@ export default function App3() {
         </div>
         <nav className="nav-links">
           <p className="nav-link"><Link to={`friends`}>Friends</Link></p>
-          <p className="nav-link"><Link to={`pending_friends`}>Pending Friends</Link></p>
-          <p className="nav-link"><Link to={`requested_friends`}>Requested Friends</Link></p>
+          <p className="nav-link"><Link to={`pending_friends`}>Friend Requests</Link></p>
+          <p className="nav-link"><Link to={`requested_friends`}>Sent Requests</Link></p>
         </nav>
       </div>
       <div className='detail'>

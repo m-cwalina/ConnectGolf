@@ -11,7 +11,6 @@ import ReqFriends, { loader as requestedFriendsLoader } from "../components/req_
 import ReqFriend, { loader as reqFriendLoader } from '../components/req_friend';
 import PenFriends, { loader as pendingFriendsLoader } from "../components/pen_friends";
 import PenFriend, { loader as penFriendLoader, action as penFriendAction } from '../components/pen_friend';
-import "stylesheets/pages/_friendships.scss";
 
 const router = createBrowserRouter([
   {

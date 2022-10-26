@@ -1,5 +1,12 @@
 //Navigation SCSS
 
+a {
+  color: #0066CC;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 900;
+}
+
 #navigation {
   display: flex;
   justify-content: space-between;
@@ -16,7 +23,8 @@
 
 .nav-link {
   padding: 30px;
-  font-size: 18px;
+  font-size: 22px;
+  color: black;
 }
 
 #navigation > div {
@@ -65,6 +73,7 @@
 
 .detail {
   display: flex;
+  height: 800px;
 }
 
 // CSS for error page
@@ -103,8 +112,6 @@
   width: 375px;
 }
 
-
-
 .friend-tile:hover {
   box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 }
@@ -115,8 +122,11 @@
   overflow: hidden;
   justify-content: left;
   align-items: center;
-  font-size: 22px;
+  font-size: 25px;
   margin-right: 40px;
+  text-decoration: none;
+  color: #0066CC;
+  font-weight: 135px;
 }
 
 .friend-tile-info-image {
@@ -147,7 +157,7 @@
   width: 66%;
   display: flex;
   justify-content: center;
-  margin-top: 55px;
+  margin: auto;
 }
 
 .friend-info {
@@ -160,9 +170,27 @@
   display: grid;
   justify-content: center;
   align-items: center;
+  margin: auto;
 }
 
 .friend-image {
   border-radius: 8px;
   margin: auto;
+  width: 200px;
+  height: 200px;
+}
+
+.friend-name {
+  margin-top: 20px;
+  color: #0066CC
+}
+
+.friend-age {
+  margin-top: 10px;
+  color: #1D1D1F;
+}
+
+.friend-handicap {
+  margin-top :10px;
+  color: #1D1D1F;
 }
