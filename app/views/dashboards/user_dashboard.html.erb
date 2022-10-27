@@ -32,7 +32,7 @@
     <% if @tee_times.any? %>
       <% @tee_times.map do |tee_time|%>
         <div class='teetime'>
-          <ul><li></i><%= (tee_time.time.to_datetime + 2.hours).strftime('%a %b %-d %I:%M%p') %></ul></li>
+          <ul><li></i><%= (tee_time.time.to_datetime + 1.hours).strftime('%a %b %-d %I:%M%p') %></ul></li>
         </div>
       <% end %>
     <% else %>
