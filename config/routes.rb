@@ -4,16 +4,20 @@ Rails.application.routes.draw do
     get '/user' => 'dashboards#user_dashboard', as: :user_dashboard
   end
   root to: 'pages#home', as: :home
-  get "/about", to: "pages#about"
-  get "/users/:id", to: 'users#index'
+  get '/about', to: 'pages#about'
+  get '/users/:id', to: 'users#index'
+
+  # All routes for friendships
   get '/friendships/friends', to: 'friendships#index'
   get '/friendships/friends/:id', to: 'friendships#index'
   get '/friendships/pending_friends', to: 'friendships#index'
   get '/friendships/pending_friends/:id', to: 'friendships#index'
+  get '/friendships/pending_friends/:id', to: 'friendships#index'
   get '/friendships/requested_friends', to: 'friendships#index'
   get '/friendships/requested_friends/:id', to: 'friendships#index'
+
   resources :users, only: %i[index]
-  resources :friendships, only: %i[create index update show]
+  resources :friendships, only: %i[create index update show delete]
   resources :tee_times, only: %i[index show] do
     resources :bookings, only: %i[new create]
   end

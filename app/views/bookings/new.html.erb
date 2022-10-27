@@ -1,4 +1,34 @@
-<%= simple_form_for [@tee_time, @booking] do |f| %>
-  <%= f.input :size %>
-  <%= f.submit %>
-<% end %>
+  <div class="navbar">
+    <div class="navbar-logo">
+      <%= image_tag "golf-logo.png", class: "logo-image"%>
+    </div>
+    <div class="navbar-links">
+      <a><%=link_to 'Home', home_path%></a>
+      <% if user_signed_in? %>
+        <a><%= link_to "Dashboard", user_dashboard_path %></a>
+        <a><%=link_to "Log Out", destroy_user_session_path%></a>
+      <% else %>
+        <a><%=link_to "Sign In", new_user_session_path %></a>
+        <a><%=link_to 'About', about_path%></a>
+      <% end %>
+    </div>
+  </div>
+
+<div class='booking-container'>
+  <h3>How many people in your group?</h3>
+  <div class='confirm-text'>
+    <%= simple_form_for [@tee_time, @booking] do |f| %>
+      <%= f.input :size %>
+      <%= f.button :submit, class: 'btn btn-outline-success btn-lg'  %>
+  <% end %>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://github.com/m-cwalina/ConnectGolf"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/matthew-cwalina/"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    Created with Ruby on Rails & React.js
+  </div>
+</div>

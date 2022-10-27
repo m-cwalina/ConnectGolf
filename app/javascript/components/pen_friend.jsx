@@ -1,41 +1,35 @@
 import React from "react";
-import { useLoaderData, Form, useNavigate, redirect } from "react-router-dom";
+import { useLoaderData, Form, redirect } from "react-router-dom";
 
+  //This loader fetches data from the API
   export async function loader({ params }) {
     const URL = `/api/v1/friendships/pending_friends/${params.friendId}`;
   try {
     let response = await fetch(URL);
     let friend = await response.json();
-    console.log(friend)
-    return friend;
-  } catch (error) {
-    console.error(error);
+      return friend;
+    } catch (error) {
+      console.error(error);
+    }
   }
-}
 
-export async function action({ params }) {
-  const URL = `/api/v1/friendships/${params.friendId}`;
+  //This action updates the friendship status by a 'PATCH' method to API
+  export async function action({ params }) {
+    const URL = `/api/v1/friendships/${params.friendId}`;
   try {
     await fetch(URL, {
       method: 'PATCH',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify({ status: 'accepted' })
     })
-    return redirect(`/friendships/pending_friends`);
-  } catch (error) {
-    console.error(error)
+      return redirect(`/friendships/pending_friends`);
+    } catch (error) {
+      console.error(error)
+    }
   }
-}
 
 export default function PenFriend() {
   const friend = useLoaderData();
-  const navigate = useNavigate();
-
-  const routeChange = (evt) => {
-    let path = `/friendships/pending_friends`;
-    evt.preventDefault();
-    navigate(path);
-  }
 
   return (
     <div className="friend-info">
@@ -48,7 +42,7 @@ export default function PenFriend() {
         </div>
       </div>
       <div className="accept-button">
-        <Form target="_blank" method='patch'>
+        <Form method='patch'>
           <input type="hidden" name='friend_id' value={friend.id} />
           <button type='submit' className="btn btn-outline-success btn-lg" >Accept</button>
         </Form>
