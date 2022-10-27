@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TeeTime from './teetime';
 
 export default function TeeTimes(props) {

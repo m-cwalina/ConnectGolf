@@ -41,7 +41,7 @@ export default function User() {
       <div>
         <Form method='post'>
           <input type="hidden" name='friend_id' value= {user.id} />
-            <button type="submit">Add Friend</button>
+            <button type="submit" className="btn btn-outline-success btn-lg">Add Friend</button>
         </Form>
       </div>
     </div>
