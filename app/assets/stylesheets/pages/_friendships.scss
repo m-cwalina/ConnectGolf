@@ -109,7 +109,7 @@ a {
     0 3px 6px 0 rgba(25, 32, 36, 0.16);
   border-radius: 8px;
   overflow: hidden;
-  width: 375px;
+  width: 450px;
 }
 
 .friend-tile:hover {
@@ -173,6 +173,16 @@ a {
   margin: auto;
 }
 
+.friend-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.friend-flex-container-2 {
+  margin: auto;
+}
+
 .friend-image {
   border-radius: 8px;
   margin: auto;
@@ -193,4 +203,10 @@ a {
 .friend-handicap {
   margin-top :10px;
   color: #1D1D1F;
+}
+
+.accept-button {
+  margin: auto;
+  margin-bottom: 35px;
+  margin-top: 35px;
 }

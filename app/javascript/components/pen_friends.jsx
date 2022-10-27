@@ -76,7 +76,7 @@ export default function PenFriends() {
       </div>
 
       <div className="friend-container">
-        <Outlet />
+        <Outlet friends={friends} />
       </div>
     </>
   )
