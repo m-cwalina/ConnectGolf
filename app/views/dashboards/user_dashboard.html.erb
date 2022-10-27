@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="navbar-logo">
-    <%= image_tag "golf-logo.png", class: "logo-image"%>
+    <%= image_tag "navbar-logo.png", class: "logo-image"%>
   </div>
   <div class="navbar-links">
     <a><%=link_to 'Home', home_path%></a>
@@ -13,6 +13,7 @@
     <% end %>
   </div>
 </div>
+
 <div class='title-club-container'>
   <h1 class="club-name"><%= @user.club.name %></h1>
 </div>
@@ -21,7 +22,7 @@
   <div class='news-container'>
     <h2>News Feed</h2>
     <% @user.club.posts.map do |post| %>
-      <ul><li><%= post.content %></ul></li>
+      <ul><li><h3 class="posts"><%= post.content %></h3></li></ul>
     <% end %>
   </div>
 
@@ -31,7 +32,7 @@
     <% if @tee_times.any? %>
       <% @tee_times.map do |tee_time|%>
         <div class='teetime'>
-          <ul><li><%= (tee_time.time.to_datetime + 2.hours).strftime('%a %b %-d %I:%M%p') %></ul></li>
+          <ul><li></i><%= (tee_time.time.to_datetime + 2.hours).strftime('%a %b %-d %I:%M%p') %></ul></li>
         </div>
       <% end %>
     <% else %>

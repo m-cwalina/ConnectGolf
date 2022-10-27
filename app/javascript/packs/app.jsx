@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import TeeTimes from '../components/teetimes';
 import Calendar from '../components/calendar';
 import { format, parseISO } from 'date-fns';
-
 
 
 export default function App() {

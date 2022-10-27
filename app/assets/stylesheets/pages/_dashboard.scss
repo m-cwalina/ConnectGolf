@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .news-container {
@@ -17,7 +18,8 @@
   justify-content: center;
   align-items: center;
   width: 50%;
-  border-right: 1px solid gray;
+  height: 600px;
+  overflow: auto;
 }
 
 .teetime-container {
@@ -25,6 +27,9 @@
   justify-content: center;
   align-items: center;
   width: 50%;
+  border-left: 1px solid gray;
+  height: 600px;
+  overflow: auto;
 }
 
 .title-club-container {
@@ -53,4 +58,10 @@
 
 .teetime ul {
   font-size: 19px;
+  color: #0066CC;
+}
+
+.posts {
+  font-family: 25px;
+  padding: 15px;
 }
