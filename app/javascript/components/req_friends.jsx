@@ -41,23 +41,22 @@ export default function ReqFriends() {
       <div className='navbar-search-container'>
         <div className="searchbar-container">
           <div id="searchbar">
-            <div>
-              <form id="search-form" role="search">
-                <input
-                  id="q"
-                  aria-label="Search contacts"
-                  type="search"
-                  name="q"
-                  defaultValue={q}
-                  onChange={(event) => {
-                    const isFirstSearch = q == null;
-                    submit(event.currentTarget.form, {
-                      replace: !isFirstSearch,
-                    });
-                  }}
-                />
-              </form>
-            </div>
+            <form className="d-flex" role="search">
+              <input className="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                id="q"
+                name="q"
+                defaultValue={q}
+                onChange={(event) => {
+                  const isFirstSearch = q == null;
+                  submit(event.currentTarget.form, {
+                    replace: !isFirstSearch,
+                  });
+                }}>
+              </input>
+            </form>
           </div>
         </div>
 

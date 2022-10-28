@@ -26,13 +26,15 @@
     <% end %>
   </div>
 
-
   <div class='teetime-container'>
-    <h2>Tee Times</h2>
+  <h2>Tee Times</h2>
     <% if @tee_times.any? %>
       <% @tee_times.map do |tee_time|%>
         <div class='teetime'>
-          <ul><li></i><%= (tee_time.time.to_datetime + 2.hours).strftime('%a %b %-d %I:%M%p') %></ul></li>
+          <div style="display: flex; align-items: center; justify-content: left">
+            <div style="margin-right: 10px; text-align: justify;"><i class="bi bi-check2-circle" style='font-size: 2rem; color: #1A8753;'></i></div>
+            <div style="font-size: 1.8rem; color: #0066CC;"><%= (tee_time.time.to_datetime + 2.hours).strftime('%a %b %-d %I:%M%p') %></div>
+          </div>
         </div>
       <% end %>
     <% else %>
@@ -51,4 +53,14 @@
   <%=link_to friendships_path do %>
     <button type="button" class="btn btn-outline-success btn-lg">Friends</button>
   <% end %>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://github.com/m-cwalina/ConnectGolf"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/matthew-cwalina/"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    Created by Matthew Cwalina
+  </div>
 </div>

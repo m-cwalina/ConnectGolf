@@ -45,23 +45,22 @@ export default function App2() {
       <div id="sidebar">
         <h1>Members</h1>
         <div>
-          <Form id="search-form" role="search">
-            <input
-              id="q"
-              aria-label="Search contacts"
-              placeholder="Search"
-              type="search"
-              name="q"
-              defaultValue={q}
-              /* An event that stops each key stroke not to be submitted into history */
-              onChange={(event) => {
-                const isFirstSearch = q == null;
-                submit(event.currentTarget.form, {
-                  replace: !isFirstSearch,
-                });
-              }}
+          <Form className="d-flex" role="search">
+            <input className="form-control me-2"
+                   id='q'
+                   type="search"
+                   placeholder="Search"
+                   aria-label="Search"
+                   name="q"
+                   defaultValue={q}
+                   onChange={(event) => {
+                     const isFirstSearch = q == null;
+                     submit(event.currentTarget.form, {
+                     replace: !isFirstSearch,
+                   });
+                 }}
             />
-            <div id="search-spinner" aria-hidden hidden={true}/>
+            <div id="search-spinner" aria-hidden hidden={true} />
             <div className="sr-only" aria-live="polite"></div>
           </Form>
         </div>
@@ -105,3 +104,24 @@ export default function App2() {
     </>
   );
 }
+
+/*
+<Form id="search-form" role="search">
+  <input
+    id="q"
+    aria-label="Search contacts"
+    placeholder="Search"
+    type="search"
+    name="q"
+    defaultValue={q}
+    onChange={(event) => {
+      const isFirstSearch = q == null;
+      submit(event.currentTarget.form, {
+        replace: !isFirstSearch,
+      });
+    }}
+  />
+  <div id="search-spinner" aria-hidden hidden={true} />
+  <div className="sr-only" aria-live="polite"></div>
+</Form>
+*/

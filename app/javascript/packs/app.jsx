@@ -35,7 +35,7 @@ export default function App() {
         <Calendar selected={selected} setSelected={setSelected} />
       </div>
       <div className="teetime-list">
-        <TeeTimes teetimes={searchTeeTimes} />
+        {teeTimes.length == 0 ? <div className="spinner-border" role="status"><span className="visually-hidden">Loading...</span></div> : (<TeeTimes teetimes={searchTeeTimes} />)}
       </div>
     </div>
   )
