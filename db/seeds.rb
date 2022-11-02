@@ -28,7 +28,7 @@ puts 'Creating Tee Times'
     end
   end
 
-  (DateTime.now..DateTime.now + 365.days).each do |date|
+  (DateTime.now..DateTime.now + 125.days).each do |date|
     opening_time = date.change(hour: 7).to_time
     closing_time = date.change(hour: 18).to_time
     time_iterate(opening_time, closing_time, 900) do |time|
