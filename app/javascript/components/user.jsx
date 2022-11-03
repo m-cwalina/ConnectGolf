@@ -1,12 +1,11 @@
-import React, {useState} from "react";
-import { Form, useLoaderData } from "react-router-dom";
+import React from "react";
+import { Form, useLoaderData, redirect } from "react-router-dom";
 
 export async function loader({ params }) {
   const URL = `/api/v1/users/${params.userId}`;
   try {
     let response = await fetch(URL);
     let users = await response.json();
-    console.log(users)
     return users;
   } catch (error) {
     console.error(error);
@@ -21,6 +20,7 @@ export async function action({params}) {
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'},
       body: JSON.stringify({friend_id: params.userId})
     })
+    return redirect(`/users`);
   } catch (error) {
     console.error(error)
   }
