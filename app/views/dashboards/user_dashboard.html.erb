@@ -23,7 +23,7 @@
   <div class='news-container'>
     <h2>News Feed</h2>
     <% @user.club.posts.map do |post| %>
-      <ul><li><h3 class="posts"><%= post.content %></h3></li></ul>
+      <ul class='bullet-posts'><li><h3 class="posts"><%= post.content %></h3></li></ul>
     <% end %>
   </div>
 

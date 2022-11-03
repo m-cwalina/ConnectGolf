@@ -58,11 +58,19 @@
   border-radius: 8px;
   backdrop-filter: blur(15px);
   box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
-    0 3px 6px 0 rgba(25, 32, 36, 0.16);
+  0 3px 6px 0 rgba(25, 32, 36, 0.16);
 }
 
 .posts {
   font-size: 33px;
   padding: 25px;
   text-align: justify;
+}
+
+.bullet-posts {
+  background-color: #FFFFFF;
+  margin: 25px;
+  border-radius: 8px;
+  box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
+  0 3px 6px 0 rgba(25, 32, 36, 0.16);
 }

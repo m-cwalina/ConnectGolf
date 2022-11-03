@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData, Form, redirect } from "react-router-dom";
+import { MdSportsGolf, MdMoving } from "react-icons/md";
 
   //This loader fetches data from the API
   export async function loader({ params }) {
@@ -37,8 +38,8 @@ export default function PenFriend() {
       <div className="friend-flex-container">
         <img className='friend-image' src={friend.friend.picture} />
         <div className="friend-flex-container-2">
-          <h2 className="friend-age">Age: {friend.friend.age}</h2>
-          <h2 className="friend-handicap">Handicap: {friend.friend.handicap}</h2>
+          <h2 className="friend-age"><MdMoving /> {friend.friend.age}</h2>
+          <h2 className="friend-handicap"><MdSportsGolf /> {friend.friend.handicap}</h2>
         </div>
       </div>
       <div className="accept-button">

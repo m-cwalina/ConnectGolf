@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import { MdSportsGolf, MdMoving } from "react-icons/md";
 
 export async function loader({ params }) {
   const URL = `/api/v1/friendships/requested_friends/${params.friendId}`;
@@ -18,10 +19,10 @@ export default function ReqFriend() {
 
   return (
     <div className="friend-info">
-      <h1 className="friend-name">{friend.friend.name}</h1>
+      <h1 className="friend-name"> {friend.friend.name}</h1>
       <img className='friend-image' src={friend.friend.picture} />
-      <h2 className="friend-age">Age: {friend.friend.age}</h2>
-      <h2 className="friend-handicap">Handicap: {friend.friend.handicap}</h2>
+      <h2 className="friend-age"><MdMoving /> {friend.friend.age}</h2>
+      <h2 className="friend-handicap"><MdSportsGolf /> {friend.friend.handicap}</h2>
     </div>
   )
 }

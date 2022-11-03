@@ -1,5 +1,7 @@
 import React from "react";
 import { Form, useLoaderData, redirect } from "react-router-dom";
+import { MdSportsGolf, MdAccountBox, MdMoving } from "react-icons/md";
+
 
 export async function loader({ params }) {
   const URL = `/api/v1/users/${params.userId}`;
@@ -35,9 +37,9 @@ export default function User() {
       <img key={user.picture} src={user.picture || null} />
     </div>
     <div>
-      <h1>Name: {user.name}</h1>
-      <h1>Age: {user.age}</h1>
-      <h1>Handicap: {user.handicap}</h1>
+        <h1><MdAccountBox /> {user.name}</h1>
+        <h1><MdMoving /> {user.age}</h1>
+        <h1><MdSportsGolf /> {user.handicap}</h1>
       <div>
         <Form method='post'>
           <input type="hidden" name='friend_id' value= {user.id} />
