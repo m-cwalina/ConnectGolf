@@ -38,8 +38,8 @@ export default function PenFriend() {
       <div className="friend-flex-container">
         <img className='friend-image' src={friend.friend.picture} />
         <div className="friend-flex-container-2">
-          <h2 className="friend-age"><MdMoving /> {friend.friend.age}</h2>
-          <h2 className="friend-handicap"><MdSportsGolf /> {friend.friend.handicap}</h2>
+          <h2 className="friend-age"><MdMoving style={{ color: "#0066CC" }} /> {friend.friend.age}</h2>
+          <h2 className="friend-handicap"><MdSportsGolf style={{ color: "#0066CC" }} /> {friend.friend.handicap}</h2>
         </div>
       </div>
       <div className="accept-button">

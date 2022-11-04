@@ -37,9 +37,9 @@ export default function User() {
       <img key={user.picture} src={user.picture || null} />
     </div>
     <div>
-        <h1><MdAccountBox /> {user.name}</h1>
-        <h1><MdMoving /> {user.age}</h1>
-        <h1><MdSportsGolf /> {user.handicap}</h1>
+        <h1><MdAccountBox style={{color: "#0066CC", margin: '6px'}} /> {user.name}</h1>
+        <h1><MdMoving style={{ color: "#0066CC", margin: '6px' }} /> {user.age}</h1>
+        <h1><MdSportsGolf style={{ color: "#0066CC", margin: '6px' }} /> {user.handicap}</h1>
       <div>
         <Form method='post'>
           <input type="hidden" name='friend_id' value= {user.id} />

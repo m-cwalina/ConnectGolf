@@ -21,8 +21,8 @@ export default function ReqFriend() {
     <div className="friend-info">
       <h1 className="friend-name"> {friend.friend.name}</h1>
       <img className='friend-image' src={friend.friend.picture} />
-      <h2 className="friend-age"><MdMoving /> {friend.friend.age}</h2>
-      <h2 className="friend-handicap"><MdSportsGolf /> {friend.friend.handicap}</h2>
+      <h2 className="friend-age"><MdMoving style={{ color: "#0066CC"}} /> {friend.friend.age}</h2>
+      <h2 className="friend-handicap"><MdSportsGolf style={{ color: "#0066CC" }} /> {friend.friend.handicap}</h2>
     </div>
   )
 }
