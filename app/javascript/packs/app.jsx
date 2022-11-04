@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import TeeTimes from '../components/teetimes';
 import Calendar from '../components/calendar';
 import { format, parseISO } from 'date-fns';
+import NoTeeTime from '../components/no_teetime'
 
 
 export default function App() {

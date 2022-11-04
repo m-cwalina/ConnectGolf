@@ -7,21 +7,22 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/users/:id', to: 'users#index'
 
-  # All routes for friendships
+  # All routes for friendships to work with react_router
   get '/friendships/friends', to: 'friendships#index'
   get '/friendships/friends/:id', to: 'friendships#index'
   get '/friendships/pending_friends', to: 'friendships#index'
   get '/friendships/pending_friends/:id', to: 'friendships#index'
-  get '/friendships/pending_friends/:id', to: 'friendships#index'
   get '/friendships/requested_friends', to: 'friendships#index'
   get '/friendships/requested_friends/:id', to: 'friendships#index'
 
+  # Normal routes for rails app
   resources :users, only: %i[index]
-  resources :friendships, only: %i[create index update show delete]
+  resources :friendships, only: %i[create index update]
   resources :tee_times, only: %i[index show] do
     resources :bookings, only: %i[new create]
   end
 
+  # Routes for my API
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :tee_times, only: %i[index]
