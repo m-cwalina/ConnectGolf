@@ -1,0 +1,27 @@
+.sign-in-page-container {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #F7F7F7;
+  height: 800px;
+}
+
+.sign-in-container {
+  position: relative;
+  display: grid;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-in-image {
+  height: 180px;
+  width: 180px;
+}
+
+.sign-in-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

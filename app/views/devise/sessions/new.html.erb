@@ -1,61 +1,26 @@
-<div class="navbar">
-  <div class="navbar-logo">
-    <%= image_tag "navbar-logo.png", class: "logo-image"%>
+<div class='sign-in-page-container'>
+  <div class="sign-in-container">
+  <div class="sign-in-logo-container">
+    <%= image_tag "navbar-logo.png", class: "sign-in-image"%>
   </div>
-  <div class="navbar-links">
-    <%=link_to home_path do %>
-      <i class="bi bi-house" style="color: #0066CC; font-size: 2rem"></i>
+  <div>
+     <h3 style="font-weight:400; margin-top: 0px;"> Please Sign In</h3>
+  </div>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email, placeholder: 'email: 1@gmail.com',
+                    label: false,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password, placeholder: 'password: password',
+                    label: false,
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit,  "Log in", class: "w-100 btn btn-outline-success btn-lg" %>
+      </div>
     <% end %>
-    <% if user_signed_in? %>
-      <%= link_to user_dashboard_path do %>
-        <i class="bi bi-speedometer2" style="color: #0066CC; font-size: 2rem"></i>
-      <% end %>
-      <%=link_to destroy_user_session_path do %>
-        <i class="bi bi-door-closed" style="color: #0066CC; font-size: 2rem"></i>
-      <% end %>
-    <% else %>
-      <%=link_to new_user_session_path do %>
-        <i class="bi bi-box-arrow-in-right" style="color: #0066CC; font-size: 2rem"></i>
-      <% end %>
-      <%=link_to about_path do %>
-        <i class="bi bi-file-person" style="color: #0066CC; font-size: 2rem"></i>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
-<h2>Log in</h2>
-<h2>To Demo use</h2>
-<h2>Email: 1@gmail.com</h2>
-<h2>Password: password</h2>
-
-<div class="booking-container">
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-</div>
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="https://github.com/m-cwalina/ConnectGolf"><i class="fab fa-github" style="color: #0066CC; font-size: 2rem"></i></a>
-    <a href="https://www.linkedin.com/in/matthew-cwalina/"><i class="fab fa-linkedin" style="color: #0066CC; font-size: 2rem"></i></a>
-  </div>
-  <div class="footer-copyright">
-    Created with Ruby on Rails & React.js
   </div>
 </div>
