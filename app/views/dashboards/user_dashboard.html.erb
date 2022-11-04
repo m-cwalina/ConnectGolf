@@ -3,13 +3,23 @@
     <%= image_tag "navbar-logo.png", class: "logo-image"%>
   </div>
   <div class="navbar-links">
-    <a><%=link_to 'Home', home_path%></a>
+    <%=link_to home_path do %>
+      <i class="bi bi-house" style="color: #0066CC; font-size: 2rem"></i>
+    <% end %>
     <% if user_signed_in? %>
-      <a><%= link_to "Dashboard", user_dashboard_path %></a>
-      <a><%=link_to "Log Out", destroy_user_session_path%></a>
+      <%= link_to user_dashboard_path do %>
+        <i class="bi bi-speedometer2" style="color: #0066CC; font-size: 2rem"></i>
+      <% end %>
+      <%=link_to destroy_user_session_path do %>
+        <i class="bi bi-door-closed" style="color: #0066CC; font-size: 2rem"></i>
+      <% end %>
     <% else %>
-      <a><%=link_to "Sign In", new_user_session_path %></a>
-      <a><%=link_to 'About', about_path%></a>
+      <%=link_to new_user_session_path do %>
+        <i class="bi bi-box-arrow-in-right" style="color: #0066CC; font-size: 2rem"></i>
+      <% end %>
+      <%=link_to about_path do %>
+        <i class="bi bi-file-person" style="color: #0066CC; font-size: 2rem"></i>
+      <% end %>
     <% end %>
   </div>
 </div>
@@ -17,6 +27,18 @@
 <div class='title-club-container'>
   <h1 class="club-name"><%= @user.club.name %></h1>
   <div><%= image_tag "SACC-logo.png"%></div>
+</div>
+
+<div class='button-container'>
+  <%=link_to tee_times_path do %>
+    <button type="button" class="btn btn-outline-success btn-lg">Tee Times</button>
+  <% end %>
+  <%=link_to users_path do %>
+    <button type="button" class="btn btn-outline-success btn-lg">Members</button>
+  <% end %>
+  <%=link_to friendships_path do %>
+    <button type="button" class="btn btn-outline-success btn-lg">Friends</button>
+  <% end %>
 </div>
 
 <div class='flex-container'>
@@ -44,22 +66,11 @@
   </div>
 </div>
 
-<div class='button-container'>
-  <%=link_to tee_times_path do %>
-    <button type="button" class="btn btn-outline-success btn-lg">Tee Times</button>
-  <% end %>
-  <%=link_to users_path do %>
-    <button type="button" class="btn btn-outline-success btn-lg">Members</button>
-  <% end %>
-  <%=link_to friendships_path do %>
-    <button type="button" class="btn btn-outline-success btn-lg">Friends</button>
-  <% end %>
-</div>
 
 <div class="footer">
   <div class="footer-links">
-    <a href="https://github.com/m-cwalina/ConnectGolf"><i class="fab fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/matthew-cwalina/"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/m-cwalina/ConnectGolf"><i class="fab fa-github" style="color: #0066CC; font-size: 2rem"></i></a>
+    <a href="https://www.linkedin.com/in/matthew-cwalina/"><i class="fab fa-linkedin" style="color: #0066CC; font-size: 2rem"></i></a>
   </div>
   <div class="footer-copyright">
     Created by Matthew Cwalina

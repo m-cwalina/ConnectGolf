@@ -1,18 +1,29 @@
-  <div class="navbar">
-    <div class="navbar-logo">
-      <%= image_tag "navbar-logo.png", class: "logo-image"%>
-    </div>
-    <div class="navbar-links">
-      <a><%=link_to 'Home', home_path%></a>
-      <% if user_signed_in? %>
-        <a><%= link_to "Dashboard", user_dashboard_path %></a>
-        <a><%=link_to "Log Out", destroy_user_session_path%></a>
-      <% else %>
-        <a><%=link_to "Demo", new_user_session_path %></a>
-        <a><%=link_to 'About', about_path%></a>
-      <% end %>
-    </div>
+<div class="navbar">
+  <div class="navbar-logo">
+    <%= image_tag "navbar-logo.png", class: "logo-image"%>
   </div>
+  <div class="navbar-links">
+    <%=link_to home_path do %>
+      <i class="bi bi-house" style="color: #0066CC; font-size: 2rem"></i>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to user_dashboard_path do %>
+        <i class="bi bi-speedometer2" style="color: #0066CC; font-size: 2rem"></i>
+      <% end %>
+      <%=link_to destroy_user_session_path do %>
+        <i class="bi bi-door-closed" style="color: #0066CC; font-size: 2rem"></i>
+      <% end %>
+    <% else %>
+      <%=link_to new_user_session_path do %>
+        <i class="bi bi-box-arrow-in-right" style="color: #0066CC; font-size: 2rem"></i>
+      <% end %>
+      <%=link_to about_path do %>
+        <i class="bi bi-file-person" style="color: #0066CC; font-size: 2rem"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 <div id='root'>
   <%= javascript_pack_tag 'index2' %>
 </div>
