@@ -5,6 +5,6 @@ class DashboardsController < ApplicationController
   end
 
   def admin_dashboard
-    
+    @bookings = Booking.all
   end
 end
