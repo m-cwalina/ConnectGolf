@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get '/friendships/requested_friends', to: 'friendships#index'
   get '/friendships/requested_friends/:id', to: 'friendships#index'
 
+  #Routes for dashboard analytics
+  get '/dashboard/bookings', to: 'dashboards#index'
+
   # Normal routes for rails app
   resources :users, only: %i[index]
   resources :friendships, only: %i[create index update]
@@ -35,6 +38,9 @@ Rails.application.routes.draw do
         get 'pending_friends/:id', on: :collection, action: :pending_friend_show
         get 'requested_friends', on: :collection, as: :requested_friends
         get 'requested_friends/:id', on: :collection, action: :requested_friend_show
+      end
+      resources :dashboards do
+        get 'bookings', on: :collection, as: :bookings
       end
     end
   end
