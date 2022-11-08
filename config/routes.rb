@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
-    get '/user' => 'dashboards#user_dashboard', as: :user_dashboard
+    get '/user' => 'pages#user_dashboard', as: :user_dashboard
   end
   root to: 'pages#home', as: :home
   get '/about', to: 'pages#about'
