@@ -1,11 +1,5 @@
-json.booking do
-  json.id @booking.id
-  json.time @booking.tee_time.time
-end
-
 json.array! @bookings do |booking|
-  json.extract! booking, :id, :time, :players, :start_time
-    json.teetime do
-      json.time
-    end
+  json.extract! booking, :tee_time_id, :id, :size
+    json.time booking.tee_time.time
+    json.id booking.id
 end
