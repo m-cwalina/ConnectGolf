@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import Image from 'images/navbar-logo.png'
+import { IoPeople, IoPersonAddOutline, IoPersonAddSharp } from "react-icons/io5";
 
 export default function App3() {
   return(
@@ -10,9 +11,18 @@ export default function App3() {
           <img className="logo" src={Image}></img>
         </div>
         <nav className="nav-links">
-          <p className="nav-link"><Link to={`friends`}>Friends</Link></p>
-          <p className="nav-link"><Link to={`pending_friends`}>Friend Requests</Link></p>
-          <p className="nav-link"><Link to={`requested_friends`}>Sent Requests</Link></p>
+          <div className='nav-flex'>
+            <div className="navbar-icon"><IoPeople /></div>
+            <p className="nav-link"><Link to={`friends`}>Friends</Link></p>
+          </div>
+          <div className='nav-flex'>
+            <div className="navbar-icon"><IoPersonAddOutline /></div>
+            <p className="nav-link"><Link to={`pending_friends`}>Requests</Link></p>
+          </div>
+          <div className='nav-flex'>
+            <div className="navbar-icon"><IoPersonAddSharp /></div>
+            <p className="nav-link"><Link to={`requested_friends`}>Sent</Link></p>
+          </div>
         </nav>
       </div>
       <div className='detail'>

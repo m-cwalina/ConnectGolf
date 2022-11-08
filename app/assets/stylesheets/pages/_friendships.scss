@@ -22,9 +22,16 @@
 }
 
 .nav-link {
-  padding: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
   font-size: 22px;
   color: black;
+}
+
+.nav-flex {
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 #navigation > div {
@@ -47,6 +54,13 @@
   position: relative;
   padding: 7px;
   border: 1px solid black;
+}
+
+.navbar-icon {
+  margin: auto;
+  color: #467FD6;
+  font-size: 25px;
+  font-weight: 900;
 }
 
 //CSS for Searchbar

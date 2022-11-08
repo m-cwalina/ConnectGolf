@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   root to: 'pages#home', as: :home
   get '/about', to: 'pages#about'
-  get '/dashboard', to: 'dashboards#admin_dashboard'
+  get '/dashboard', to: 'dashboards#index'
   get '/users/:id', to: 'users#index'
 
   # All routes for friendships to work with react_router
