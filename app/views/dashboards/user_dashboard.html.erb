@@ -61,7 +61,7 @@
         <div class='teetime'>
           <div style="display: flex; align-items: center; justify-content: left">
             <div style="margin-right: 10px; text-align: justify;"><i class="bi bi-check2-circle" style='font-size: 2rem; color: #1A8753;'></i></div>
-            <div style="font-size: 1.8rem; color: #0066CC;"><%= (tee_time.time.to_datetime + 2.hours).strftime('%a %b %-d %I:%M%p') %></div>
+            <div style="font-size: 1.8rem; color: #0066CC;"><%= (tee_time.time.to_datetime + 1.hours).strftime('%a %b %-d %I:%M%p') %></div>
           </div>
         </div>
       <% end %>
@@ -70,7 +70,6 @@
     <% end %>
   </div>
 </div>
-
 
 <div class="footer">
   <div class="footer-links">
