@@ -30,20 +30,8 @@ export default function Bookings() {
     }
   }
 
-  const Api2 = async () => {
-    const URL = `/api/v1/dashboards/teetimes`;
-    try {
-      let response = await fetch(URL);
-      let data = await response.json();
-      return setTeeTimes(data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
   useEffect(() => {
     Api()
-    Api2()
   }, []);
 
 
