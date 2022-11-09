@@ -41,7 +41,7 @@ Rails.application.routes.draw do
       end
       resources :dashboards do
         get 'bookings', on: :collection, as: :bookings
-        get 'teetimes', on: :collection, as: :teetimes
+        get 'daily_teetimes', on: :collection, as: :daily_teetimes
       end
     end
   end

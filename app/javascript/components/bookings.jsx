@@ -16,11 +16,9 @@ import { Line } from 'react-chartjs-2';
 
 export default function Bookings() {
   const [bookings, setBooking] = React.useState([]);
-  const [teetimes, setTeeTimes] = React.useState([]);
-
 
   const Api = async () => {
-    const URL = `/api/v1/dashboards/bookings`;
+    const URL = `/api/v1/dashboards/daily_teetimes`;
     try {
       let response = await fetch(URL);
       let data = await response.json();
@@ -59,7 +57,18 @@ export default function Bookings() {
         text: 'Chart.js Line Chart',
       },
     },
-  };
+    scales: {
+      y: {
+        type: 'time',
+        min: new Date('2022-11-01').valueOf(),
+        max: new Date('2019-11-31').valueOf()
+      },
+      x: {
+          min: 2022 / 11 / 01,
+          max: 2022 / 11 / 31
+      }
+    }
+  }
 
   const data = {
     labels: bookings.map(booking => format(parseISO(booking.time), 'PP')),
@@ -67,7 +76,7 @@ export default function Bookings() {
       {
         fill: true,
         label: 'Dataset 2',
-        data: bookings.map(booking => booking.id),
+        data: bookings.map(booking => booking.count),
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
