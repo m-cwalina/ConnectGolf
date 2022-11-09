@@ -1,0 +1,24 @@
+.total-container {
+  width: 100%;
+  display: flex;
+}
+
+.sidebar {
+  width: 15rem;
+  background-color: #f7f7f7;
+  border-right: solid 1px #e3e3e3;
+}
+
+.sidebar-links {
+  margin: auto;
+  padding: 25px;
+  width: 100%;
+}
+
+.sidebar-link {
+  margin: 25px;
+}
+
+.booking-details {
+  width: 85rem;
+}

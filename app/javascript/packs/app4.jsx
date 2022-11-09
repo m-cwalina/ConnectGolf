@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import Image from 'images/navbar-logo.png'
-import { IoGolf, IoPeopleSharp, IoReaderOutline } from "react-icons/io5";
+import { IoGolfOutline, IoPeopleOutline, IoReaderOutline } from "react-icons/io5";
 
 export default function App3() {
   return (
@@ -12,11 +12,11 @@ export default function App3() {
         </div>
         <nav className="nav-links">
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoGolf /></div>
+            <div className="navbar-icon"><IoGolfOutline /></div>
             <p className="nav-link"><Link to={`friends`}>TeeTime</Link></p>
           </div>
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoPeopleSharp /></div>
+            <div className="navbar-icon"><IoPeopleOutline /></div>
             <p className="nav-link"><Link to={`pending_friends`}>Members</Link></p>
           </div>
           <div className='nav-flex'>

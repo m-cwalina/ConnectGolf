@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import ErrorPage from "../components/error_page";
 import BlankPage from "../components/blankpage";
 import Bookings from '../components/bookings';
+import DailyBookings from '../components/daily_bookings';
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import "stylesheets/pages/_members.scss";
 import App4 from './app4'
@@ -17,6 +18,13 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/bookings",
         element: <Bookings />,
+        children: [
+          { index: true, element: <BlankPage /> },
+          {
+            path: "/dashboard/bookings/daily_bookings",
+            element: <DailyBookings/>,
+          }
+        ]
       },
     ],
   },

@@ -5,20 +5,25 @@
   <div class="navbar-links">
     <%=link_to home_path do %>
       <i class="bi bi-house" style="color: #0066CC; font-size: 2rem"></i>
+      <p>Home</p>
     <% end %>
     <% if user_signed_in? %>
       <%= link_to user_dashboard_path do %>
         <i class="bi bi-speedometer2" style="color: #0066CC; font-size: 2rem"></i>
+        <p>Dashboard</p>
       <% end %>
       <%=link_to destroy_user_session_path do %>
         <i class="bi bi-door-closed" style="color: #0066CC; font-size: 2rem"></i>
+        <p>Logout</p>
       <% end %>
     <% else %>
       <%=link_to new_user_session_path do %>
         <i class="bi bi-box-arrow-in-right" style="color: #0066CC; font-size: 2rem"></i>
+        <p>Sign In</p>
       <% end %>
       <%=link_to about_path do %>
         <i class="bi bi-file-person" style="color: #0066CC; font-size: 2rem"></i>
+        <p>About</p>
       <% end %>
     <% end %>
   </div>

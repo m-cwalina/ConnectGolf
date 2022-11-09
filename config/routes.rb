@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   get '/friendships/requested_friends', to: 'friendships#index'
   get '/friendships/requested_friends/:id', to: 'friendships#index'
 
-  #Routes for dashboard analytics
+  # All Routes for dashboard analytics to work with react_router
   get '/dashboard/bookings', to: 'dashboards#index'
+  get '/dashboard/bookings/daily_bookings', to: 'dashboards#index'
 
   # Normal routes for rails app
   resources :users, only: %i[index]
@@ -41,7 +42,7 @@ Rails.application.routes.draw do
       end
       resources :dashboards do
         get 'bookings', on: :collection, as: :bookings
-        get 'daily_teetimes', on: :collection, as: :daily_teetimes
+        get 'daily_bookings', on: :collection, as: :daily_bookings
       end
     end
   end
