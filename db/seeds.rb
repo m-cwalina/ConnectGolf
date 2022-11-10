@@ -16,7 +16,7 @@ Post.create!([
   ])
 
 puts 'Creating all Users'
-  users = (1..200).map do |num|
+  (1..200).map do |num|
     User.create!([{email: (num.to_i).to_s + '@gmail.com', picture: Faker::Avatar.image, name: Faker::Name.name, password: 'password', age: rand(15..90), handicap: rand(0..28), club_id: santa_ana.id}])
   end
 
@@ -28,7 +28,7 @@ puts 'Creating Tee Times'
     end
   end
 
-  teetimes = (DateTime.now..DateTime.now + 100.days).each do |date|
+  (DateTime.now..DateTime.now + 100.days).each do |date|
     opening_time = date.change(hour: 7).to_time
     closing_time = date.change(hour: 18).to_time
     time_iterate(opening_time, closing_time, 900) do |time|

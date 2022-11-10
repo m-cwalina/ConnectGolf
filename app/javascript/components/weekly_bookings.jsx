@@ -1,6 +1,6 @@
 import React from 'react';
 import { format, parseISO } from 'date-fns';
-import {useLoaderData} from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -16,7 +16,7 @@ import { Line } from 'react-chartjs-2';
 
 
 export async function loader() {
-  const URL = `/api/v1/dashboards/daily`;;
+  const URL = `/api/v1/dashboards/weekly`;;
   try {
     let response = await fetch(URL);
     let bookings = await response.json();
@@ -26,8 +26,8 @@ export async function loader() {
   }
 }
 
-export default function DailyBookings() {
-const bookings = useLoaderData();
+export default function WeeklyBookings() {
+  const bookings = useLoaderData();
 
   ChartJS.register(
     CategoryScale,
@@ -48,23 +48,23 @@ const bookings = useLoaderData();
       },
       title: {
         display: true,
-        text: 'Daily Bookings',
+        text: 'Weekly Bookings',
       },
     },
     scales: {
       y: {
         min: 0,
-        max: 50
+        max: 200
       }
     }
   }
 
   const data = {
-    labels: bookings.map(booking => format(parseISO(booking.day), 'PP')),
+    labels: bookings.map(booking => format(parseISO(booking.week), 'PP')),
     datasets: [
       {
         fill: true,
-        label: 'Per Day',
+        label: 'Per Week',
         data: bookings.map(booking => booking.count),
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',

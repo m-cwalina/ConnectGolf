@@ -50,7 +50,7 @@ export default function MonthlyBookings() {
     scales: {
       y: {
         min: 0,
-        max: 200
+        max: 500
       }
     }
   }
@@ -60,7 +60,7 @@ export default function MonthlyBookings() {
     datasets: [
       {
         fill: true,
-        label: 'Dataset 2',
+        label: 'Per Month',
         data: bookings.map(booking => booking.count),
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },

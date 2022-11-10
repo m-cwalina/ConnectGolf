@@ -1,6 +1,6 @@
 import React from 'react';
 import {Outlet, NavLink} from "react-router-dom";
-import { IoAnalyticsOutline, IoCellularOutline, IoOptionsOutline, IoCalendarOutline } from "react-icons/io5";
+import { IoAnalyticsOutline, IoCellularOutline, IoOptionsOutline, IoCalendarOutline, IoChevronBackCircleOutline } from "react-icons/io5";
 
 
 export default function Bookings() {
@@ -10,6 +10,12 @@ export default function Bookings() {
         <div className='sidebar-links'>
           <div className='sidebar-link'>
             <div className='nav-flex'>
+              <div className="navbar-icon"><IoChevronBackCircleOutline /></div>
+              <div><NavLink to={`hourly`}>Hourly</NavLink></div>
+            </div>
+          </div>
+          <div className='sidebar-link'>
+            <div className='nav-flex'>
               <div className="navbar-icon"><IoAnalyticsOutline /></div>
               <div><NavLink to={`daily`}>Daily</NavLink></div>
             </div>
@@ -17,7 +23,7 @@ export default function Bookings() {
           <div className='sidebar-link'>
             <div className='nav-flex'>
               <div className="navbar-icon"><IoCellularOutline /></div>
-              <div><NavLink to={`daily_bookings`}>Weekly</NavLink></div>
+              <div><NavLink to={`weekly`}>Weekly</NavLink></div>
             </div>
           </div>
           <div className='sidebar-link'>
@@ -29,7 +35,7 @@ export default function Bookings() {
           <div className='sidebar-link'>
             <div className='nav-flex'>
               <div className="navbar-icon"><IoCalendarOutline /></div>
-              <div><NavLink to={`daily_bookings`}>Yearly</NavLink></div>
+              <div><NavLink to={`yearly`}>Yearly</NavLink></div>
             </div>
           </div>
         </div>
