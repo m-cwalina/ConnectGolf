@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { format, parseISO } from 'date-fns';
+import {useLoaderData} from "react-router-dom";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -14,23 +15,19 @@ import {
 import { Line } from 'react-chartjs-2';
 
 
-export default function DailyBookings() {
-  const [bookings, setBooking] = React.useState([]);
-
-  const Api = async () => {
-    const URL = `/api/v1/dashboards/daily_bookings`;
-    try {
-      let response = await fetch(URL);
-      let data = await response.json();
-        return setBooking(data);
-    } catch (error) {
-        console.error(error);
-    }
+export async function loader() {
+  const URL = `/api/v1/dashboards/daily`;;
+  try {
+    let response = await fetch(URL);
+    let bookings = await response.json();
+    return bookings;
+  } catch (error) {
+    console.error(error);
   }
+}
 
-  useEffect(() => {
-    Api()
-  }, []);
+export default function DailyBookings() {
+const bookings = useLoaderData();
 
 
   ChartJS.register(

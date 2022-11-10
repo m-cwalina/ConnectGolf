@@ -18,7 +18,8 @@ Rails.application.routes.draw do
 
   # All Routes for dashboard analytics to work with react_router
   get '/dashboard/bookings', to: 'dashboards#index'
-  get '/dashboard/bookings/daily_bookings', to: 'dashboards#index'
+  get '/dashboard/bookings/daily', to: 'dashboards#index'
+  get '/dashboard/bookings/monthly', to: 'dashboards#index'
 
   # Normal routes for rails app
   resources :users, only: %i[index]
@@ -43,6 +44,7 @@ Rails.application.routes.draw do
       resources :dashboards do
         get 'bookings', on: :collection, as: :bookings
         get 'daily', on: :collection, as: :daily
+        get 'monthly', on: :collection, as: :monthly
       end
     end
   end

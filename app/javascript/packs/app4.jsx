@@ -18,11 +18,11 @@ export default function App3() {
           </div>
           <div className='nav-flex'>
             <div className="navbar-icon"><IoGolfOutline /></div>
-            <p className="nav-link"><Link to={`friends`}>TeeTime</Link></p>
+            <p className="nav-link"><Link to={`teesheet`}>TeeSheet</Link></p>
           </div>
           <div className='nav-flex'>
             <div className="navbar-icon"><IoPeopleOutline /></div>
-            <p className="nav-link"><Link to={`pending_friends`}>Members</Link></p>
+            <p className="nav-link"><Link to={`members`}>Members</Link></p>
           </div>
           <div className='nav-flex'>
             <div className="navbar-icon"><IoReaderOutline /></div>
