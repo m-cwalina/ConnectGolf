@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <BlankPage /> },
           {
-            path: "/dashboard/bookings/daily_bookings",
+            path: "/dashboard/bookings/daily",
             element: <DailyBookings/>,
           }
         ]

@@ -1,7 +1,8 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import Image from 'images/navbar-logo.png'
-import { IoGolfOutline, IoPeopleOutline, IoReaderOutline } from "react-icons/io5";
+import { IoGolfOutline, IoPeopleOutline, IoReaderOutline, IoHomeOutline } from "react-icons/io5";
+import { BsHouse } from "react-icons/bs";
 
 export default function App3() {
   return (
@@ -11,6 +12,10 @@ export default function App3() {
           <img className="logo" src={Image}></img>
         </div>
         <nav className="nav-links">
+          <div className='nav-flex'>
+            <div className="navbar-icon"><BsHouse /></div>
+            <p className="nav-link"><a href={'/user'}>Home</a></p>
+          </div>
           <div className='nav-flex'>
             <div className="navbar-icon"><IoGolfOutline /></div>
             <p className="nav-link"><Link to={`friends`}>TeeTime</Link></p>

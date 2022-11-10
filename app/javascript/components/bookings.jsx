@@ -11,7 +11,7 @@ export default function Bookings() {
           <div className='sidebar-link'>
             <div className='nav-flex'>
               <div className="navbar-icon"><IoAnalyticsOutline /></div>
-              <div><NavLink to={`daily_bookings`}>Daily</NavLink></div>
+              <div><NavLink to={`daily`}>Daily</NavLink></div>
             </div>
           </div>
           <div className='sidebar-link'>

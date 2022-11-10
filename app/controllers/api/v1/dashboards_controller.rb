@@ -4,7 +4,7 @@ class Api::V1::DashboardsController < ApplicationController
   @bookings = Booking.all
   end
 
-  def daily_bookings
+  def daily
     # This provides the amount of bookings per day
     @teetimes = TeeTime.joins(:bookings).group('time::date').count
   end
