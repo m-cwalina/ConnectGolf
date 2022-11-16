@@ -37,8 +37,12 @@ Rails.application.routes.draw do
   # Routes for my API
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :tee_times, only: %i[index]
+      resources :tee_times, only: %i[index] do
+        get 'teesheet', on: :collection, as: :teesheet
+      end
+
       resources :users, only: %i[index show]
+
       resources :friendships do
         get 'friends', on: :collection, as: :friends
         get 'friends/:id', on: :collection, action: :friend_show
@@ -47,6 +51,7 @@ Rails.application.routes.draw do
         get 'requested_friends', on: :collection, as: :requested_friends
         get 'requested_friends/:id', on: :collection, action: :requested_friend_show
       end
+
       resources :dashboards do
         get 'bookings', on: :collection, as: :bookings
         get 'hourly', on: :collection, as: :hourly
@@ -55,6 +60,7 @@ Rails.application.routes.draw do
         get 'monthly', on: :collection, as: :monthly
         get 'yearly', on: :collection, as: :yearly
       end
+
     end
   end
 end
