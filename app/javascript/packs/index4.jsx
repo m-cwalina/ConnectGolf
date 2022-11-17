@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import ErrorPage from "../components/error_page";
-import BlankPage from "../components/blankpage";
-import Bookings from '../components/bookings';
-import ComingSoon from '../components/coming_soon';
-import DailyBookings, {loader as dailyBookingsLoader } from '../components/daily_bookings';
-import HourlyBookings, { loader as hourlyBookingsLoader } from '../components/hourly_bookings';
-import WeeklyBookings, { loader as weeklyBookingsLoader } from '../components/weekly_bookings';
-import MonthlyBookings, { loader as monthlyBookingsLoader } from '../components/monthly_bookings';
-import YearlyBookings, { loader as yearlyBookingsLoader } from '../components/yearly_bookings';
+import ErrorPage from "../components/errors-blanks/error_page";
+import BlankPage from "../components/errors-blanks/blankpage";
+import Bookings from '../components/bookings/bookings';
+import ComingSoon from '../components/errors-blanks/coming_soon';
+import DailyBookings, {loader as dailyBookingsLoader } from '../components/bookings/daily_bookings';
+import HourlyBookings, { loader as hourlyBookingsLoader } from '../components/bookings/hourly_bookings';
+import WeeklyBookings, { loader as weeklyBookingsLoader } from '../components/bookings/weekly_bookings';
+import MonthlyBookings, { loader as monthlyBookingsLoader } from '../components/bookings/monthly_bookings';
+import YearlyBookings, { loader as yearlyBookingsLoader } from '../components/bookings/yearly_bookings';
+import TeeSheet, {loader as teeSheetLoader} from '../components/teesheet/teesheet';
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import App4 from './app4'
 
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard/teesheet',
-        element: <ComingSoon />
+        element: <TeeSheet />,
+        loader: teeSheetLoader
       },
       { index: true, element: <BlankPage /> },
       {

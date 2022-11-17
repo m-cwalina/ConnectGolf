@@ -30,7 +30,7 @@ export default function App3() {
           </div>
         </nav>
       </div>
-      <div className='detail'>
+      <div className='dashboard-detail'>
         <Outlet />
       </div>
     </>

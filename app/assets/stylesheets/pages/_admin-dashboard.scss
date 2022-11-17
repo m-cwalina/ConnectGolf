@@ -1,3 +1,5 @@
+//Tee Times on Dashboard
+
 .total-container {
   width: 100%;
   display: flex;
@@ -29,4 +31,27 @@
   justify-content: center;
   align-items: center;
   margin: auto;
+}
+
+//TeeSheet on Dashboard
+
+.teesheet-container {
+  width: 100%;
+}
+
+.teesheet {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: left;
+  border: solid;
+  border-radius: 8px;
+}
+
+.teesheet-info {
+  margin-right: 200px;
+}
+
+.teesheet-icon {
+  margin-right: 10px;
 }

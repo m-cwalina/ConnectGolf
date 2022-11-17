@@ -4,13 +4,13 @@ import ReactDOM from "react-dom/client";
 import ErrorPage from "../components/error_page";
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import App3 from './app3'
-import BlankPage from "../components/blankpage";
-import Friend, { loader as friendLoader } from '../components/friend';
-import Friends, { loader as friendsLoader } from "../components/friends";
-import ReqFriends, { loader as requestedFriendsLoader } from "../components/req_friends";
-import ReqFriend, { loader as reqFriendLoader } from '../components/req_friend';
-import PenFriends, { loader as pendingFriendsLoader } from "../components/pen_friends";
-import PenFriend, { loader as penFriendLoader, action as penFriendAction } from '../components/pen_friend';
+import BlankPage from "../components/errors-blanks/blankpage";
+import Friend, { loader as friendLoader } from '../components/friends/friend';
+import Friends, { loader as friendsLoader } from "../components/friends/friends";
+import ReqFriends, { loader as requestedFriendsLoader } from "../components/friends/req_friends";
+import ReqFriend, { loader as reqFriendLoader } from '../components/friends/req_friend';
+import PenFriends, { loader as pendingFriendsLoader } from "../components/friends/pen_friends";
+import PenFriend, { loader as penFriendLoader, action as penFriendAction } from '../components/friends/pen_friend';
 
 const router = createBrowserRouter([
   {

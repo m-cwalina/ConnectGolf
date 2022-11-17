@@ -1,6 +1,7 @@
 import React from 'react';
 import { format, parseISO } from 'date-fns';
 import { IoAlarm, IoFlagOutline, IoGolf } from "react-icons/io5";
+
 export default function TeeTime(props) {
   return (
     <div>

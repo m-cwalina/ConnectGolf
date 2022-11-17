@@ -1,6 +1,6 @@
 import React from 'react';
 import TeeTime from './teetime';
-import NoTeeTime from '../components/no_teetime'
+import NoTeeTime from '../errors-blanks/no_teetime'
 
 export default function TeeTimes(props) {
 
