@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   # Routes for my API
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :tee_times, only: %i[index] do
+      resources :tee_times, only: %i[index update] do
         get 'teesheet', on: :collection, as: :teesheet
       end
 

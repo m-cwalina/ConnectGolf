@@ -9,7 +9,7 @@ import HourlyBookings, { loader as hourlyBookingsLoader } from '../components/bo
 import WeeklyBookings, { loader as weeklyBookingsLoader } from '../components/bookings/weekly_bookings';
 import MonthlyBookings, { loader as monthlyBookingsLoader } from '../components/bookings/monthly_bookings';
 import YearlyBookings, { loader as yearlyBookingsLoader } from '../components/bookings/yearly_bookings';
-import TeeSheet, {loader as teeSheetLoader} from '../components/teesheet/teesheet';
+import TeeSheet, {loader as teeSheetLoader, action as teeSheetAction} from '../components/teesheet/teesheet';
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import App4 from './app4'
 
@@ -26,7 +26,8 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/teesheet',
         element: <TeeSheet />,
-        loader: teeSheetLoader
+        loader: teeSheetLoader,
+        action: teeSheetAction
       },
       { index: true, element: <BlankPage /> },
       {

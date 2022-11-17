@@ -8,4 +8,11 @@ class Api::V1::TeeTimesController < ApplicationController
   def teesheet
     @teetimes = TeeTime.between(Date.today, Date.today + 7.days).order(:created_at)
   end
+
+  def update
+    @teetime = TeeTime.find(params[:id])
+    @teetime.check_in = true
+    @teetime.update
+  end
+
 end
