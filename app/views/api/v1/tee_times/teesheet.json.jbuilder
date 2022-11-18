@@ -1,5 +1,5 @@
 json.array! @teetimes do |teetime|
-  json.extract! teetime, :id, :time
+  json.extract! teetime, :id, :time, :check_in
   json.players teetime.bookings do |booking|
     json.size booking.size
   end

@@ -35,8 +35,8 @@ export default function CheckInPopUp() {
   return (
     <div className="checkin-popup">
       <div className='checkin-popup-time'>
-        <div><IoTimerOutline /></div>
-        <div>{format(parseISO(teetime.time), 'h:mm a')}</div>
+        <div className='teesheet-icon'><IoTimerOutline /></div>
+        <div className='teesheet-info'>{format(parseISO(teetime.time), 'h:mm a')}</div>
       </div>
       <div>
         <Form method='post'>

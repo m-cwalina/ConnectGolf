@@ -47,15 +47,38 @@
   border: 1px solid gray;
   border-radius: 8px;
   background-color: #F7F7F7;
-  justify-content: space-around;
+  max-height: 75px;
+}
+
+.teesheet-time-total {
+  display: flex;
+  width: 25%;
+}
+
+.teesheet-player-total {
+  display: flex;
+  width: 25%;
+}
+
+.teesheet-user-total {
+  display: flex;
+  width: 25%;
+}
+
+.teesheet-button-total {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+
+.teesheet-icon {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: #0066CC;
 }
 
 .teesheet-info {
-  margin-right: 150px;
-}
-
-.teesheet-total {
-  display: flex;
+  font-size: 1.5rem;
 }
 
 .checkin-popup-container {
@@ -63,15 +86,25 @@
   position: fixed;
   top: 50%;
   left: 50%;
+  right: 50%;
   margin-top: -50px;
   margin-left: -50px;
+  width: 300px;
+  height: 300px;
   z-index: 100;
-  border-radius: 8px;
   text-align: center;
   justify-content: center;
   align-items: center;
-
 }
+
+.date-picker {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+//Checkin PopUp
 
 .checkin-popup {
   display: grid;
@@ -80,6 +113,7 @@
   border: solid;
   width: 300px;
   height: 300px;
+  border-radius: 8px;
 }
 
 .checkin-popup-time {
@@ -87,4 +121,9 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+}
+
+.teesheet-checkmark {
+  font-size: 3rem;
+  color: #1A8753;
 }
