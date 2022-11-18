@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/dashboard/bookings/yearly', to: 'dashboards#index'
 
   get '/dashboard/teesheet', to: 'dashboards#index'
+  get '/dashboard/teesheet/:id', to: 'dashboards#index'
   get '/dashboard/members', to: 'dashboards#index'
 
   # Normal routes for rails app
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :tee_times, only: %i[index update] do
         get 'teesheet', on: :collection, as: :teesheet
+        get 'teesheet/:id', on: :collection, action: :teesheet_show
       end
 
       resources :users, only: %i[index show]

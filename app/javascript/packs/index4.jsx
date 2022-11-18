@@ -4,12 +4,13 @@ import ErrorPage from "../components/errors-blanks/error_page";
 import BlankPage from "../components/errors-blanks/blankpage";
 import Bookings from '../components/bookings/bookings';
 import ComingSoon from '../components/errors-blanks/coming_soon';
+import CheckInPopUp, {loader as popUpLoader, action as popUpAction} from '../components/teesheet/checkin_popup';
 import DailyBookings, {loader as dailyBookingsLoader } from '../components/bookings/daily_bookings';
 import HourlyBookings, { loader as hourlyBookingsLoader } from '../components/bookings/hourly_bookings';
 import WeeklyBookings, { loader as weeklyBookingsLoader } from '../components/bookings/weekly_bookings';
 import MonthlyBookings, { loader as monthlyBookingsLoader } from '../components/bookings/monthly_bookings';
 import YearlyBookings, { loader as yearlyBookingsLoader } from '../components/bookings/yearly_bookings';
-import TeeSheet, {loader as teeSheetLoader, action as teeSheetAction} from '../components/teesheet/teesheet';
+import TeeSheet, {loader as teeSheetLoader} from '../components/teesheet/teesheet';
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import App4 from './app4'
 
@@ -27,7 +28,14 @@ const router = createBrowserRouter([
         path: '/dashboard/teesheet',
         element: <TeeSheet />,
         loader: teeSheetLoader,
-        action: teeSheetAction
+        children: [
+          {
+          path: '/dashboard/teesheet/:teetimeId',
+          element: <CheckInPopUp />,
+          loader: popUpLoader,
+          action: popUpAction,
+          }
+        ]
       },
       { index: true, element: <BlankPage /> },
       {
