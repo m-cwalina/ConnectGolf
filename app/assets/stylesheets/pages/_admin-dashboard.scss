@@ -85,21 +85,7 @@
   font-size: 1.5rem;
 }
 
-.checkin-popup-container {
-  display: flex;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  right: 50%;
-  margin-top: -50px;
-  margin-left: -50px;
-  width: 300px;
-  height: 300px;
-  z-index: 100;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .date-picker {
   display: flex;
@@ -110,14 +96,28 @@
 
 //Checkin PopUp
 
+.checkin-popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+
 .checkin-popup {
   display: grid;
   align-items: center;
   background-color: #F7F7F7;
-  border: solid;
+  border: 1px solid gray;
   width: 300px;
   height: 300px;
   border-radius: 8px;
+  justify-content: center;
+  box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
+    0 3px 6px 0 rgba(25, 32, 36, 0.16);
 }
 
 .checkin-popup-time {
@@ -130,4 +130,9 @@
 .teesheet-checkmark {
   font-size: 3rem;
   color: #1A8753;
+}
+
+.checkin-popup-button {
+  display: flex;
+  justify-content: center;
 }

@@ -1,10 +1,12 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigation } from "react-router-dom";
 import Image from 'images/navbar-logo.png'
 import { IoGolfOutline, IoPeopleOutline, IoReaderOutline, IoHomeOutline } from "react-icons/io5";
 import { BsHouse } from "react-icons/bs";
 
 export default function App3() {
+  const navigation = useNavigation();
+
   return (
     <>
       <div id="navigation">
@@ -30,7 +32,7 @@ export default function App3() {
           </div>
         </nav>
       </div>
-      <div className='dashboard-detail'>
+      <div className={navigation.state === "loading" ? "loading" : ""}>
         <Outlet />
       </div>
     </>

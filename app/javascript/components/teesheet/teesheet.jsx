@@ -34,7 +34,7 @@ export default function TeeSheet() {
           </div>
           <div className='teesheet-player-total'>
             <div className='teesheet-icon'><IoPeopleOutline /></div>
-            <div className='teesheet-info'> {(teetime.players.length > 0) ? (teetime.players.map(player => player.size)) : ("0")} players</div>
+            <div className='teesheet-info'> {teetime.players} players</div>
           </div>
           <div className='teesheet-user-total'>
             <div className='teesheet-icon'><IoPersonOutline /></div>

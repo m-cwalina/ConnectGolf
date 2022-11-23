@@ -38,13 +38,13 @@ export default function CheckInPopUp() {
         <div className='teesheet-icon'><IoTimerOutline /></div>
         <div className='teesheet-info'>{format(parseISO(teetime.time), 'h:mm a')}</div>
       </div>
-      <div>
+      <div className='checkin-popup-button'>
         <Form method='post'>
           <input type="hidden" name='friend_id' value={teetime.id} />
           <button type="submit" className="btn btn-outline-success btn-lg">Confirm</button>
         </Form>
       </div>
-      <div>
+      <div className='checkin-popup-button'>
         <button className="btn btn-outline-danger btn-lg" onClick={() => navigate(-1)}>Cancel</button>
       </div>
     </div>
