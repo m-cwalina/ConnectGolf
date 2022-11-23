@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   get '/dashboard/teesheet', to: 'dashboards#index'
   get '/dashboard/teesheet/:id', to: 'dashboards#index'
-  get '/dashboard/teesheet/:id/bookings/admin', to: 'dasboards#index'
+  get '/dashboard/teesheet/:id/bookings/admin', to: 'dashboards#index'
   get '/dashboard/members', to: 'dashboards#index'
 
   # Normal routes for rails app
