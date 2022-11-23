@@ -19,7 +19,7 @@ class Api::V1::TeeTimesController < ApplicationController
     @teetime.save
   end
 
-  def add_member_to_teetime
+  def admin_booking
     @teetime = TeeTime.find(params[:id])
     @user = User.find(params[:user_id])
     @booking.tee_time = @teetime

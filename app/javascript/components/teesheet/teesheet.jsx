@@ -41,9 +41,13 @@ export default function TeeSheet() {
             <div className='teesheet-info'> {(teetime.users.length > 0) ? (teetime.users.map(user => user.name)) : ("No Players")}</div>
           </div>
           <div className='teesheet-button-total'>
-            {teetime.check_in == true
-              ? <div className='teesheet-checkmark'><IoCheckmarkCircleOutline /></div>
-              : <div className='teesheet-info'><Link to={`${teetime.id}`} className="btn btn-outline-primary btn-lg">Check In</Link></div>
+            {teetime.players == 0 ? (
+              <div className='teesheet-info'><Link to={`${teetime.id}/bookings/admin`} className="btn btn-outline-danger btn-lg custom-size">Add Player</Link></div>
+              ) : teetime.check_in == true ? (
+                <div className='teesheet-checkmark'><IoCheckmarkCircleOutline /></div>
+              ) : (
+                <div className='teesheet-info'><Link to={`${teetime.id}`} className="btn btn-outline-primary btn-lg custom-size">Check In</Link></div>
+              )
             }
           </div>
         </ul>

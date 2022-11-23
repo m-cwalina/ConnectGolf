@@ -4,6 +4,7 @@ import ErrorPage from "../components/errors-blanks/error_page";
 import BlankPage from "../components/errors-blanks/blankpage";
 import Bookings from '../components/bookings/bookings';
 import ComingSoon from '../components/errors-blanks/coming_soon';
+import AdminBooking from '../components/teesheet/admin_booking';
 import CheckInPopUp, {loader as popUpLoader, action as popUpAction} from '../components/teesheet/checkin_popup';
 import DailyBookings, {loader as dailyBookingsLoader } from '../components/bookings/daily_bookings';
 import HourlyBookings, { loader as hourlyBookingsLoader } from '../components/bookings/hourly_bookings';
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
           element: <CheckInPopUp />,
           loader: popUpLoader,
           action: popUpAction,
+          },
+          {
+          path: '/dashboard/teesheet/:teetimeId/bookings/admin',
+          element: <AdminBooking />,
           }
         ]
       },
