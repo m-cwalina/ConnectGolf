@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Calendar from '../teetimes/calendar';
 import { format, parseISO } from 'date-fns';
 import { useLoaderData, Link, Outlet } from "react-router-dom";
@@ -17,16 +17,15 @@ export async function loader() {
 }
 
 export default function TeeSheet() {
-  // const teetimes = useLoaderData();
   const teetimes = useLoaderData();
   const [selected, setSelected] = React.useState(Date.now());
 
-  const searchTeeTimes = Object.values(teetimes).filter(
+  const searchTimes = teetimes.filter(
     teetime => format(parseISO(teetime.time), 'MM/dd/yyyy').includes(format(selected, 'MM/dd/yyyy'))
   )
 
   const renderList = () => {
-    return searchTeeTimes.map((teetime) => {
+    return searchTimes.map((teetime) => {
       return (
         <ul className='teesheet' key={teetime.id}>
           <div className='teesheet-time-total'>

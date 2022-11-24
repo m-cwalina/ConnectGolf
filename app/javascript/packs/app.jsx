@@ -17,7 +17,6 @@ export default function App() {
     try {
       let response = await fetch(URL);
       let data = await response.json();
-      console.log(data);
       setTeeTimes(data);
     } catch (error) {
       console.error(error);
