@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get '/dashboard/teesheet/:id/bookings/admin', to: 'dashboards#index'
   get '/dashboard/members', to: 'dashboards#index'
 
+  get '/tee_times/:id/bookings', to: 'tee_times#index'
+
   # Normal routes for rails app
   resources :users, only: %i[index]
   resources :friendships, only: %i[create index update]
@@ -39,7 +41,8 @@ Rails.application.routes.draw do
   # Routes for my API
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :tee_times, only: %i[index update] do
+      resources :tee_times, only: %i[index update show] do
+        resources :bookings, only: %i[new create]
         get 'teesheet', on: :collection, as: :teesheet
         get 'teesheet/:id', on: :collection, action: :teesheet_show
         post 'teesheet/:id/bookings/admin', on: :collection, action: :admin_booking

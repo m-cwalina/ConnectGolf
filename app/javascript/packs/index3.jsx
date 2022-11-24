@@ -1,7 +1,7 @@
 // external modules
 import React from 'react';
 import ReactDOM from "react-dom/client";
-import ErrorPage from "../components/error_page";
+import ErrorPage from "../components/errors-blanks/error_page";
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import App3 from './app3'
 import BlankPage from "../components/errors-blanks/blankpage";

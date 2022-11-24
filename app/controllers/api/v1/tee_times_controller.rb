@@ -5,6 +5,11 @@ class Api::V1::TeeTimesController < ApplicationController
     @tee_times = TeeTime.available_teetime.between(DateTime.now, Date.today + 14.days).order(:created_at)
   end
 
+  def show
+    @teetime = TeeTime.find(params[:id])
+    render json: @teetime
+  end
+
   def teesheet
     @teetimes = TeeTime.between(Date.today, Date.today + 7.days).order(:created_at)
   end
