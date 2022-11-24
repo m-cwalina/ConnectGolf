@@ -6,7 +6,7 @@ import { IoTimerOutline, IoPeopleOutline, IoPersonOutline, IoCheckmarkCircleOutl
 
 
 export async function loader() {
-  const URL = `/api/v1/tee_times/teesheet`;
+  const URL = "/api/v1/tee_times/teesheet";
   try {
     let response = await fetch(URL);
     let teetimes = await response.json();
