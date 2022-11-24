@@ -5,7 +5,7 @@ import { useLoaderData, Link, Outlet } from "react-router-dom";
 import { IoTimerOutline, IoPeopleOutline, IoPersonOutline, IoCheckmarkCircleOutline } from "react-icons/io5";
 
 
-/* export async function loader() {
+export async function loader() {
   const URL = "/api/v1/tee_times/teesheet";
   try {
     let response = await fetch(URL);
@@ -15,32 +15,15 @@ import { IoTimerOutline, IoPeopleOutline, IoPersonOutline, IoCheckmarkCircleOutl
     console.error(error);
   }
 }
-*/
 
 export default function TeeSheet() {
   // const teetimes = useLoaderData();
-  const [teeTimes, setTeeTimes] = React.useState([])
+  const teetimes = useLoaderData();
   const [selected, setSelected] = React.useState(Date.now());
 
-  const Api = async () => {
-    const URL = "/api/v1/tee_times/teesheet";
-    try {
-      let response = await fetch(URL);
-      let data = await response.json();
-      console.log(data);
-      setTeeTimes(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const searchTeeTimes = teeTimes.filter(
+  const searchTeeTimes = Object.values(teetimes).filter(
     teetime => format(parseISO(teetime.time), 'MM/dd/yyyy').includes(format(selected, 'MM/dd/yyyy'))
   )
-
-  useEffect(() => {
-    Api();
-  }, []);
 
   const renderList = () => {
     return searchTeeTimes.map((teetime) => {
