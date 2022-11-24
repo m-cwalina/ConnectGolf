@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Calendar from '../teetimes/calendar';
 import { format, parseISO } from 'date-fns';
 import { useLoaderData, Link, Outlet } from "react-router-dom";
 import { IoTimerOutline, IoPeopleOutline, IoPersonOutline, IoCheckmarkCircleOutline } from "react-icons/io5";
 
 
-export async function loader() {
+/* export async function loader() {
   const URL = "/api/v1/tee_times/teesheet";
   try {
     let response = await fetch(URL);
@@ -15,14 +15,32 @@ export async function loader() {
     console.error(error);
   }
 }
+*/
 
 export default function TeeSheet() {
-  const teetimes = useLoaderData();
+  // const teetimes = useLoaderData();
+  const [teeTimes, setTeeTimes] = React.useState([])
   const [selected, setSelected] = React.useState(Date.now());
 
-  const searchTeeTimes = Object.values(teetimes).filter(
+  const Api = async () => {
+    const URL = "/api/v1/tee_times/teesheet";
+    try {
+      let response = await fetch(URL);
+      let data = await response.json();
+      console.log(data);
+      setTeeTimes(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const searchTeeTimes = Object.values(teeTimes).filter(
     teetime => format(parseISO(teetime.time), 'MM/dd/yyyy').includes(format(selected, 'MM/dd/yyyy'))
   )
+
+  useEffect(() => {
+    Api();
+  }, []);
 
   const renderList = () => {
     return searchTeeTimes.map((teetime) => {
@@ -38,7 +56,7 @@ export default function TeeSheet() {
           </div>
           <div className='teesheet-user-total'>
             <div className='teesheet-icon'><IoPersonOutline /></div>
-            <div className='teesheet-info'>  { /* (teetime.users.length > 0) ? (teetime.users.map(user => <ul><li>{user.name}</li></ul>)) : */(<ul><li>No Players</li></ul>)}</div>
+            <div className='teesheet-info'>  {(teetime.users.length > 0) ? (teetime.users.map(user => <ul><li>{user.name}</li></ul>)) : (<ul><li>No Players</li></ul>)}</div>
           </div>
           <div className='teesheet-button-total'>
             {teetime.players == 0 ? (
