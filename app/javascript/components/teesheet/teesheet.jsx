@@ -34,7 +34,7 @@ export default function TeeSheet() {
     }
   };
 
-  const searchTeeTimes = Object.values(teeTimes).filter(
+  const searchTeeTimes = teeTimes.filter(
     teetime => format(parseISO(teetime.time), 'MM/dd/yyyy').includes(format(selected, 'MM/dd/yyyy'))
   )
 
