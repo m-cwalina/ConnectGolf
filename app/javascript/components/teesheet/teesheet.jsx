@@ -20,7 +20,7 @@ export default function TeeSheet() {
   const teetimes = useLoaderData();
   const [selected, setSelected] = React.useState(Date.now());
 
-  const searchTeeTimes = teetimes.filter(
+  const searchTeeTimes = Object.values(teetimes).filter(
     teetime => format(parseISO(teetime.time), 'MM/dd/yyyy').includes(format(selected, 'MM/dd/yyyy'))
   )
 
