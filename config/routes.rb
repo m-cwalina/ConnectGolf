@@ -42,7 +42,7 @@ Rails.application.routes.draw do
       resources :tee_times, only: %i[index update] do
         get 'teesheet', on: :collection, as: :teesheet
         get 'teesheet/:id', on: :collection, action: :teesheet_show
-        get 'teesheet/:id/bookings/admin', on: :collection, action: :admin_booking
+        post 'teesheet/:id/bookings/admin', on: :collection, action: :admin_booking
       end
 
       resources :users, only: %i[index show]
@@ -64,7 +64,6 @@ Rails.application.routes.draw do
         get 'monthly', on: :collection, as: :monthly
         get 'yearly', on: :collection, as: :yearly
       end
-
     end
   end
 end
