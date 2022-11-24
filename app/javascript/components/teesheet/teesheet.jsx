@@ -38,7 +38,7 @@ export default function TeeSheet() {
           </div>
           <div className='teesheet-user-total'>
             <div className='teesheet-icon'><IoPersonOutline /></div>
-            <div className='teesheet-info'> {(teetime.users.length > 0) ? (teetime.users.map(user => user.name)) : ("No Players")}</div>
+            <div className='teesheet-info'> {(teetime.users.length > 0) ? (teetime.users.map(user => <ul><li>{user.name}</li></ul>)) : (<ul><li>No Players</li></ul>)}</div>
           </div>
           <div className='teesheet-button-total'>
             {teetime.players == 0 ? (

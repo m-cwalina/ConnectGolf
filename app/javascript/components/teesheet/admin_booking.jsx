@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {Form, useLoaderData, redirect} from "react-router-dom";
+import {Form, useLoaderData, redirect, useNavigate} from "react-router-dom";
 import Select from 'react-select'
 
 export async function loader({ params }) {
@@ -34,6 +34,7 @@ export async function action({ request, params }) {
 export default function AdminBooking() {
   const teetime = useLoaderData()
   const [users, setUsers] = React.useState([])
+  const navigate = useNavigate();
 
   const Api = async () => {
     const URL = "/api/v1/users";
@@ -51,21 +52,35 @@ export default function AdminBooking() {
   }, []);
 
   return (
-    <div>
-      <Form method="post">
-        <Select
-          options={users}
-          getOptionLabel={(user) => user.name}
-          getOptionValue={(user) => user.id}
-          name="user_id"
-          value={users.id}
-          className="basic-multi-select"
-          classNamePrefix="select"
-        />
-        <input type="hidden" name='tee_time_id' value={teetime.id} />
-        <input placeholder="How many people?" type="text" name="size" />
-        <button type="submit">submit</button>
-      </Form>
+    <div className='admin-booking-popup'>
+      <div className='admin-booking-form'>
+        <Form method="post">
+          <div className='select-input container'>
+            <label for="user_id" style={{ margin: '8px' }}>Select a member</label>
+            <Select
+              label="Find a member"
+              options={users}
+              getOptionLabel={(user) => user.name}
+              getOptionValue={(user) => user.id}
+              name="user_id"
+              value={users.id}
+              className="basic-single"
+              classNamePrefix="select"
+            />
+          </div>
+          <div className='size-input-container'>
+            <input type="hidden" name='tee_time_id' value={teetime.id} />
+            <label for="size" style={{margin: '8px'}}>How many people in the group?</label>
+            <input className='size-input' placeholder="1-5" type="number" name="size" />
+          </div>
+          <div className='admin-booking-button'>
+            <button type="submit" className="btn btn-outline-success btn-lg custom-size">Confirm</button>
+          </div>
+        </Form>
+      </div>
+      <div className='admin-booking-button'>
+        <button className="btn btn-outline-danger btn-lg custom-size" onClick={() => navigate(-1)}>Cancel</button>
+      </div>
     </div>
   );
 }

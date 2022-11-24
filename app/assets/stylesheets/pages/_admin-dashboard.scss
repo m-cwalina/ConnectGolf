@@ -67,6 +67,7 @@
 .teesheet-user-total {
   display: flex;
   width: 25%;
+  align-items: center;
 }
 
 .teesheet-button-total {
@@ -138,4 +139,47 @@
 .checkin-popup-button {
   display: flex;
   justify-content: center;
+}
+
+//Admin Booking Popup
+
+.admin-booking-popup {
+  display: grid;
+  align-items: center;
+  background-color: #F7F7F7;
+  border: 1px solid gray;
+  width: 300px;
+  height: 400px;
+  border-radius: 8px;
+  justify-content: center;
+  box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
+    0 3px 6px 0 rgba(25, 32, 36, 0.16);
+}
+
+.admin-booking-button {
+  display: flex;
+  justify-content: center;
+}
+
+.select-input-container {
+  margin-bottom: 30px;
+}
+
+.select-input {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.size-input-container {
+  margin-bottom: 30px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.size-input {
+  width: auto;
+  height: auto;
+  margin: auto;
+  text-align: center;
 }
