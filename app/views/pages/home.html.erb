@@ -5,11 +5,11 @@
   <% end %>
   </div>
   <div class="navbar-links">
-    <%=link_to user_dashboard_path do %>
-      <i class="bi bi-house" style="color: #0066CC; font-size: 2rem"></i>
-      <p>Home</p>
-    <% end %>
     <% if user_signed_in? %>
+      <%=link_to user_dashboard_path do %>
+        <i class="bi bi-house" style="color: #0066CC; font-size: 2rem"></i>
+        <p>Home</p>
+      <% end %>
       <%= link_to dashboard_path do %>
         <i class="bi bi-speedometer2" style="color: #0066CC; font-size: 2rem"></i>
         <p>Dashboard</p>

@@ -4,12 +4,24 @@
     <%= image_tag "navbar-logo.png", class: "logo-image"%>
   <% end %>
   </div>
-  <div class="navbar-links">
-    <%=link_to user_dashboard_path do %>
-      <i class="bi bi-house" style="color: #0066CC; font-size: 2rem"></i>
-      <p>Home</p>
-    <% end %>
+    <div class="navbar-links">
     <% if user_signed_in? %>
+      <%=link_to user_dashboard_path do %>
+        <i class="bi bi-house" style="color: #0066CC; font-size: 2rem"></i>
+        <p>Home</p>
+      <% end %>
+      <%=link_to tee_times_path do %>
+        <i class="bi bi-calendar4-week" style="color: #0066CC; font-size: 2rem"></i>
+        <p>TeeTimes</p>
+      <% end %>
+      <%=link_to users_path do %>
+        <i class="bi bi-people" style="color: #0066CC; font-size: 2rem"></i>
+        <p>Members</p>
+      <% end %>
+      <%=link_to friendships_path do %>
+        <i class="bi bi-person-check" style="color: #0066CC; font-size: 2rem"></i>
+        <p>Friends</p>
+      <% end %>
       <%= link_to dashboard_path do %>
         <i class="bi bi-speedometer2" style="color: #0066CC; font-size: 2rem"></i>
         <p>Dashboard</p>
@@ -34,18 +46,6 @@
 <div class='title-club-container'>
   <h1 class="club-name"><%= @user.club.name %></h1>
   <div><%= image_tag "SACC-logo.png"%></div>
-</div>
-
-<div class='button-container'>
-  <%=link_to tee_times_path do %>
-    <button type="button" class="btn btn-outline-success btn-lg">Tee Times</button>
-  <% end %>
-  <%=link_to users_path do %>
-    <button type="button" class="btn btn-outline-success btn-lg">Members</button>
-  <% end %>
-  <%=link_to friendships_path do %>
-    <button type="button" class="btn btn-outline-success btn-lg">Friends</button>
-  <% end %>
 </div>
 
 <div class='flex-container'>
