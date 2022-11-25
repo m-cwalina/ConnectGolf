@@ -42,11 +42,14 @@ export default function TeeSheet() {
           </div>
           <div className='teesheet-button-total'>
             {teetime.players == 0 ? (
-              <div className='teesheet-info'><Link to={`${teetime.id}/bookings/admin`} className="btn btn-outline-danger btn-lg custom-size">Add Player</Link></div>
+              <div className='teesheet-info'><Link to={`${teetime.id}/bookings/admin`} className="btn btn-outline-dark btn-lg custom-size">Add Player</Link></div>
               ) : teetime.check_in == true ? (
-                <div className='teesheet-checkmark'><IoCheckmarkCircleOutline /></div>
+                 <div className='teesheet-checkmark'><IoCheckmarkCircleOutline /></div>
               ) : (
-                <div className='teesheet-info'><Link to={`${teetime.id}`} className="btn btn-outline-primary btn-lg custom-size">Check In</Link></div>
+                <div className='checkin-cancel-buttons'>
+                 <div className='checkin-button'><Link to={`${teetime.id}`} className="btn btn-outline-primary btn-lg custom-size">Check In</Link></div>
+                 <div className='cancel-button'><Link to={`${teetime.id}`} className="btn btn-outline-danger btn-lg custom-size">Cancel</Link></div>
+                </div>
               )
             }
           </div>

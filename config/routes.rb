@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :tee_times, only: %i[index update show] do
-        resources :bookings, only: %i[new create]
+        resources :bookings, only: %i[new create destroy]
         get 'teesheet', on: :collection, as: :teesheet
         get 'teesheet/:id', on: :collection, action: :teesheet_show
         post 'teesheet/:id/bookings/admin', on: :collection, action: :admin_booking

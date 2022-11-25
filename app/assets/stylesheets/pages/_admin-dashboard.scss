@@ -49,6 +49,7 @@
   background-color: #F7F7F7;
   margin-left: 10px;
   margin-right:  10px;
+  min-height: 125px;
   box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
     0 3px 6px 0 rgba(25, 32, 36, 0.16);
 }
@@ -95,6 +96,20 @@
   justify-content: center;
   margin-bottom: 50px;
   margin-top: 50px;
+}
+
+.checkin-cancel-buttons {
+  display: grid;
+}
+
+.checkin-button {
+  font-size: 1.5rem;
+  margin-bottom: 3px;
+}
+
+.cancel-button {
+  font-size: 1.5rem;
+  margin-top: 3px;
 }
 
 //Checkin PopUp

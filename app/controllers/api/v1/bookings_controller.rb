@@ -3,12 +3,17 @@ class Api::V1::BookingsController < ApplicationController
   before_action :set_tee_time, only: %i[new create change_amount_of_players]
   after_action :change_amount_of_players, only: %i[create]
 
-  #This action will be moved into a service object when application becomes larger
+  # This action will be moved into a service object when application becomes larger
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.tee_time = @tee_time
     @booking.save
+  end
+
+  def destroy
+    @booking = Booking.where(tee_time_id: params[:id])
+    @booking.destroy
   end
 
   private
