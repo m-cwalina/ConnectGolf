@@ -10,7 +10,7 @@ export async function loader() {
   try {
     let response = await fetch(URL);
     let teetimes = await response.json();
-    return teetimes;
+    return console.log(teetimes);
   } catch (error) {
     console.error(error);
   }
@@ -20,7 +20,7 @@ export default function TeeSheet() {
   const teetimes = useLoaderData();
   const [selected, setSelected] = React.useState(Date.now());
 
-  const searchTimes = teetimes.filter(
+  const searchTimes = Object.values(teetimes).filter(
     teetime => format(parseISO(teetime.time), 'MM/dd/yyyy').includes(format(selected, 'MM/dd/yyyy'))
   )
 
