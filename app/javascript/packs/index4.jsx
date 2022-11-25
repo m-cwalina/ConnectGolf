@@ -5,6 +5,7 @@ import BlankPage from "../components/errors-blanks/blankpage";
 import Bookings from '../components/bookings/bookings';
 import ComingSoon from '../components/errors-blanks/coming_soon';
 import AdminBooking, {loader as adminBookingLoader, action as adminBookingAction} from '../components/teesheet/admin_booking';
+import AdminBookingDelete, { loader as adminBookingDeleteLoader, action as adminBookingDeleteAction } from '../components/teesheet/admin_delete_booking';
 import CheckInPopUp, {loader as popUpLoader, action as popUpAction} from '../components/teesheet/checkin_popup';
 import DailyBookings, {loader as dailyBookingsLoader } from '../components/bookings/daily_bookings';
 import HourlyBookings, { loader as hourlyBookingsLoader } from '../components/bookings/hourly_bookings';
@@ -35,6 +36,12 @@ const router = createBrowserRouter([
           element: <CheckInPopUp />,
           loader: popUpLoader,
           action: popUpAction,
+          },
+          {
+          path: '/dashboard/teesheet/:teetimeId/bookings/:bookingId',
+          element: <AdminBookingDelete />,
+          loader: adminBookingDeleteLoader,
+          action: adminBookingDeleteAction
           },
           {
           path: '/dashboard/teesheet/:teetimeId/bookings/admin',

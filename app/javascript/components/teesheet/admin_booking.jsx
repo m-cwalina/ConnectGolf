@@ -15,9 +15,7 @@ export async function loader({ params }) {
 
 export async function action({ request, params }) {
   const formData = await request.formData();
-  console.log(formData)
   const data = Object.fromEntries(formData);
-  console.log(data)
   const URL = `/api/v1/tee_times/teesheet/${params.teetimeId}/bookings/admin`
   try {
     await fetch(URL, {
@@ -32,9 +30,9 @@ export async function action({ request, params }) {
 }
 
 export default function AdminBooking() {
-  const teetime = useLoaderData()
-  const [users, setUsers] = React.useState([])
+  const teetime = useLoaderData();
   const navigate = useNavigate();
+  const [users, setUsers] = React.useState([]);
 
   const Api = async () => {
     const URL = "/api/v1/users";

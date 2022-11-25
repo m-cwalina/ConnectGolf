@@ -48,7 +48,7 @@ export default function TeeSheet() {
               ) : (
                 <div className='checkin-cancel-buttons'>
                  <div className='checkin-button'><Link to={`${teetime.id}`} className="btn btn-outline-primary btn-lg custom-size">Check In</Link></div>
-                 <div className='cancel-button'><Link to={`${teetime.id}`} className="btn btn-outline-danger btn-lg custom-size">Cancel</Link></div>
+                 <div className='cancel-button'><Link to={`${teetime.id}/bookings/${teetime.id}`} className="btn btn-outline-danger btn-lg custom-size">Cancel</Link></div>
                 </div>
               )
             }

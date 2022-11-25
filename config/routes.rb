@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/dashboard/teesheet/:id', to: 'dashboards#index'
   get '/dashboard/teesheet/:id/bookings/admin', to: 'dashboards#index'
   get '/dashboard/members', to: 'dashboards#index'
+  get '/dashboard/teesheet/:tee_time_id/bookings/:id', to: 'dashboards#index'
 
   get '/tee_times/:id/bookings', to: 'tee_times#index'
 
@@ -48,7 +49,9 @@ Rails.application.routes.draw do
         post 'teesheet/:id/bookings/admin', on: :collection, action: :admin_booking
       end
 
-      resources :users, only: %i[index show]
+      resources :users, only: %i[index show] do
+        resources :bookings, only: %i[destroy]
+      end
 
       resources :friendships do
         get 'friends', on: :collection, as: :friends
