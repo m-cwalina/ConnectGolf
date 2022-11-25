@@ -41,11 +41,11 @@ export default function CheckInPopUp() {
       <div className='checkin-popup-button'>
         <Form method='post'>
           <input type="hidden" name='friend_id' value={teetime.id} />
-          <button type="submit" className="btn btn-outline-success btn-lg">Confirm</button>
+          <button type="submit" className="btn btn-outline-success btn-lg custom-size">Confirm</button>
         </Form>
       </div>
       <div className='checkin-popup-button'>
-        <button className="btn btn-outline-danger btn-lg" onClick={() => navigate(-1)}>Cancel</button>
+        <button className="btn btn-outline-danger btn-lg custom-size" onClick={() => navigate(-1)}>Cancel</button>
       </div>
     </div>
   );
