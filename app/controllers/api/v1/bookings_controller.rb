@@ -12,8 +12,8 @@ class Api::V1::BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.where(tee_time_id: params[:id]).first
-    @booking.destroy
+    @booking = Booking.where(tee_time_id: params[:id], user_id: params[:user_id])
+    @booking.first.destroy
   end
 
   private
