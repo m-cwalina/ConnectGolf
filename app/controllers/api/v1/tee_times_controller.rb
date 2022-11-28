@@ -26,13 +26,15 @@ class Api::V1::TeeTimesController < ApplicationController
 
   def admin_booking
     @booking = Booking.new(booking_params)
-    @teetime = TeeTime.find(params[:tee_time_id])
-    @user = User.find(params[:user_id])
-    @booking.tee_time = @teetime
-    @booking.user = @user
+    teetime = TeeTime.find(params[:tee_time_id])
+    user = User.find(params[:user_id])
+    @booking.tee_time = teetime
+    @booking.user = user
     @booking.save
   end
 
+  private
+  
   def booking_params
     params.permit(:size)
   end
