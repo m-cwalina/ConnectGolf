@@ -1,3 +1,4 @@
+# Friendships API Controller
 class Api::V1::FriendshipsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: %i[create update]
 
@@ -30,19 +31,21 @@ class Api::V1::FriendshipsController < ApplicationController
 
   # Search for pending friends
   def pending_friends
-    @pending_friends = current_user.friendships.pending_friends
+    @pending_friendships = current_user.friendships.pending_friends
   end
 
   # Show a pending friend
   def pending_friend_show
-    @friend = Friendship.find(params[:id])
+    @pending_friendship = Friendship.find(params[:id])
   end
 
   # Update a friendship to accepted
   def update
     @friendship = Friendship.find(params[:id])
+    inverse_friendship = Friendship.find(params[:id].to_i - 1)
     @friendship.status = 'accepted'
+    inverse_friendship.status = 'accepted'
     @friendship.save
+    inverse_friendship.save
   end
-
 end

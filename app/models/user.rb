@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :pending_friends, -> { where "status = 'pending'" }, through: :friendships, source: :friend
   has_many :bookings, dependent: :destroy
   has_many :tee_times, through: :bookings
+  has_many :groups
   belongs_to :club
 end

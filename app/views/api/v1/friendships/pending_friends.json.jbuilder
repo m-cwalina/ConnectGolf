@@ -1,9 +1,10 @@
-json.array! @pending_friends do |friend|
-  json.extract! friend, :id, :status, :friend_id
+json.array! @pending_friendships do |friendship|
+  json.extract! friendship, :id, :status, :user_id, :friend_id
   json.friend do
-    json.picture friend.friend.picture
-    json.name friend.friend.name
-    json.age friend.friend.age
-    json.handicap friend.friend.handicap
+    json.picture friendship.friend.picture
+    json.name friendship.friend.name
+    json.age friendship.friend.age
+    json.handicap friendship.friend.handicap
+    json.id friendship.friend.id
   end
 end
