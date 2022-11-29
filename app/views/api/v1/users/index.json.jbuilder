@@ -4,3 +4,4 @@ json.array! @users do |user|
     json.name friend.name
   end
 end
+
