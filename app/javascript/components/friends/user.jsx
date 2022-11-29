@@ -41,10 +41,12 @@ export default function User() {
         <h1><MdMoving style={{ color: "#0066CC", margin: '6px' }} /> {user.age}</h1>
         <h1><MdSportsGolf style={{ color: "#0066CC", margin: '6px' }} /> {user.handicap}</h1>
       <div>
-        <Form method='post'>
-          <input type="hidden" name='friend_id' value= {user.id} />
+        {(user.friends.map (
+          friend => (user.name == friend.name) ? (<h1>Already Friends</h1>) : (<Form method='post'>
+            <input type="hidden" name='friend_id' value={user.id} />
             <button type="submit" className="btn btn-outline-success btn-lg">Add Friend</button>
-        </Form>
+          </Form>) ))}
+
       </div>
     </div>
   </div>

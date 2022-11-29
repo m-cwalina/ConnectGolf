@@ -39,7 +39,7 @@ class Api::V1::FriendshipsController < ApplicationController
     @pending_friendship = Friendship.find(params[:id])
   end
 
-  # Update a friendship to accepted
+  # Update a friendship to accepted. This is probably dangerous
   def update
     @friendship = Friendship.find(params[:id])
     inverse_friendship = Friendship.find(params[:id].to_i - 1)

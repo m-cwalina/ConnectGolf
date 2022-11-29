@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :tee_times, through: :bookings
   has_many :groups
   belongs_to :club
+  scope :all_except, ->(user) { where.not(id: user) }
 end

@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-    @users = User.all
+    @users = User.all_except(current_user)
   end
 
   def show
