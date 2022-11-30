@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, useLoaderData, redirect } from "react-router-dom";
 import { MdSportsGolf, MdAccountBox, MdMoving } from "react-icons/md";
+import { IoCheckmarkCircleOutline } from "react-icons/io5";
 
 
 export async function loader({ params }) {
@@ -40,16 +41,10 @@ export default function User() {
         <h1><MdAccountBox style={{color: "#0066CC", margin: '6px'}} /> {user.name}</h1>
         <h1><MdMoving style={{ color: "#0066CC", margin: '6px' }} /> {user.age}</h1>
         <h1><MdSportsGolf style={{ color: "#0066CC", margin: '6px' }} /> {user.handicap}</h1>
-      <div>
-        {(user.friends.length>0)
-            ? (user.friends.map(friend => (friend.name === user.current_user) && (<button className="btn btn-outline-success btn-lg">Friend</button>)))
-          :(<Form method='post'>
-              <input type="hidden" name='friend_id' value={user.id} />
-              <button type="submit" className="btn btn-outline-success btn-lg">Add Friend</button>
-            </Form>
-            )
-        }
-      </div>
+        {(user.friends.name.includes("Jared Kurich")) ? (<div className='friend-mark'><h1 style={{ color: "#1A8753", margin: '6px', 'align-items': 'center' }}><IoCheckmarkCircleOutline />Friend</h1></div>) : (<Form method='post'>
+          <input type="hidden" name='friend_id' value={user.id} />
+          <button type="submit" className="btn btn-outline-success btn-lg">Add Friend</button>
+        </Form>)}
     </div>
   </div>
   )
