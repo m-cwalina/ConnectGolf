@@ -8,8 +8,9 @@ export async function loader({ params }) {
   const URL = `/api/v1/users/${params.userId}`;
   try {
     let response = await fetch(URL);
-    let users = await response.json();
-    return users;
+    let user = await response.json();
+    console.log(user.current_user)
+    return user;
   } catch (error) {
     console.error(error);
   }
@@ -41,10 +42,12 @@ export default function User() {
         <h1><MdAccountBox style={{color: "#0066CC", margin: '6px'}} /> {user.name}</h1>
         <h1><MdMoving style={{ color: "#0066CC", margin: '6px' }} /> {user.age}</h1>
         <h1><MdSportsGolf style={{ color: "#0066CC", margin: '6px' }} /> {user.handicap}</h1>
-        {(user.friends.name.includes("Jared Kurich")) ? (<div className='friend-mark'><h1 style={{ color: "#1A8753", margin: '6px', 'align-items': 'center' }}><IoCheckmarkCircleOutline />Friend</h1></div>) : (<Form method='post'>
-          <input type="hidden" name='friend_id' value={user.id} />
-          <button type="submit" className="btn btn-outline-success btn-lg">Add Friend</button>
-        </Form>)}
+        {(Object.values(user.friends).includes(user.current_user))
+          ? (<div className='friend-mark'><h1 style={{ color: "#1A8753", margin: '6px', 'align-items': 'center' }}><IoCheckmarkCircleOutline />Friend</h1></div>)
+          : (<Form method='post'>
+               <input type="hidden" name='friend_id' value={user.id} />
+               <button type="submit" className="btn btn-outline-success btn-lg">Add Friend</button>
+            </Form>)}
     </div>
   </div>
   )
