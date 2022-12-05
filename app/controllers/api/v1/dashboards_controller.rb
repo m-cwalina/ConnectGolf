@@ -1,3 +1,4 @@
+# Dashboard Controller
 class Api::V1::DashboardsController < ApplicationController
   def hourly
     # This provides the amount of bookings per hour
