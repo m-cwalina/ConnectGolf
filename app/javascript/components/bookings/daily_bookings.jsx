@@ -16,7 +16,7 @@ import { Line } from 'react-chartjs-2';
 
 
 export async function loader() {
-  const URL = `/api/v1/dashboards/daily`;;
+  const URL = `/api/v1/dashboards/daily`;
   try {
     let response = await fetch(URL);
     let bookings = await response.json();
