@@ -9,6 +9,15 @@ class Api::V1::FriendshipsController < ApplicationController
     @friendship.save
   end
 
+  def members
+    @members = User.all_except(current_user)
+  end
+
+  def member_show
+    @member = User.find(params[:id])
+    @current_user = current_user
+  end
+
   # Search for current friends
   def friends
     @friends = current_user.friendships.friends

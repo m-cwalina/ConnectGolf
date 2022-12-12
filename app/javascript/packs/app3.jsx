@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import Image from 'images/navbar-logo.png'
-import { IoPeopleOutline, IoPersonAddOutline, IoPersonCircleOutline } from "react-icons/io5";
+import { IoSearchCircleOutline, IoPersonCircleOutline, IoPeopleCircleOutline, IoTrendingUpSharp } from "react-icons/io5";
 import { BsHouse } from "react-icons/bs";
 
 export default function App3() {
@@ -13,15 +13,19 @@ export default function App3() {
         </div>
         <nav className="nav-links">
           <div className='nav-flex'>
-            <div className="navbar-icon"><BsHouse /></div>
+            <div className="navbar-icon" style={{'font-size': '2rem'}}><BsHouse /></div>
             <p className="nav-link"><a href={'/user'}>Home</a></p>
           </div>
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoPeopleOutline /></div>
+            <div className="navbar-icon"><IoSearchCircleOutline /></div>
+            <p className="nav-link"><Link to={`members`}>Members</Link></p>
+          </div>
+          <div className='nav-flex'>
+            <div className="navbar-icon"><IoPeopleCircleOutline /></div>
             <p className="nav-link"><Link to={`friends`}>Friends</Link></p>
           </div>
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoPersonAddOutline /></div>
+            <div className="navbar-icon"><IoTrendingUpSharp /></div>
             <p className="nav-link"><Link to={`pending_friends`}>Requests</Link></p>
           </div>
           <div className='nav-flex'>
