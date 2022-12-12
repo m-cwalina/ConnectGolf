@@ -9,7 +9,7 @@ const Api = async (query) => {
     let results = await response.json();
     if (!results) results = [];
     if (query) {
-      results = matchSorter(results, query, { keys: ['member.name'] });
+      results = matchSorter(results, query, { keys: ['name'] });
     }
     return results
   } catch (error) {
