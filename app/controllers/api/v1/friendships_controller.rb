@@ -20,32 +20,12 @@ class Api::V1::FriendshipsController < ApplicationController
 
   # Search for current friends
   def friends
-    @friends = current_user.friendships.friends
+    @friends = current_user.friendships
   end
 
   # Show a current friend
   def friend_show
     @friend = Friendship.find(params[:id])
-  end
-
-  # Search for requested friends requests
-  def requested_friends
-    @requested_friends = current_user.friendships.requested_friends
-  end
-
-  # Show a requested friend
-  def requested_friend_show
-    @friend = Friendship.find(params[:id])
-  end
-
-  # Search for pending friends
-  def pending_friends
-    @pending_friendships = current_user.friendships.pending_friends
-  end
-
-  # Show a pending friend
-  def pending_friend_show
-    @pending_friendship = Friendship.find(params[:id])
   end
 
   # Update a friendship to accepted. This is probably dangerous

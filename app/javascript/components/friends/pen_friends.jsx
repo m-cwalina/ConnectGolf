@@ -3,15 +3,17 @@ import { useLoaderData, Link, Outlet, useSubmit } from "react-router-dom";
 import { matchSorter } from "match-sorter";
 
 const Api = async (query) => {
-  const URL = "/api/v1/friendships/pending_friends";
+  const URL = "/api/v1/friendships/friends";
   try {
     let response = await fetch(URL);
-    let results = await response.json();
-    if (!results) results = [];
+    let data = await response.json();
+    data = matchSorter(data, 'pending', { keys: ['status'] })
+    console.log(data)
+    if (!data) data = [];
     if (query) {
-      results = matchSorter(results, query, { keys: ['friend.name'] });
+      data = matchSorter(data, query, { keys: ['friend.name'] });
     }
-    return results
+    return data
   } catch (error) {
     console.error(error);
   }

@@ -61,10 +61,6 @@ Rails.application.routes.draw do
         get 'members/:id', on: :collection, action: :member_show
         get 'friends', on: :collection, as: :friends
         get 'friends/:id', on: :collection, action: :friend_show
-        get 'pending_friends', on: :collection, as: :pending_friends
-        get 'pending_friends/:id', on: :collection, action: :pending_friend_show
-        get 'requested_friends', on: :collection, as: :requested_friends
-        get 'requested_friends/:id', on: :collection, action: :requested_friend_show
       end
 
       resources :dashboards do
