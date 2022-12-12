@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import { MdSportsGolf, MdMoving } from "react-icons/md";
+import { MdSportsGolf, MdMoving, MdAccountBox } from "react-icons/md";
+import { IoCheckmarkCircleOutline } from "react-icons/io5";
 
 export async function loader({ params }) {
   const URL = `/api/v1/friendships/requested_friends/${params.friendId}`;
@@ -18,11 +19,16 @@ export default function ReqFriend() {
   const friend = useLoaderData()
 
   return (
-    <div className="friend-info">
-      <h1 className="friend-name"> {friend.friend.name}</h1>
-      <img className='friend-image' src={friend.friend.picture} />
-      <h2 className="friend-age"><MdMoving style={{ color: "#0066CC"}} /> {friend.friend.age}</h2>
-      <h2 className="friend-handicap"><MdSportsGolf style={{ color: "#0066CC" }} /> {friend.friend.handicap}</h2>
+    <div id='contact'>
+      <div>
+        <img key={friend.friend.picture} src={friend.friend.picture || null} />
+      </div>
+      <div>
+        <h1><MdAccountBox style={{ color: "#0066CC", margin: '6px' }} /> {friend.friend.name}</h1>
+        <h1><MdMoving style={{ color: "#0066CC", margin: '6px' }} /> {friend.friend.age}</h1>
+        <h1><MdSportsGolf style={{ color: "#0066CC", margin: '6px' }} /> {friend.friend.handicap}</h1>
+        <h1 style={{ color: "#1a8753" }}><IoCheckmarkCircleOutline style={{ color: "#1a8753", margin: '6px' }} />SENT</h1>
+      </div>
     </div>
   )
 }
