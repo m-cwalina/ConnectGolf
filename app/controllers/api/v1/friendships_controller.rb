@@ -10,7 +10,7 @@ class Api::V1::FriendshipsController < ApplicationController
   end
 
   def members
-    @members = User.all_except(current_user)
+    @members = User.all_except(current_user).except_friends(current_user)
   end
 
   def member_show
