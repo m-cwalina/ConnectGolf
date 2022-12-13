@@ -15,7 +15,7 @@ export async function loader() {
 }
 
 export default function News() {
-  const user = useLoaderData();
+  const posts = useLoaderData();
 
   return (
     <div id='contact'>
