@@ -24,8 +24,4 @@ class Api::V1::DashboardsController < ApplicationController
     # This provides the amount of bookings per month
     @teetimes = TeeTime.joins(:bookings).group("date_trunc('year', time)").count
   end
-
-  def profile
-    @user = current_user
-  end
 end

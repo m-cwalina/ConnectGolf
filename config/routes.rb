@@ -60,6 +60,7 @@ Rails.application.routes.draw do
       end
       # API routes for booking a teetime
       resources :users, only: %i[index show] do
+        get 'current_user', on: :collection, as: :current_user
         resources :bookings, only: %i[destroy]
       end
       # API routes for friendships
