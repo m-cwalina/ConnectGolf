@@ -4,11 +4,11 @@ import { MdSportsGolf, MdAccountBox, MdMoving, } from "react-icons/md";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
 
 export async function loader() {
-  const URL = `/api/v1/users`;
+  const URL = `/api/v1/posts`;
   try {
     let response = await fetch(URL);
-    let user = await response.json();
-    return user;
+    let posts = await response.json();
+    return posts;
   } catch (error) {
     console.error(error);
   }
