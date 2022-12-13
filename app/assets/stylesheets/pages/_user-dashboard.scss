@@ -7,4 +7,42 @@
   display: flex;
   justify-content: center;
   margin: auto;
+  height: 750px;
+  overflow: auto;
+}
+
+.post-picture-container {
+  display: grid;
+  justify-content: center;
+  margin: auto;
+}
+
+.post-content-container {
+  display: grid;
+  justify-content: center;
+  margin: auto;
+  width: 40rem;
+  text-align: justify;
+  font-size: 30px;
+}
+
+.posts-container {
+  display: flex;
+  max-width: 75rem;
+  margin: 20px;
+  justify-content: center;
+}
+
+.post-picture {
+  width: 35rem;
+  height: 35rem;
+  background: #c8c8c8;
+  border-radius: 1.5rem;
+  object-fit: cover;
+}
+
+.total-posts-container {
+  width: 100%;
+  display: flex;
+  height: auto;
 }

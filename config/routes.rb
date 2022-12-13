@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/user/profile', to: 'pages#user_dashboard'
   get '/user/stats', to: 'pages#user_dashboard'
   get '/user/teetimes', to: 'pages#user_dashboard'
+  get '/user/news', to: 'pages#user_dashboard'
 
   # Routes for landing page to advertise ConnectGolf
   root to: 'pages#home', as: :home

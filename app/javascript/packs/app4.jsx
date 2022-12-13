@@ -4,7 +4,7 @@ import { IoAnalyticsOutline, IoCellularOutline, IoOptionsOutline, IoCalendarOutl
 
 export default function App4() {
   return (
-    <div className="total-container">
+    <div className="total-posts-container">
       <div className='sidebar'>
         <div className='sidebar-links'>
           <div className='sidebar-link'>

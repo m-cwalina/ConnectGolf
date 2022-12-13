@@ -1,7 +1,5 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import { MdSportsGolf, MdAccountBox, MdMoving, } from "react-icons/md";
-import { IoShieldCheckmarkOutline } from "react-icons/io5";
 
 export async function loader() {
   const URL = `/api/v1/posts`;
@@ -17,17 +15,24 @@ export async function loader() {
 export default function News() {
   const posts = useLoaderData();
 
+  const renderPosts = () => {
+    return posts.map ((post) => {
+      return (
+        <>
+          <div className='post-picture-container'>
+            <img className='post-picture' key={post.picture} src={post.picture || null} />
+          </div>
+          <div className='post-content-container'>
+            <p>{post.content}</p>
+          </div>
+        </>
+      )
+    })
+  }
+
   return (
-    <div id='contact'>
-      <div>
-        <img key={user.picture} src={user.picture || null} />
-      </div>
-      <div>
-        <h1><MdAccountBox style={{ color: "#0066CC", margin: '6px' }} /> {user.name}</h1>
-        <h1><MdMoving style={{ color: "#0066CC", margin: '6px' }} /> {user.age}</h1>
-        <h1><MdSportsGolf style={{ color: "#0066CC", margin: '6px' }} /> {user.handicap}</h1>
-        <h1><IoShieldCheckmarkOutline style={{ color: "#0066CC", margin: '6px' }} /> {user.club}</h1>
-      </div>
+    <div className='posts-container'>
+      <div>{renderPosts()}</div>
     </div>
   );
 }
