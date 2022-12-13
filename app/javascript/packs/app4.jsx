@@ -1,40 +1,48 @@
-import React from "react";
-import { Outlet, Link, useNavigation } from "react-router-dom";
-import Image from 'images/navbar-logo.png'
-import { IoGolfOutline, IoPeopleOutline, IoReaderOutline, IoHomeOutline } from "react-icons/io5";
-import { BsHouse } from "react-icons/bs";
+import React from 'react';
+import { Outlet, NavLink } from "react-router-dom";
+import { IoAnalyticsOutline, IoCellularOutline, IoOptionsOutline, IoCalendarOutline, IoChevronBackCircleOutline } from "react-icons/io5";
 
-export default function App3() {
-  const navigation = useNavigation();
-
+export default function App4() {
   return (
-    <>
-      <div id="navigation">
-        <div>
-          <img className="logo" src={Image}></img>
+    <div className="total-container">
+      <div className='sidebar'>
+        <div className='sidebar-links'>
+          <div className='sidebar-link'>
+            <div className='nav-flex'>
+              <div className="navbar-icon"><IoChevronBackCircleOutline /></div>
+              <div><NavLink to={`profile`}>Profile</NavLink></div>
+            </div>
+          </div>
+          <div className='sidebar-link'>
+            <div className='nav-flex'>
+              <div className="navbar-icon"><IoAnalyticsOutline /></div>
+              <div><NavLink to={`daily`}>News</NavLink></div>
+            </div>
+          </div>
+          <div className='sidebar-link'>
+            <div className='nav-flex'>
+              <div className="navbar-icon"><IoCellularOutline /></div>
+              <div><NavLink to={`weekly`}>Booked</NavLink></div>
+            </div>
+          </div>
+          <div className='sidebar-link'>
+            <div className='nav-flex'>
+              <div className="navbar-icon"><IoOptionsOutline /></div>
+              <div><NavLink to={`monthly`}>Stats</NavLink></div>
+            </div>
+          </div>
+          <div className='sidebar-link'>
+            <div className='nav-flex'>
+              <div className="navbar-icon"><IoCalendarOutline /></div>
+              <div><NavLink to={`yearly`}>Merch</NavLink></div>
+            </div>
+          </div>
         </div>
-        <nav className="nav-links">
-          <div className='nav-flex'>
-            <div className="navbar-icon"><BsHouse /></div>
-            <p className="nav-link"><a href={'/user'}>Home</a></p>
-          </div>
-          <div className='nav-flex'>
-            <div className="navbar-icon"><IoGolfOutline /></div>
-            <p className="nav-link"><Link to={`teesheet`}>TeeSheet</Link></p>
-          </div>
-          <div className='nav-flex'>
-            <div className="navbar-icon"><IoPeopleOutline /></div>
-            <p className="nav-link"><Link to={`members`}>Members</Link></p>
-          </div>
-          <div className='nav-flex'>
-            <div className="navbar-icon"><IoReaderOutline /></div>
-            <p className="nav-link"><Link to={`bookings`}>TeeTimes</Link></p>
-          </div>
-        </nav>
       </div>
-      <div className={navigation.state === "loading" ? "loading" : ""}>
+
+      <div className='booking-details'>
         <Outlet />
       </div>
-    </>
+    </div>
   )
 }

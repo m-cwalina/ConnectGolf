@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
-    get '/user' => 'pages#user_dashboard', as: :user_dashboard
+    get '/user', to: 'pages#user_dashboard', as: :user_dashboard
   end
+
+  # Routes for User Dashboard
+  get '/user/profile', to: 'pages#user_dashboard'
+  get '/user/stats', to: 'pages#user_dashboard'
+  get '/user/teetimes', to: 'pages#user_dashboard'
+
+  # Routes for landing page to advertise ConnectGolf
   root to: 'pages#home', as: :home
   get '/about', to: 'pages#about'
   get '/dashboard', to: 'dashboards#index'
@@ -51,18 +58,18 @@ Rails.application.routes.draw do
         get 'teesheet/:id', on: :collection, action: :teesheet_show
         post 'teesheet/:id/bookings/admin', on: :collection, action: :admin_booking
       end
-
+      # API routes for booking a teetime
       resources :users, only: %i[index show] do
         resources :bookings, only: %i[destroy]
       end
-
+      # API routes for friendships
       resources :friendships do
         get 'members', on: :collection, as: :members
         get 'members/:id', on: :collection, action: :member_show
         get 'friends', on: :collection, as: :friends
         get 'friends/:id', on: :collection, action: :friend_show
       end
-
+      # API routes for Admin Dashboard
       resources :dashboards do
         get 'bookings', on: :collection, as: :bookings
         get 'hourly', on: :collection, as: :hourly

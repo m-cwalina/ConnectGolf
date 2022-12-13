@@ -1,11 +1,13 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigation } from "react-router-dom";
 import Image from 'images/navbar-logo.png'
-import { IoSearchCircleOutline, IoPersonCircleOutline, IoPeopleCircleOutline, IoTrendingUpSharp } from "react-icons/io5";
+import { IoGolfOutline, IoPeopleOutline, IoReaderOutline, IoHomeOutline } from "react-icons/io5";
 import { BsHouse } from "react-icons/bs";
 
 export default function App3() {
-  return(
+  const navigation = useNavigation();
+
+  return (
     <>
       <div id="navigation">
         <div>
@@ -13,29 +15,25 @@ export default function App3() {
         </div>
         <nav className="nav-links">
           <div className='nav-flex'>
-            <div className="navbar-icon" style={{'font-size': '2rem'}}><BsHouse /></div>
+            <div className="navbar-icon"><BsHouse /></div>
             <p className="nav-link"><a href={'/user'}>Home</a></p>
           </div>
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoSearchCircleOutline /></div>
+            <div className="navbar-icon"><IoGolfOutline /></div>
+            <p className="nav-link"><Link to={`teesheet`}>TeeSheet</Link></p>
+          </div>
+          <div className='nav-flex'>
+            <div className="navbar-icon"><IoPeopleOutline /></div>
             <p className="nav-link"><Link to={`members`}>Members</Link></p>
           </div>
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoPeopleCircleOutline /></div>
-            <p className="nav-link"><Link to={`friends`}>Friends</Link></p>
-          </div>
-          <div className='nav-flex'>
-            <div className="navbar-icon"><IoTrendingUpSharp /></div>
-            <p className="nav-link"><Link to={`pending_friends`}>Requests</Link></p>
-          </div>
-          <div className='nav-flex'>
-            <div className="navbar-icon"><IoPersonCircleOutline /></div>
-            <p className="nav-link"><Link to={`requested_friends`}>Sent</Link></p>
+            <div className="navbar-icon"><IoReaderOutline /></div>
+            <p className="nav-link"><Link to={`bookings`}>TeeTimes</Link></p>
           </div>
         </nav>
       </div>
-      <div className='detail'>
-        <Outlet/>
+      <div className={navigation.state === "loading" ? "loading" : ""}>
+        <Outlet />
       </div>
     </>
   )
