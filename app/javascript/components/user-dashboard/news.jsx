@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import { MdSportsGolf, MdAccountBox, MdMoving,  } from "react-icons/md";
+import { MdSportsGolf, MdAccountBox, MdMoving, } from "react-icons/md";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
 
 export async function loader() {
@@ -14,7 +14,7 @@ export async function loader() {
   }
 }
 
-export default function Profile() {
+export default function News() {
   const user = useLoaderData();
 
   return (

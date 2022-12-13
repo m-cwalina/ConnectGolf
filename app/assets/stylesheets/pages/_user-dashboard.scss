@@ -2,74 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.club-name {
-  color: #1A8753;
-  margin: 0;
-}
-
-.flex-container {
+.userdash-detail-container {
+  width: 85rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.news-container {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  height: 600px;
-  overflow: auto;
-}
-
-.teetime-container {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  border-left: 1px solid gray;
-  height: 600px;
-  overflow: auto;
-}
-
-.title-club-container {
-  margin-top: 120px;
-  margin-bottom: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  font-family: 'Cinzel', serif;
-}
-
-.button-container {
-  margin: 150px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 35px;
-  border-bottom: 1px solid gray;
-}
-
-.teetime {
-  background: #FFFFFF;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 8px;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
-  0 3px 6px 0 rgba(25, 32, 36, 0.16);
-}
-
-.posts {
-  font-size: 33px;
-  padding: 25px;
-  text-align: justify;
-}
-
-.bullet-posts {
-  background-color: #FFFFFF;
-  margin: 25px;
-  border-radius: 8px;
-  box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
-  0 3px 6px 0 rgba(25, 32, 36, 0.16);
+  margin: auto;
 }

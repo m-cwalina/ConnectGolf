@@ -58,9 +58,12 @@ Rails.application.routes.draw do
         get 'teesheet/:id', on: :collection, action: :teesheet_show
         post 'teesheet/:id/bookings/admin', on: :collection, action: :admin_booking
       end
+
+      # API routes for posts
+      resources :posts, only: %i[index]
+
       # API routes for booking a teetime
       resources :users, only: %i[index show] do
-        get 'current_user', on: :collection, as: :current_user
         resources :bookings, only: %i[destroy]
       end
       # API routes for friendships
