@@ -11,17 +11,11 @@ class Api::V1::TeeTimesController < ApplicationController
   end
 
   def teesheet
-    @teetimes = TeeTime.between(Date.today, Date.today + 7.days).order(:created_at)
+    @teetimes = TeeTime.between(Date.today, Date.today + 7.days).joins(:bookings).joins(:users).order(:created_at)
   end
 
   def teesheet_show
     @teetime = TeeTime.find(params[:id])
-  end
-
-  # Used in the user dashboard to show the current_users teetimes that are booked
-  def booked_times
-    user = current_user
-    @teetimes = user.tee_times
   end
 
   # Used to checkin an individual in the admin_dashboard teesheet page
@@ -31,6 +25,7 @@ class Api::V1::TeeTimesController < ApplicationController
     @teetime.save
   end
 
+  # Ability to create a booking inside the teesheet as an admin
   def admin_booking
     @booking = Booking.new(booking_params)
     teetime = TeeTime.find(params[:tee_time_id])
@@ -45,5 +40,4 @@ class Api::V1::TeeTimesController < ApplicationController
   def booking_params
     params.permit(:size)
   end
-
 end

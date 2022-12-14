@@ -2,7 +2,7 @@ import React from 'react';
 import Calendar from '../teetimes/calendar';
 import { format, parseISO } from 'date-fns';
 import { useLoaderData, Link, Outlet } from "react-router-dom";
-import { IoTimerOutline, IoPeopleOutline, IoPersonOutline, IoCheckmarkCircleOutline } from "react-icons/io5";
+import { IoTimerOutline, IoPeopleOutline, IoPersonOutline, IoCheckmarkCircleOutline} from "react-icons/io5";
 
 
 export async function loader() {

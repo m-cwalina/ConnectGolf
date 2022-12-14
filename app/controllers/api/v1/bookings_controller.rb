@@ -16,6 +16,11 @@ class Api::V1::BookingsController < ApplicationController
     @booking.first.destroy
   end
 
+  # Used in the user dashboard to show the current_users teetimes that are booked
+  def booked_times
+    @bookings = current_user.bookings.order(created_at: :desc)
+  end
+
   private
 
   # This method is called after the create action. I am decreaseing the amount of players,

@@ -55,7 +55,6 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :tee_times, only: %i[index update show] do
-        get 'booked_times', on: :collection, as: :booked_times
         resources :bookings, only: %i[new create destroy]
         get 'teesheet', on: :collection, as: :teesheet
         get 'teesheet/:id', on: :collection, action: :teesheet_show
@@ -65,10 +64,14 @@ Rails.application.routes.draw do
       # API routes for posts
       resources :posts, only: %i[index]
 
-      # API routes for booking a teetime
-      resources :users, only: %i[index show] do
-        resources :bookings, only: %i[destroy]
+      # API route to show a user profile
+      resources :users, only: %i[index]
+
+      # API route to show bookings
+      resources :bookings, only: %i[] do
+        get 'booked_times', on: :collection
       end
+
       # API routes for friendships
       resources :friendships do
         get 'members', on: :collection, as: :members

@@ -58,3 +58,27 @@
   display: flex;
   height: auto;
 }
+
+// Booked teetimes CSS
+
+.booked-times-container {
+  width: 100%;
+  margin: 50px;
+}
+
+.checkedin-container {
+  display: grid;
+  justify-content: center;
+}
+
+.checkin-button-red {
+  font-size: 1.5rem;
+  margin-bottom: 3px;
+  color:#DD3444
+}
+
+.checkin-button-green {
+  font-size: 1.5rem;
+  margin-bottom: 3px;
+  color: #1A8753
+}
