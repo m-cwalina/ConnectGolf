@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, NavLink } from "react-router-dom";
-import { IoAnalyticsOutline, IoCellularOutline, IoOptionsOutline, IoCalendarOutline, IoPersonCircleOutline } from "react-icons/io5";
+import { IoAlbumsOutline, IoCellularOutline, IoOptionsOutline, IoCalendarOutline, IoPersonCircleOutline } from "react-icons/io5";
 
 export default function App4() {
   return (
@@ -15,7 +15,7 @@ export default function App4() {
           </div>
           <div className='sidebar-link'>
             <div className='nav-flex'>
-              <div className="navbar-icon"><IoAnalyticsOutline /></div>
+              <div className="navbar-icon"><IoAlbumsOutline /></div>
               <div><NavLink to={`news`}>News</NavLink></div>
             </div>
           </div>

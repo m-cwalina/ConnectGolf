@@ -18,14 +18,14 @@ export default function News() {
   const renderPosts = () => {
     return posts.map ((post) => {
       return (
-        <>
+        <div className='post-container'>
           <div className='post-picture-container'>
             <img className='post-picture' key={post.picture} src={post.picture || null} />
           </div>
           <div className='post-content-container'>
             <p>{post.content}</p>
           </div>
-        </>
+        </div>
       )
     })
   }

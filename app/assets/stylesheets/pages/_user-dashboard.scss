@@ -24,6 +24,15 @@
   width: 40rem;
   text-align: justify;
   font-size: 30px;
+  background: #F7F7F7;
+  border-radius: 1.5rem;
+  padding: 20px;
+  box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
+    0 3px 6px 0 rgba(25, 32, 36, 0.16);
+}
+
+.post-container {
+  margin: 50px;
 }
 
 .posts-container {
@@ -39,6 +48,9 @@
   background: #c8c8c8;
   border-radius: 1.5rem;
   object-fit: cover;
+  margin-bottom: 50px;
+  box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
+     0 3px 6px 0 rgba(25, 32, 36, 0.16);
 }
 
 .total-posts-container {
