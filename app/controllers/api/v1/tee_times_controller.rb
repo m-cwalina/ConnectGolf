@@ -18,6 +18,13 @@ class Api::V1::TeeTimesController < ApplicationController
     @teetime = TeeTime.find(params[:id])
   end
 
+  # Used in the user dashboard to show the current_users teetimes that are booked
+  def booked_times
+    user = current_user
+    @teetimes = user.tee_times
+  end
+
+  # Used to checkin an individual in the admin_dashboard teesheet page
   def update
     @teetime = TeeTime.find(params[:id])
     @teetime.check_in = true
@@ -34,7 +41,7 @@ class Api::V1::TeeTimesController < ApplicationController
   end
 
   private
-  
+
   def booking_params
     params.permit(:size)
   end

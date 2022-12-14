@@ -4,11 +4,12 @@ Rails.application.routes.draw do
     get '/user', to: 'pages#user_dashboard', as: :user_dashboard
   end
 
-  # Routes for User Dashboard
+  # Routes for User Dashboard to work with react_router
   get '/user/profile', to: 'pages#user_dashboard'
   get '/user/stats', to: 'pages#user_dashboard'
   get '/user/teetimes', to: 'pages#user_dashboard'
   get '/user/news', to: 'pages#user_dashboard'
+  get '/user/booked', to: 'pages#user_dashboard'
 
   # Routes for landing page to advertise ConnectGolf
   root to: 'pages#home', as: :home
@@ -46,7 +47,7 @@ Rails.application.routes.draw do
   # Normal routes for rails app
   resources :users, only: %i[index]
   resources :friendships, only: %i[create index update]
-  resources :tee_times, only: %i[index show] do
+  resources :tee_times, only: %i[index show booked_teetimes] do
     resources :bookings, only: %i[new create]
   end
 
@@ -54,6 +55,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :tee_times, only: %i[index update show] do
+        get 'booked_times', on: :collection, as: :booked_times
         resources :bookings, only: %i[new create destroy]
         get 'teesheet', on: :collection, as: :teesheet
         get 'teesheet/:id', on: :collection, action: :teesheet_show

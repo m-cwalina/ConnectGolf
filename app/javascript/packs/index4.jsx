@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import BlankPage from "../components/errors-blanks/blankpage";
 import Profile, {loader as profileLoader} from '../components/user-dashboard/profile'
 import News, {loader as newsLoader } from '../components/user-dashboard/news'
+import Booked, { loader as bookedLoader } from '../components/user-dashboard/booked'
 import ErrorPage from "../components/errors-blanks/error_page";
 import App4 from './app4'
 
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
         path: '/user/news',
         element: <News />,
         loader: newsLoader
+      },
+      {
+        path: '/user/booked',
+        element: <Booked />,
+        loader: bookedLoader
       }
     ]
   }

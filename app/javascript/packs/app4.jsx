@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, NavLink } from "react-router-dom";
-import { IoAlbumsOutline, IoCellularOutline, IoOptionsOutline, IoCalendarOutline, IoPersonCircleOutline } from "react-icons/io5";
+import { IoAlbumsOutline, IoBagCheckOutline, IoOptionsOutline, IoCalendarOutline, IoPersonCircleOutline } from "react-icons/io5";
 
 export default function App4() {
   return (
@@ -21,8 +21,8 @@ export default function App4() {
           </div>
           <div className='sidebar-link'>
             <div className='nav-flex'>
-              <div className="navbar-icon"><IoCellularOutline /></div>
-              <div><NavLink to={`weekly`}>Booked</NavLink></div>
+              <div className="navbar-icon"><IoBagCheckOutline /></div>
+              <div><NavLink to={`booked`}>Booked</NavLink></div>
             </div>
           </div>
           <div className='sidebar-link'>
