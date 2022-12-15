@@ -1,5 +1,7 @@
 # Dashboard Controller
 class Api::V1::DashboardsController < ApplicationController
+  before_action :authenticate_user!
+  
   def hourly
     # This provides the amount of bookings per hour
     @teetimes = TeeTime.between(Date.today, Date.tomorrow).joins(:bookings).group("date_trunc('hour', time)").count

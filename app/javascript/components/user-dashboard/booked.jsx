@@ -31,7 +31,7 @@ export default function Booked() {
           </div>
           <div className='teesheet-user-total'>
             <div className='teesheet-icon'><IoCheckmarkDoneCircleOutline /></div>
-            <div className='teesheet-info'>{(booking.teetime.check_in == true) ? (<div className='checkin-button-green'>Checked In</div>) : (<div className='checkin-button-blue'>Check In</div>)}</div>
+            <div className='teesheet-info'>{(booking.teetime.check_in == true) ? (<div className='checkin-button-green'>Checked-In</div>) : (<div className='checkin-button-blue'>Check-In</div>)}</div>
           </div>
           <div className='teesheet-button-total'>
             {booking.teetime.check_in == false ? (

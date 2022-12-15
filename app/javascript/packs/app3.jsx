@@ -28,7 +28,7 @@ export default function App3() {
           </div>
           <div className='nav-flex'>
             <div className="navbar-icon"><IoReaderOutline /></div>
-            <p className="nav-link"><Link to={`bookings`}>TeeTimes</Link></p>
+            <p className="nav-link"><Link to={`bookings`}>Analytics</Link></p>
           </div>
         </nav>
       </div>

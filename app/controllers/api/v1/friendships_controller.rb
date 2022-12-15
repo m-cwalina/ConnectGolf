@@ -1,6 +1,7 @@
 # Friendships API Controller
 class Api::V1::FriendshipsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: %i[create update]
+  before_action :authenticate_user!
 
   # Create the friendship
   def create

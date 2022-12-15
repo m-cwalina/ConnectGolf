@@ -2,6 +2,7 @@ class Api::V1::BookingsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: %i[create destroy user_destroy]
   before_action :set_tee_time, only: %i[new create change_amount_of_players]
   after_action :change_amount_of_players, only: %i[create]
+  before_action :authenticate_user!
 
   # This action will be moved into a service object when application becomes larger
   def create
