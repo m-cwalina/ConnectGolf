@@ -18,7 +18,7 @@ class Api::V1::BookingsController < ApplicationController
 
   # Used in the user dashboard to show the current_users teetimes that are booked
   def booked_times
-    @bookings = current_user.bookings.order(created_at: :desc)
+    @bookings = current_user.bookings.includes(:tee_time).order('tee_times.time asc')
   end
 
   private
