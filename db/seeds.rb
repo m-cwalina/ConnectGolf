@@ -15,11 +15,11 @@ puts 'Creating some Posts'
 Post.create!([{ content: 'We have an awesome tournament this week! You can still sign up in the proshop.
                           Come on by, singles are welcomed',
                 club_id: santa_ana.id,
-                picture: ActionController::Base.helpers.image_path('tahoe-golf.jpeg') },
+                picture: 'https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/course-photos-for-places-to-play/Clear%20Creek%20Tahoe%20Hole%209(1).jpg.rend.hgtvcom.966.644.suffix/1651155329127.jpeg' },
               { content: 'Awesome news. The greens are rolling at a 12 and they weather today is amazing.
                           Enjoy a quick 9 or full 18 today',
                 club_id: santa_ana.id,
-                picture: ActionController::Base.helpers.image_path('tahoe-golf1.jpeg') }])
+                picture: 'https://golf-pass.brightspotcdn.com/dims4/default/acaaab9/2147483647/strip/true/crop/5184x2915+0+271/resize/900x506!/quality/90/?url=https%3A%2F%2Fgolf-pass-brightspot.s3.amazonaws.com%2Fc6%2F4d%2F79cef31b13be5017b7325fc2bb82%2Fp.php' }])
 
 puts 'Creating all Users'
 
