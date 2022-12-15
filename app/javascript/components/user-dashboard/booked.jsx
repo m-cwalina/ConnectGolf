@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link, Outlet } from "react-router-dom";
 import { format, parseISO } from 'date-fns';
 import { IoTimerOutline, IoPeopleOutline, IoCheckmarkCircleOutline, IoCheckmarkDoneCircleOutline } from "react-icons/io5";
 
@@ -31,7 +31,15 @@ export default function Booked() {
           </div>
           <div className='teesheet-user-total'>
             <div className='teesheet-icon'><IoCheckmarkDoneCircleOutline /></div>
-            <div className='teesheet-info'>{(booking.teetime.check_in == true) ? (<div className='checkin-button-green'>Checked In</div>) : (<div className='checkin-button-red'>Check In</div>)}</div>
+            <div className='teesheet-info'>{(booking.teetime.check_in == true) ? (<div className='checkin-button-green'>Checked In</div>) : (<div className='checkin-button-blue'>Check In</div>)}</div>
+          </div>
+          <div className='teesheet-button-total'>
+            {booking.teetime.check_in == false ? (
+              <div className='cancel-button'><Link to={`/user/booked/${booking.id}`} className="btn btn-outline-danger btn-lg custom-size">Cancel</Link></div>
+            ) : (
+              <div className='teesheet-checkmark'><IoCheckmarkCircleOutline /></div>
+                )
+            }
           </div>
         </ul>
       );
@@ -39,6 +47,11 @@ export default function Booked() {
   };
 
   return (
+    <>
       <div className='booked-times-container'>{renderList()}</div>
+      <div className="checkin-popup-container">
+        <Outlet />
+      </div>
+    </>
   );
 }

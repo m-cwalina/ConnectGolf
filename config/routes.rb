@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get '/user/teetimes', to: 'pages#user_dashboard'
   get '/user/news', to: 'pages#user_dashboard'
   get '/user/booked', to: 'pages#user_dashboard'
+  get '/user/booked/:id', to: 'pages#user_dashboard'
+  get '/user/stats', to: 'pages#user_dashboard'
+  get '/user/merch', to: 'pages#user_dashboard'
 
   # Routes for landing page to advertise ConnectGolf
   root to: 'pages#home', as: :home
@@ -65,11 +68,12 @@ Rails.application.routes.draw do
       resources :posts, only: %i[index]
 
       # API route to show a user profile
-      resources :users, only: %i[index]
+      resources :users, only: %i[index destroy]
 
       # API route to show bookings
-      resources :bookings, only: %i[] do
+      resources :bookings, only: %i[show] do
         get 'booked_times', on: :collection
+        delete '/:id', on: :collection, action: :user_destroy
       end
 
       # API routes for friendships

@@ -28,13 +28,13 @@ export default function App4() {
           <div className='sidebar-link'>
             <div className='nav-flex'>
               <div className="navbar-icon"><IoOptionsOutline /></div>
-              <div><NavLink to={`monthly`}>Stats</NavLink></div>
+              <div><NavLink to={`stats`}>Stats</NavLink></div>
             </div>
           </div>
           <div className='sidebar-link'>
             <div className='nav-flex'>
               <div className="navbar-icon"><IoCalendarOutline /></div>
-              <div><NavLink to={`yearly`}>Merch</NavLink></div>
+              <div><NavLink to={`merch`}>Merch</NavLink></div>
             </div>
           </div>
         </div>

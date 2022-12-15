@@ -1,5 +1,5 @@
 class Api::V1::BookingsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: %i[create destroy]
+  skip_before_action :verify_authenticity_token, only: %i[create destroy user_destroy]
   before_action :set_tee_time, only: %i[new create change_amount_of_players]
   after_action :change_amount_of_players, only: %i[create]
 
@@ -11,9 +11,19 @@ class Api::V1::BookingsController < ApplicationController
     @booking.save
   end
 
+  # Show a specific booking
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def destroy
     @booking = Booking.where(tee_time_id: params[:id], user_id: params[:user_id])
     @booking.first.destroy
+  end
+
+  def user_destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
   end
 
   # Used in the user dashboard to show the current_users teetimes that are booked
