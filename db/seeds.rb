@@ -53,3 +53,10 @@ end
                                 user_id: rand(1..200),
                                 tee_time_id: rand(1..4200) }])
 }
+
+1000.times {
+  Score.create!([{
+    user_id: rand(1..200),
+    score: rand(68..105)
+  }])
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_13_132216) do
+ActiveRecord::Schema.define(version: 2022_12_15_174313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,14 @@ ActiveRecord::Schema.define(version: 2022_12_13_132216) do
     t.index ["club_id"], name: "index_posts_on_club_id"
   end
 
+  create_table "scores", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_scores_on_user_id"
+  end
+
   create_table "tee_times", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -91,5 +99,6 @@ ActiveRecord::Schema.define(version: 2022_12_13_132216) do
   add_foreign_key "groups", "bookings"
   add_foreign_key "groups", "users"
   add_foreign_key "posts", "clubs"
+  add_foreign_key "scores", "users"
   add_foreign_key "users", "clubs"
 end
