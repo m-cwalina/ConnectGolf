@@ -4,7 +4,7 @@ import { MdSportsGolf, MdAccountBox, MdMoving,  } from "react-icons/md";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
 
 export async function loader() {
-  const URL = `/api/v1/users`;
+  const URL = `/api/v1/users/user`;
   try {
     let response = await fetch(URL);
     let user = await response.json();

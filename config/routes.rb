@@ -68,7 +68,9 @@ Rails.application.routes.draw do
       resources :posts, only: %i[index]
 
       # API route to show a user profile
-      resources :users, only: %i[index destroy]
+      resources :users, only: %i[index] do
+        get 'user', on: :collection
+      end
 
       # API route to show bookings
       resources :bookings, only: %i[show] do

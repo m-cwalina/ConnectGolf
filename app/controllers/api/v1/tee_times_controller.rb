@@ -11,7 +11,7 @@ class Api::V1::TeeTimesController < ApplicationController
   end
 
   def teesheet
-    @teetimes = TeeTime.between(Date.today, Date.today + 7.days).joins(:bookings).joins(:users).order(:created_at)
+    @teetimes = TeeTime.between(Date.today, Date.today + 7.days).order(:created_at)
   end
 
   def teesheet_show
