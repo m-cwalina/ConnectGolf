@@ -47,7 +47,7 @@ puts 'Created all Users'
   Score.create!(
     user_id: rand(User.first.id..User.last.id),
     score: rand(68..105),
-    date: rand(Date.today..Date.today+30.days)
+    date: rand(Date.today - 30.days..Date.today + 60.days)
   )
 end
 

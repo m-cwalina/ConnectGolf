@@ -6,6 +6,7 @@ import BlankPage from "../components/errors-blanks/blankpage";
 import ComingSoon from "../components/errors-blanks/coming_soon";
 import Profile, {loader as profileLoader} from '../components/user-dashboard/profile'
 import News, {loader as newsLoader } from '../components/user-dashboard/news'
+import Stats, { loader as statsLoader } from '../components/user-dashboard/stats'
 import Booked, { loader as bookedLoader } from '../components/user-dashboard/booked'
 import UserBookingDelete, {loader as userBookingDeleteLoader, action as userBookingDeleteAction} from '../components/user-dashboard/user_delete_booking'
 import ErrorPage from "../components/errors-blanks/error_page";
@@ -43,7 +44,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/user/stats',
-        element: <ComingSoon />,
+        element: <Stats />,
+        loader: statsLoader,
       },
       {
         path: '/user/merch',

@@ -1,6 +1,6 @@
 class Api::V1::TeeTimesController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: %i[update]
   protect_from_forgery with: :null_session
-  before_action :authenticate_user!
 
   def index
     @tee_times = TeeTime.available_teetime.between(DateTime.now, Date.today + 14.days).order(:created_at)

@@ -72,6 +72,10 @@ Rails.application.routes.draw do
         get 'user', on: :collection
       end
 
+      # API to show user stats about score
+      resources :scores, only: %i[index] do
+      end
+
       # API route to show bookings
       resources :bookings, only: %i[show] do
         get 'booked_times', on: :collection
