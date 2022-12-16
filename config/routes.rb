@@ -74,6 +74,7 @@ Rails.application.routes.draw do
 
       # API to show user stats about score
       resources :scores, only: %i[index] do
+        get 'rounds_per_month', on: :collection
       end
 
       # API route to show bookings
