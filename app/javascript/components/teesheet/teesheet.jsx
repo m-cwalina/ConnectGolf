@@ -4,7 +4,6 @@ import { format, parseISO } from 'date-fns';
 import { useLoaderData, Link, Outlet } from "react-router-dom";
 import { IoTimerOutline, IoPeopleOutline, IoPersonOutline, IoCheckmarkCircleOutline} from "react-icons/io5";
 
-
 export async function loader() {
   const URL = "/api/v1/tee_times/teesheet";
   try {
@@ -15,6 +14,7 @@ export async function loader() {
     console.error(error);
   }
 }
+
 
 export default function TeeSheet() {
   const teetimes = useLoaderData();
