@@ -4,6 +4,6 @@ class Api::V1::ScoresController < ApplicationController
   end
 
   def rounds_per_month
-    @rounds = current_user.scores.group("date_trunc('month', date)").count
+    @rounds = current_user.scores.group("date_trunc('month', date)").count.sort_by { |k, _| k }.to_h
   end
 end
