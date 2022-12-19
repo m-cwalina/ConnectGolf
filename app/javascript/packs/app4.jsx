@@ -9,32 +9,42 @@ export default function App4() {
         <div className='sidebar-links'>
           <div className='sidebar-link'>
             <div className='nav-flex'>
-              <div className="navbar-icon"><IoPersonCircleOutline /></div>
-              <div><NavLink to={`profile`}>Profile</NavLink></div>
+              <NavLink to={`profile`}>
+                <div className="navbar-icon"><IoPersonCircleOutline /></div>
+                <div>Profile</div>
+              </NavLink>
             </div>
           </div>
           <div className='sidebar-link'>
             <div className='nav-flex'>
-              <div className="navbar-icon"><IoAlbumsOutline /></div>
-              <div><NavLink to={`news`}>News</NavLink></div>
+              <NavLink to={`news`}>
+                <div className="navbar-icon"><IoAlbumsOutline /></div>
+                <div>News</div>
+              </NavLink>
             </div>
           </div>
           <div className='sidebar-link'>
             <div className='nav-flex'>
-              <div className="navbar-icon"><IoCheckmarkCircleOutline /></div>
-              <div><NavLink to={`booked`}>Booked</NavLink></div>
+              <NavLink to={`booked`}>
+                <div className="navbar-icon"><IoCheckmarkCircleOutline /></div>
+                <div>Booked</div>
+              </NavLink>
             </div>
           </div>
           <div className='sidebar-link'>
             <div className='nav-flex'>
-              <div className="navbar-icon"><IoOptionsOutline /></div>
-              <div><NavLink to={`stats`}>Stats</NavLink></div>
+              <NavLink to={`stats`}>
+                <div className="navbar-icon"><IoOptionsOutline /></div>
+                <div>Stats</div>
+              </NavLink>
             </div>
           </div>
           <div className='sidebar-link'>
             <div className='nav-flex'>
-              <div className="navbar-icon"><IoBagCheckOutline /></div>
-              <div><NavLink to={`merch`}>Merch</NavLink></div>
+              <NavLink to={`merch`}>
+                <div className="navbar-icon"><IoBagCheckOutline /></div>
+                <div>Merch</div>
+              </NavLink>
             </div>
           </div>
         </div>

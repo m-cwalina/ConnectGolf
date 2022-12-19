@@ -13,24 +13,34 @@ export default function App2() {
         </div>
         <nav className="nav-links">
           <div className='nav-flex'>
-            <div className="navbar-icon" style={{'font-size': '2rem'}}><BsHouse /></div>
-            <p className="nav-link"><a href={'/user'}>Home</a></p>
+            <a href={'/user'}>
+              <div className="navbar-icon" style={{'font-size': '2rem'}}><BsHouse /></div>
+              <p className="nav-link">Home</p>
+            </a>
           </div>
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoSearchCircleOutline /></div>
-            <p className="nav-link"><Link to={`members`}>Members</Link></p>
+            <Link to={`members`}>
+              <div className="navbar-icon"><IoSearchCircleOutline /></div>
+              <p className="nav-link">Members</p>
+            </Link>
           </div>
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoPeopleCircleOutline /></div>
-            <p className="nav-link"><Link to={`friends`}>Friends</Link></p>
+            <Link to={`friends`}>
+              <div className="navbar-icon"><IoPeopleCircleOutline /></div>
+              <p className="nav-link">Friends</p>
+            </Link>
           </div>
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoTrendingUpSharp /></div>
-            <p className="nav-link"><Link to={`pending_friends`}>Requests</Link></p>
+            <Link to={`pending_friends`}>
+              <div className="navbar-icon"><IoTrendingUpSharp /></div>
+              <p className="nav-link">Requests</p>
+            </Link>
           </div>
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoPersonCircleOutline /></div>
-            <p className="nav-link"><Link to={`requested_friends`}>Sent</Link></p>
+            <Link to={`requested_friends`}>
+              <div className="navbar-icon"><IoPersonCircleOutline /></div>
+              <p className="nav-link">Sent</p>
+            </Link>
           </div>
         </nav>
       </div>

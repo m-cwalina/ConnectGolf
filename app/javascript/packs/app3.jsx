@@ -15,20 +15,28 @@ export default function App3() {
         </div>
         <nav className="nav-links">
           <div className='nav-flex'>
-            <div className="navbar-icon"><BsHouse /></div>
-            <p className="nav-link"><a href={'/user'}>Home</a></p>
+            <a href={'/user'}>
+              <div className="navbar-icon"><BsHouse /></div>
+              <p className="nav-link">Home</p>
+            </a>
           </div>
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoGolfOutline /></div>
-            <p className="nav-link"><Link to={`teesheet`}>TeeSheet</Link></p>
+            <Link to={`teesheet`}>
+              <div className="navbar-icon"><IoGolfOutline /></div>
+              <p className="nav-link">TeeSheet</p>
+            </Link>
           </div>
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoPeopleOutline /></div>
-            <p className="nav-link"><Link to={`members`}>Members</Link></p>
+            <Link to={`members`}>
+              <div className="navbar-icon"><IoPeopleOutline /></div>
+              <p className="nav-link">Members</p>
+            </Link>
           </div>
           <div className='nav-flex'>
-            <div className="navbar-icon"><IoReaderOutline /></div>
-            <p className="nav-link"><Link to={`bookings`}>Analytics</Link></p>
+            <Link to={`bookings`}>
+              <div className="navbar-icon"><IoReaderOutline /></div>
+              <p className="nav-link">Analytics</p>
+            </Link>
           </div>
         </nav>
       </div>
