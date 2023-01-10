@@ -4,7 +4,7 @@
     <%= image_tag "navbar-logo.png", class: "sign-in-image"%>
   </div>
   <div>
-     <h3 style="font-weight:400; margin-top: 0px;"> Please Sign In</h3>
+     <h3 style="font-weight:400; margin-top: 0px;">Please Sign In</h3>
   </div>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
@@ -19,7 +19,7 @@
                     input_html: { autocomplete: "current-password" } %>
       </div>
       <div class="form-actions">
-        <%= f.button :submit,  "Log in", class: "w-100 btn btn-outline-success btn-lg" %>
+        <%= f.button :submit,  "Log in", class: "btn btn-outline-success btn-lg" %>
       </div>
     <% end %>
   </div>
