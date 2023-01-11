@@ -86,4 +86,23 @@
 .stats-data-container {
   width: 90%;
   display: grid;
+
+}
+
+.line-chart {
+  background-color: #F7F7F7;
+  box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
+    0 3px 6px 0 rgba(25, 32, 36, 0.16);
+  border-radius: 8px;
+  margin: 15px;
+  padding: 15px;
+}
+
+.bar-chart {
+  background-color: #F7F7F7;
+  box-shadow: 0 -1px 4px 0 rgba(25, 32, 36, 0.04),
+    0 3px 6px 0 rgba(25, 32, 36, 0.16);
+  border-radius: 8px;
+  margin: 15px;
+  padding: 15px;
 }

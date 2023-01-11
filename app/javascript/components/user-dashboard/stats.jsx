@@ -124,8 +124,12 @@ export default function DailyBookings() {
 
   return (
     <div className='stats-data-container'>
-      <Line options={options} data={data} />
-      <Bar options={barOptions} data={barData} />
+      <div className='line-chart'>
+        <Line options={options} data={data} />
+      </div>
+      <div className='bar-chart'>
+        <Bar options={barOptions} data={barData} />
+      </div>
     </div>
   )
 }
