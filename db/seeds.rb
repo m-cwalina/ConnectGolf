@@ -43,7 +43,7 @@ end
 
 puts 'Created all Users'
 
-5000.times do
+3000.times do
   Score.create!(
     user_id: rand(User.first.id..User.last.id),
     score: rand(68..105),
@@ -59,7 +59,7 @@ def time_iterate(start_time, end_time, step, &_block)
   end
 end
 
-(DateTime.now..DateTime.now + 100.days).each do |date|
+(DateTime.now..DateTime.now + 70.days).each do |date|
   opening_time = date.change(hour: 7).to_time
   closing_time = date.change(hour: 18).to_time
   time_iterate(opening_time, closing_time, 900) do |time|
@@ -69,7 +69,7 @@ end
 
 puts 'Created TeeTimes'
 
-1000.times do
+800.times do
   Booking.create!(
     size: rand(1..4),
     user_id: rand(User.first.id..User.last.id),
