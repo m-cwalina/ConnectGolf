@@ -90,6 +90,7 @@ Rails.application.routes.draw do
         get 'friends', on: :collection, as: :friends
         get 'friends/:id', on: :collection, action: :friend_show
       end
+
       # API routes for Admin Dashboard
       resources :dashboards do
         get 'bookings', on: :collection, as: :bookings
