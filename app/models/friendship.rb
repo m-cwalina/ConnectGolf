@@ -11,6 +11,15 @@ class Friendship < ApplicationRecord
   after_destroy :destroy_inverse
   validate :check_user
 
+    def accept_friendship(friend)
+      friendship = friendships.find_by(friend: friend, status: 'pending')
+      if friendship
+        Friendship.accept(self, friend)
+      else
+        false
+      end
+    end
+
   def check_user
     if self.friend_id == self.user_id
       errors.add(:friend, "can't be yourself")
@@ -19,16 +28,15 @@ class Friendship < ApplicationRecord
 
   def self.accept(user, friend)
     transaction do
-      accepted_at = Time.now
+      accepted_at = Time.current
       accept_one_side(user, friend, accepted_at)
       accept_one_side(friend, user, accepted_at)
     end
   end
 
-  def self.accept_one_side(current_user, friend, accepted_at)
-    request = find_by_user_id_and_friend_id(current_user, friend)
+  def self.accept_one_side(user, friend)
+    request = find_by(user_id: user, friend_id: friend)
     request.status = 'accepted'
-    request.accepted_at = accepted_at
     request.save!
   end
 

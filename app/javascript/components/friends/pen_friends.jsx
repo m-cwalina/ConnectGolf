@@ -8,7 +8,6 @@ const Api = async (query) => {
     let response = await fetch(URL);
     let data = await response.json();
     data = matchSorter(data, 'pending', { keys: ['status'] })
-    console.log(data)
     if (!data) data = [];
     if (query) {
       data = matchSorter(data, query, { keys: ['friend.name'] });
