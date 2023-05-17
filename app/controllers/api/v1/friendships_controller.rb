@@ -4,9 +4,8 @@ class Api::V1::FriendshipsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    user = current_user
-    @friendship = user.friendships.build(friend_id: params[:friend_id])
-    @friendship.save
+    friendship = current_user.friendships.build(friend_id: params[:friend_id])
+    friendship.save
   end
 
   def index

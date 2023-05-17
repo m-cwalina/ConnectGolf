@@ -1,29 +1,37 @@
-# Dashboard Controller
 class Api::V1::DashboardsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def hourly
-    # This provides the amount of bookings per hour
-    @teetimes = TeeTime.between(Date.today, Date.tomorrow).joins(:bookings).group("date_trunc('hour', time)").count
+    @teetimes = teetimes_for('hour')
   end
 
   def daily
-    # This provides the amount of bookings per day
-    @teetimes = TeeTime.between(Date.today, Date.today + 30.days).joins(:bookings).group("date_trunc('day', time)").count.sort_by { |k, _| k }.to_h
+    @teetimes = teetimes_for('day')
   end
 
   def weekly
-    # Provides the amount of bookings per week
-    @teetimes = TeeTime.joins(:bookings).group("date_trunc('week', time)").count.sort_by { |k, _| k }.to_h
+    @teetimes = teetimes_for('week')
   end
 
   def monthly
-    # This provides the amount of bookings per month
-    @teetimes = TeeTime.joins(:bookings).group("date_trunc('month', time)").count.sort_by { |k, _| k }.to_h
+    @teetimes = teetimes_for('month')
   end
 
   def yearly
-    # This provides the amount of bookings per month
-    @teetimes = TeeTime.joins(:bookings).group("date_trunc('year', time)").count
+    @teetimes = teetimes_for('year')
+  end
+
+  private
+
+  def teetimes_for(period)
+    scope = case period
+            when 'hour'
+              TeeTime.between(Date.today, Date.tomorrow)
+            when 'day'
+              TeeTime.between(Date.today, Date.today + 30.days)
+            else
+              TeeTime.all
+            end
+    scope.joins(:bookings).group("date_trunc('#{period}', time)").count.sort_by { |k, _| k }.to_h
   end
 end
