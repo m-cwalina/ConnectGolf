@@ -4,7 +4,7 @@ import { MdSportsGolf, MdAccountBox, MdMoving } from "react-icons/md";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 
 export async function loader( {params} ) {
-  const URL = `/api/v1/friendships/friends/${params.friendId}`;
+  const URL = `/api/v1/friendships/${params.friendId}`;
   try {
     let response = await fetch(URL);
     let friend = await response.json();

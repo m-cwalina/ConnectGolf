@@ -9,20 +9,11 @@ class Api::V1::FriendshipsController < ApplicationController
     @friendship.save
   end
 
-  def members
-    @members = User.all_except(current_user).except_friends(current_user).includes(:friends)
-  end
-
-  def member_show
-    @member = User.find(params[:id])
-    @current_user = current_user
-  end
-
-  def friends
+  def index
     @friends = current_user.friendships
   end
 
-  def friend_show
+  def show
     @friend = Friendship.find(params[:id])
   end
 

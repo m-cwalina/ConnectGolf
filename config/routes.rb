@@ -44,7 +44,6 @@ Rails.application.routes.draw do
   get '/dashboard/teesheet/:id/bookings/admin', to: 'dashboards#index'
   get '/dashboard/members', to: 'dashboards#index'
   get '/dashboard/teesheet/:tee_time_id/bookings/:id', to: 'dashboards#index'
-
   get '/tee_times/:id/bookings', to: 'tee_times#index'
 
   # Normal routes for rails app
@@ -64,35 +63,26 @@ Rails.application.routes.draw do
         post 'teesheet/:id/bookings/admin', on: :collection, action: :admin_booking
       end
 
-      # API routes for posts
       resources :posts, only: %i[index]
 
-      # API route to show a user profile
       resources :users, only: %i[index] do
         get 'user', on: :collection
+        get 'members', on: :collection, as: :members
+        get 'members/:id', on: :collection, action: :member_show
       end
-
-      # API to show user stats about score
+      
       resources :scores, only: %i[index] do
         get 'rounds_per_month', on: :collection
       end
 
-      # API route to show bookings
       resources :bookings, only: %i[show] do
         get 'booked_times', on: :collection
         delete '/:id', on: :collection, action: :user_destroy
       end
 
-      # API routes for friendships
-      resources :friendships do
-        get 'members', on: :collection, as: :members
-        get 'members/:id', on: :collection, action: :member_show
-        get 'friends', on: :collection, as: :friends
-        get 'friends/:id', on: :collection, action: :friend_show
-      end
+      resources :friendships, only: %i[create index show]
 
-      # API routes for Admin Dashboard
-      resources :dashboards do
+      resources :dashboards, only: %i[] do
         get 'bookings', on: :collection, as: :bookings
         get 'hourly', on: :collection, as: :hourly
         get 'daily', on: :collection, as: :daily

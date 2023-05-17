@@ -5,7 +5,7 @@ import { IoCheckmarkCircleOutline } from "react-icons/io5";
 
 
 export async function loader({ params }) {
-  const URL = `/api/v1/friendships/members/${params.memberId}`;
+  const URL = `/api/v1/users/members/${params.memberId}`;
   try {
     let response = await fetch(URL);
     let member = await response.json();

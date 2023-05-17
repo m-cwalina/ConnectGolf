@@ -3,7 +3,7 @@ import { useLoaderData, Link, Outlet, useSubmit } from "react-router-dom";
 import { matchSorter } from "match-sorter";
 
 const Api = async (query) => {
-  const URL = "/api/v1/friendships/members";
+  const URL = "/api/v1/users/members";
   try {
     let response = await fetch(URL);
     let results = await response.json();
